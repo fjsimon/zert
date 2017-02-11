@@ -89,17 +89,20 @@ public class OperatorExamples {
         return result;
     }
 
-    public static int getPrePostOperations() {
+    public static Map<String, Integer> getPrePostOperations() {
 
+        Map<String, Integer> map = new HashMap();
         int i = 3;
+        map.put("0 i", i);
         i++;
-        System.out.println(i);
+        map.put("1 i", i);
         ++i;
-        System.out.println(i);
-        System.out.println(++i);
-        System.out.println(i++);
-        System.out.println(i);
-        return i;
+        map.put("2 i", i);
+        map.put("3 i", i);
+        map.put("4 ++i", ++i);
+        map.put("5 i++", i++);
+        map.put("6 i", i);
+        return map;
     }
 
     /**

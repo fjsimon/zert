@@ -1,33 +1,35 @@
 package com.oca.exam.datatypes;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class InstanceVariable {
 
-    private String aString;
-    private boolean aBoolean;
-    private int anInt;
-    private double aDouble;
-    private long aLong;
     private byte aByte;
     private short aShort;
+    private int anInt;
+    private long aLong;
     private float aFloat;
+    private double aDouble;
     private char aChar;
+    private String aString;
+    private boolean aBoolean;
 
 
-    public static String getResult(){
+    public static Map<String, Object> getDefaultValues(){
         InstanceVariable instanceVariable = new InstanceVariable();
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("aString = " + instanceVariable.aString);
-        sb.append(", aBoolean = " + instanceVariable.aBoolean);
-        sb.append(", anInt = " + instanceVariable.anInt);
-        sb.append(", aDouble = " + instanceVariable.aDouble);
-        sb.append(", aLong = " + instanceVariable.aLong);
-        sb.append(", aByte = " + instanceVariable.aByte);
-        sb.append(", aShort = " + instanceVariable.aShort);
-        sb.append(", aFloat = " + instanceVariable.aFloat);
-        sb.append(", aChar = " + instanceVariable.aChar);
-
-        return sb.toString();
+        Map map = new HashMap();
+        map.put("aString", instanceVariable.aString);
+        map.put("aBoolean", instanceVariable.aBoolean);
+        map.put("anInt", instanceVariable.anInt);
+        map.put("aDouble", instanceVariable.aDouble);
+        map.put("aLong", instanceVariable.aLong);
+        map.put("aByte", instanceVariable.aByte);
+        map.put("aShort", instanceVariable.aShort);
+        map.put("aFloat", instanceVariable.aFloat);
+        map.put("aChar", instanceVariable.aChar);
+        return map;
     }
 
     public static String getBinaryResult(){
