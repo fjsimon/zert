@@ -128,4 +128,116 @@ public class StatementExample {
 
         return count;
     }
+
+    public static int getForCount() {
+        int count = 1;
+        for(int i=1; i<11; i++){
+            count++;
+        }
+
+        return count;
+    }
+
+    public static int getForEachCount() {
+
+        int count = 0;
+        int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+
+        for (int item : numbers) {
+            count += item;
+        }
+
+        return count;
+    }
+
+    public static String searchForUsingBreak(int searchfor) {
+        int[] arrayOfInts = {32, 87, 3, 589, 12, 1076, 2000, 8, 622, 127};
+
+        int i;
+        boolean foundIt = false;
+
+        for (i = 0; i < arrayOfInts.length; i++) {
+            if (arrayOfInts[i] == searchfor) {
+                foundIt = true;
+                break;
+            }
+        }
+
+        if (foundIt) {
+            return "Found " + searchfor + " at index " + i;
+        } else {
+            return searchfor + " not in the array";
+        }
+    }
+
+    public static String searchForUsingBreakLabel(int searchfor){
+        int[][] arrayOfInts = {
+                {32, 87, 3, 589},
+                {12, 1076, 2000, 8},
+                {622, 127, 77, 955}
+        };
+
+        int i;
+        int j = 0;
+        boolean foundIt = false;
+
+        search:
+        for (i = 0; i < arrayOfInts.length; i++) {
+            for (j = 0; j < arrayOfInts[i].length;
+                 j++) {
+                if (arrayOfInts[i][j] == searchfor) {
+                    foundIt = true;
+                    break search;
+                }
+            }
+        }
+
+        if (foundIt) {
+            return "Found " + searchfor + " at " + i + ", " + j;
+        } else {
+            return searchfor + " not in the array";
+        }
+    }
+
+    public static String foundCharUsingContinue(char letter) {
+
+        String searchMe = "peter piper picked a " + "peck of pickled peppers";
+        int max = searchMe.length();
+        int numPs = 0;
+
+        for (int i = 0; i < max; i++) {
+            // interested only in p's
+            if (searchMe.charAt(i) != letter)
+                continue;
+
+            // process p's
+            numPs++;
+        }
+        return String.format("Found " + numPs + " %c's in the string.", letter);
+
+    }
+
+    public static String foundSubstringUsingContinueWithLabel(String substring) {
+
+        String searchMe = "Look for a substring in me";
+        boolean foundIt = false;
+
+        int max = searchMe.length() - substring.length();
+
+        test:
+        for (int i = 0; i <= max; i++) {
+            int n = substring.length();
+            int j = i;
+            int k = 0;
+            while (n-- != 0) {
+                if (searchMe.charAt(j++) != substring.charAt(k++)) {
+                    continue test;
+                }
+            }
+            foundIt = true;
+            break test;
+        }
+        return foundIt ? "Found it" : "Didn't find it";
+
+    }
 }

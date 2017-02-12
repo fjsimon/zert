@@ -6,7 +6,9 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAmount;
 import java.time.temporal.TemporalUnit;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class LocalDateExamples {
@@ -85,5 +87,34 @@ public class LocalDateExamples {
             ex.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    public static Map<String, String> getLocalDateTime(){
+
+        Map<String, String> map = new HashMap<>();
+
+        // Get the current date and time
+        LocalDateTime now = LocalDateTime.now();
+        map.put("Current DateTime", now.toString());
+        map.put("date1", now.toLocalDate().toString());
+
+        Month month = now.getMonth();
+        int day = now.getDayOfMonth();
+        int seconds = now.getSecond();
+        map.put("date2","Month: " + month +" day: " + day +" seconds: " + seconds);
+
+        LocalDateTime date3 = now.withDayOfMonth(10).withYear(2012);
+        map.put("date3", date3.toString());
+
+        LocalDate date4 = LocalDate.of(2014, Month.DECEMBER, 12);
+        map.put("date4", date4.toString());
+
+        LocalTime date5 = LocalTime.of(22, 15);
+        map.put("date5", date5.toString());
+
+        LocalTime date6 = LocalTime.parse("20:15:30");
+        map.put("date6", date6.toString());
+
+        return map;
     }
 }

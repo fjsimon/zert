@@ -28,9 +28,33 @@ public class StatementExampleTest {
     }
 
     @Test
-    public void getCount(){
+    public void getCountExamplesTest(){
 
         assertThat(StatementExample.getWhileCount(), is(11));
+
         assertThat(StatementExample.getDoWhileCount(), is(11));
+
+        assertThat(StatementExample.getForCount(), is(11));
+
+        assertThat(StatementExample.getForEachCount(), is(55));
+    }
+
+    @Test
+    public void searchForTest(){
+
+        assertThat(StatementExample.searchForUsingBreak(12), is("Found 12 at index 4"));
+        assertThat(StatementExample.searchForUsingBreakLabel(12), is("Found 12 at 1, 0"));
+    }
+
+    @Test
+    public void foundCharTest(){
+
+        assertThat(StatementExample.foundCharUsingContinue('p'), is("Found 9 p's in the string."));
+    }
+
+    @Test
+    public void foundSubstringTest(){
+
+        assertThat(StatementExample.foundSubstringUsingContinueWithLabel("sub"), is("Found it"));
     }
 }

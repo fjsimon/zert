@@ -104,4 +104,17 @@ public class LocalDateExamplesTest {
         assertThat(localDate, is(not(nullValue())));
     }
 
+    @Test
+    public void testLocalDateTime(){
+
+        assertThat(LocalDateExamples.getLocalDateTime().get("Current DateTime"), is(not(nullValue())));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date1"), is(LocalDate.now().toString()));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date2"), is(not(nullValue())));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date3"), is(not(nullValue())));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date4"), is("2014-12-12"));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date5"), is("22:15"));
+        assertThat(LocalDateExamples.getLocalDateTime().get("date6"), is("20:15:30"));
+    }
+
+
 }
