@@ -32,7 +32,9 @@ public class FuturamaCharacter {
         this.lastName = lastName;
         this.age = age;
         this.speciesEnum = species;
-        this.species = species.get().toString();
+        if(species.isPresent()) {
+            this.species = species.get().toString();
+        }
     }
 
     public FuturamaCharacter(String firstName, String lastName, String species) {
@@ -45,7 +47,9 @@ public class FuturamaCharacter {
         this.firstName = firstName;
         this.lastName = lastName;
         this.speciesEnum = species;
-        this.species = species.get().toString();
+        if(species.isPresent()) {
+            this.species = species.get().toString();
+        }
     }
 
     public String getFullName(Function<FuturamaCharacter, String> function) {
