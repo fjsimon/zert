@@ -183,8 +183,7 @@ public class StatementExample {
 
         search:
         for (i = 0; i < arrayOfInts.length; i++) {
-            for (j = 0; j < arrayOfInts[i].length;
-                 j++) {
+            for (j = 0; j < arrayOfInts[i].length; j++) {
                 if (arrayOfInts[i][j] == searchfor) {
                     foundIt = true;
                     break search;
@@ -196,6 +195,38 @@ public class StatementExample {
             return "Found " + searchfor + " at " + i + ", " + j;
         } else {
             return searchfor + " not in the array";
+        }
+    }
+
+    public static String searchBreakStatementLabel(int searchValue){
+        int[][] list = {
+                {1, 13, 5},
+                {1, 2, 5},
+                {2, 7, 2}
+        };
+
+        int positionX = -1;
+        int positionY = -1;
+        boolean foundIt = false;
+
+        PARENT_LOOP:
+        for (int i = 0; i < list.length; i++) {
+            for (int j = 0; j < list[i].length; j++) {
+
+                if (list[i][j] == searchValue) {
+                    positionX = i;
+                    positionY = j;
+                    break PARENT_LOOP;
+                }
+            }
+        }
+
+        if (positionX == -1 || positionY == -1) {
+
+            return searchValue + " not in the array";
+        } else {
+
+            return "Found " + searchValue + " at (" + positionX + ", " + positionY + ")";
         }
     }
 

@@ -35,6 +35,8 @@ public class CollectionExample {
     }
 
     public List<FuturamaCharacter> removeHumanCharacter(List<FuturamaCharacter> characters) {
+
+        // List.removeIf
         characters.removeIf(c -> !c.getSpecies().equals(Species.HUMAN.toString()));
         return characters;
     }

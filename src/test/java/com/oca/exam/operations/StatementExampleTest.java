@@ -23,7 +23,9 @@ public class StatementExampleTest {
     public void getNumDays(){
 
         assertThat(StatementExample.getNumDays(2, 2017), is(28));
+
         assertThat(StatementExample.getNumDays(10, 2017), is(31));
+
         assertThat(StatementExample.getNumDays(11, 2017), is(30));
     }
 
@@ -43,7 +45,11 @@ public class StatementExampleTest {
     public void searchForTest(){
 
         assertThat(StatementExample.searchForUsingBreak(12), is("Found 12 at index 4"));
+
         assertThat(StatementExample.searchForUsingBreakLabel(12), is("Found 12 at 1, 0"));
+
+        assertThat(StatementExample.searchBreakStatementLabel(13), is("Found 13 at (0, 1)"));
+
     }
 
     @Test
