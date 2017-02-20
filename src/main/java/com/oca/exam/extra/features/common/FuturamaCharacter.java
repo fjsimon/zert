@@ -99,7 +99,7 @@ public class FuturamaCharacter {
         System.out.println(lastName + ", " + firstName);
     }
 
-    static class FirstNameAscComparator implements Comparator<FuturamaCharacter> {
+    public static class FirstNameAscComparator implements Comparator<FuturamaCharacter> {
 
         @Override
         public int compare(FuturamaCharacter o1, FuturamaCharacter o2) {
