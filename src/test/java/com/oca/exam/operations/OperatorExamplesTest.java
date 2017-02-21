@@ -76,4 +76,14 @@ public class OperatorExamplesTest {
         assertThat(OperatorExamples.getBitwiseBitShiftOperators(), is(2));
     }
 
+    @Test
+    public void getBitShiftOperators() {
+
+        Map<String, Byte> map = OperatorExamples.getBitShiftOperators();
+        assertThat(map.get("initial byte value"), is((byte) 2));
+        assertThat(map.get("~byte"), is((byte) -3));
+        assertThat(map.get("a bitwise AND b"), is((byte) 0));
+        assertThat(map.get("a bitwise OR b"), is((byte) 6));
+        assertThat(map.get("a XOR b"), is((byte) 6));
+    }
 }

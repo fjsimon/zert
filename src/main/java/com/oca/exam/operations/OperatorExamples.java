@@ -189,6 +189,21 @@ public class OperatorExamples {
         // prints "2"
         return val & bitmask;
     }
+
+    public static Map<String, Byte> getBitShiftOperators(){
+
+        byte n = 2; //0010
+        byte a = 2; //0010
+        byte b = 4; //0100
+
+        Map<String, Byte> map = new HashMap<>();
+        map.put("initial byte value", n);
+        map.put("~byte", (byte) ~n);
+        map.put("a bitwise AND b", (byte) (a&b));
+        map.put("a bitwise OR b", (byte) (a|b));
+        map.put("a XOR b", (byte) (a^b));
+        return map;
+    }
 }
 
 class Parent {
