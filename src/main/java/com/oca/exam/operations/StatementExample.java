@@ -1,6 +1,9 @@
 package com.oca.exam.operations;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StatementExample {
 
     /**
@@ -222,10 +225,8 @@ public class StatementExample {
         }
 
         if (positionX == -1 || positionY == -1) {
-
             return searchValue + " not in the array";
         } else {
-
             return "Found " + searchValue + " at (" + positionX + ", " + positionY + ")";
         }
     }
@@ -270,5 +271,50 @@ public class StatementExample {
         }
         return foundIt ? "Found it" : "Didn't find it";
 
+    }
+
+    public static List<String> continueLabelStatement(){
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+
+                if (a==2 || x== 'b')
+                    continue FIRST_CHAR_LOOP;
+                result.add(" "+a+x);
+            }
+        }
+
+        return result;
+    }
+
+    public static List<String> continueStatement(){
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+
+                if (a==2 || x== 'b')
+                    continue;
+                result.add(" "+a+x);
+            }
+        }
+
+        return result;
+    }
+
+    public static List<String> noContinueStatement(){
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+                result.add(" "+a+x);
+            }
+        }
+
+        return result;
     }
 }
