@@ -204,6 +204,14 @@ public class OperatorExamples {
         map.put("a XOR b", (byte) (a^b));
         return map;
     }
+
+    public static String getBooleanString(){
+        boolean x = true, z = true;
+        int y = 20;
+        x = (y != 10) ^ (z=false);
+        return x + ", " + y + ", " + z;
+    }
+
 }
 
 class Parent {

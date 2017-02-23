@@ -82,18 +82,24 @@ public class StatementExample {
         return monthString;
     }
 
-    public static int getNumDays(int month, int year){
+    public static int getNumDays(int month, int year) {
 
         int numDays = 0;
 
         switch (month) {
-            case 1: case 3: case 5:
-            case 7: case 8: case 10:
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
             case 12:
                 numDays = 31;
                 break;
-            case 4: case 6:
-            case 9: case 11:
+            case 4:
+            case 6:
+            case 9:
+            case 11:
                 numDays = 30;
                 break;
             case 2:
@@ -134,7 +140,7 @@ public class StatementExample {
 
     public static int getForCount() {
         int count = 1;
-        for(int i=1; i<11; i++){
+        for (int i = 1; i < 11; i++) {
             count++;
         }
 
@@ -144,7 +150,7 @@ public class StatementExample {
     public static int getForEachCount() {
 
         int count = 0;
-        int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         for (int item : numbers) {
             count += item;
@@ -173,7 +179,7 @@ public class StatementExample {
         }
     }
 
-    public static String searchForUsingBreakLabel(int searchfor){
+    public static String searchForUsingBreakLabel(int searchfor) {
         int[][] arrayOfInts = {
                 {32, 87, 3, 589},
                 {12, 1076, 2000, 8},
@@ -201,7 +207,7 @@ public class StatementExample {
         }
     }
 
-    public static String searchBreakStatementLabel(int searchValue){
+    public static String searchBreakStatementLabel(int searchValue) {
         int[][] list = {
                 {1, 13, 5},
                 {1, 2, 5},
@@ -273,48 +279,86 @@ public class StatementExample {
 
     }
 
-    public static List<String> continueLabelStatement(){
+    public static List<String> continueLabelStatement() {
 
         List<String> result = new ArrayList();
         FIRST_CHAR_LOOP:
         for (int a = 1; a <= 4; a++) {
             for (char x = 'a'; x <= 'c'; x++) {
 
-                if (a==2 || x== 'b')
+                if (a == 2 || x == 'b')
                     continue FIRST_CHAR_LOOP;
-                result.add(" "+a+x);
+                result.add(" " + a + x);
             }
         }
 
         return result;
     }
 
-    public static List<String> continueStatement(){
+    public static List<String> continueStatement() {
 
         List<String> result = new ArrayList();
         FIRST_CHAR_LOOP:
         for (int a = 1; a <= 4; a++) {
             for (char x = 'a'; x <= 'c'; x++) {
 
-                if (a==2 || x== 'b')
+                if (a == 2 || x == 'b')
                     continue;
-                result.add(" "+a+x);
+                result.add(" " + a + x);
             }
         }
 
         return result;
     }
 
-    public static List<String> noContinueStatement(){
+    public static List<String> noContinueStatement() {
 
         List<String> result = new ArrayList();
         FIRST_CHAR_LOOP:
         for (int a = 1; a <= 4; a++) {
             for (char x = 'a'; x <= 'c'; x++) {
-                result.add(" "+a+x);
+                result.add(" " + a + x);
             }
         }
 
         return result;
+    }
+
+    public static int getTernaryValue() {
+
+        int x = 5;
+        return x > 2 ? x < 4 ? 10 : 8 : 7;
+    }
+
+    public static int getKeepGoingResult() {
+        boolean keepGoing = true;
+        int result = 15, i = 10;
+        do {
+            i--;
+            if (i == 8) keepGoing = false;
+            result -= 2;
+        } while (keepGoing);
+        return result;
+    }
+
+    public static int getCountValue() {
+        int count = 0;
+        ROW_LOOP : for(int row = 1; row <= 1; row++){
+            for(int col = 1; col <= 2; col++) {
+                if(row * col % 2 == 0) continue ROW_LOOP;
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int getWhileValue() {
+        int m = 9, n = 1, x =0;
+        while(m > n){
+            m --;
+            n += 2;
+            x += m + n;
+        }
+        return x;
     }
 }

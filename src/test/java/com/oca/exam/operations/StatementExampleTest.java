@@ -76,4 +76,27 @@ public class StatementExampleTest {
         assertThat(StatementExample.noContinueStatement().size(), is(12));
         assertThat(StatementExample.noContinueStatement().toString(), is("[ 1a,  1b,  1c,  2a,  2b,  2c,  3a,  3b,  3c,  4a,  4b,  4c]"));
     }
+
+    @Test
+    public void getTernaryValueTest(){
+        assertThat(StatementExample.getTernaryValue(), is(8));
+    }
+
+    @Test
+    public void getKeepGoingResultTest() {
+
+        assertThat(StatementExample.getKeepGoingResult(), is(11));
+    }
+
+    @Test
+    public void getCountValueTest() {
+
+        assertThat(StatementExample.getCountValue(), is(1));
+    }
+
+    @Test
+    public void getWhileValueTest() {
+
+        assertThat(StatementExample.getWhileValue(), is(36));
+    }
 }

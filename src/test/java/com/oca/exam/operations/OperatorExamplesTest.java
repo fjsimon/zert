@@ -86,4 +86,11 @@ public class OperatorExamplesTest {
         assertThat(map.get("a bitwise OR b"), is((byte) 6));
         assertThat(map.get("a XOR b"), is((byte) 6));
     }
+
+    @Test
+    public void getBooleanStringTest() {
+
+        assertThat(OperatorExamples.getBooleanString(), is("true, 20, false"));
+    }
+
 }
