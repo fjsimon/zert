@@ -353,9 +353,9 @@ public class StatementExample {
     }
 
     public static int getWhileValue() {
-        int m = 9, n = 1, x =0;
-        while(m > n){
-            m --;
+        int m = 9, n = 1, x = 0;
+        while (m > n) {
+            m--;
             n += 2;
             x += m + n;
         }
