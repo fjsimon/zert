@@ -1,5 +1,8 @@
 package com.oca.exam.core;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StringBuilderExamples {
 
 
@@ -19,6 +22,14 @@ public class StringBuilderExamples {
         }
 
         return alpha;
+    }
+
+    public static List<StringBuilder> getStringBuilderAppendChaining() {
+
+        StringBuilder a = new StringBuilder("abc");
+        StringBuilder b = a.append("de");
+        b.append("f").append("g");
+        return Arrays.asList(a,b);
     }
 
     public static StringBuilder getStringBuilderInsert(){

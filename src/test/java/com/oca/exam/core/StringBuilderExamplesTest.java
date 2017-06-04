@@ -21,6 +21,16 @@ public class StringBuilderExamplesTest {
     }
 
     @Test
+    public void getStringBuilderAppendChaining() {
+
+        assertThat(StringBuilderExamples.getStringBuilderAppendChaining().get(0).toString(),
+                is("abcdefg"));
+
+        assertThat(StringBuilderExamples.getStringBuilderAppendChaining().get(1).toString(),
+                is("abcdefg"));
+    }
+
+    @Test
     public void getStringBuilderInsert(){
 
         assertThat(StringBuilderExamples.getStringBuilderInsert().toString(), is("HWorldello "));
