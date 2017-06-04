@@ -32,6 +32,15 @@ public class StringBuilderExamples {
         return Arrays.asList(a,b);
     }
 
+    public static void printStringBuilderMethods() {
+
+        StringBuilder sb = new StringBuilder("animals");
+        String sub = sb.substring(sb.indexOf("a"), sb.indexOf("al"));
+        int len = sb.length();
+        char ch = sb.charAt(6);
+        System.out.println(String.format("substring %s%nlength %d%ncharacter %c%n", sub, len, ch));
+    }
+
     public static StringBuilder getStringBuilderInsert(){
 
         StringBuilder sb = new StringBuilder("Hello ");
@@ -39,6 +48,9 @@ public class StringBuilderExamples {
         return sb;
     }
 
+    public static void main(String...args) {
+        printStringBuilderMethods();
+    }
 
 
 }
