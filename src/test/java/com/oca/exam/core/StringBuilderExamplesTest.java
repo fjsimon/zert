@@ -14,6 +14,13 @@ public class StringBuilderExamplesTest {
     }
 
     @Test
+    public void getStringBuilderAppendIter() {
+
+        assertThat(StringBuilderExamples.getStringBuilderAppendIter().toString(),
+                is("abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
     public void getStringBuilderInsert(){
 
         assertThat(StringBuilderExamples.getStringBuilderInsert().toString(), is("HWorldello "));

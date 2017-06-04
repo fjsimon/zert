@@ -10,6 +10,17 @@ public class StringBuilderExamples {
         return sb;
     }
 
+    public static StringBuilder getStringBuilderAppendIter() {
+
+        StringBuilder alpha = new StringBuilder();
+
+        for(char current = 'a'; current <= 'z'; current++) {
+            alpha.append(current);
+        }
+
+        return alpha;
+    }
+
     public static StringBuilder getStringBuilderInsert(){
 
         StringBuilder sb = new StringBuilder("Hello ");
