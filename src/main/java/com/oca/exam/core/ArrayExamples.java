@@ -42,6 +42,33 @@ public class ArrayExamples {
         for(int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + "\t");
         }
+        System.out.println();
+    }
+
+    public static void sorting() {
+
+        int [] numbers = {6, 9, 1};
+        Arrays.sort(numbers);
+        for(int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void searching() {
+
+        int [] ordered = {2, 4, 6, 8}; // Ordered
+        System.out.println(Arrays.binarySearch(ordered, 2));
+        System.out.println(Arrays.binarySearch(ordered, 4));
+        System.out.println(Arrays.binarySearch(ordered, 1));
+        System.out.println(Arrays.binarySearch(ordered, 3));
+        System.out.println(Arrays.binarySearch(ordered, 9));
+
+
+        int [] unordered = {3, 2, 1}; // Un-Ordered
+        System.out.println(Arrays.binarySearch(unordered, 2));
+        System.out.println(Arrays.binarySearch(unordered, 3));
+
     }
 
     public static void main(String...args) {
@@ -49,5 +76,7 @@ public class ArrayExamples {
         creatingArray();
         casting();
         usingArray();
+        sorting();
+        searching();
     }
 }
