@@ -47,6 +47,8 @@ public class ArrayExamples {
 
     public static void sorting() {
 
+        System.out.println("Sorting");
+
         int [] numbers = {6, 9, 1};
         Arrays.sort(numbers);
         for(int i = 0; i < numbers.length; i++) {
@@ -56,6 +58,8 @@ public class ArrayExamples {
     }
 
     public static void searching() {
+
+        System.out.println("Searching");
 
         int [] ordered = {2, 4, 6, 8}; // Ordered
         System.out.println(Arrays.binarySearch(ordered, 2));
@@ -71,6 +75,19 @@ public class ArrayExamples {
 
     }
 
+    public static void multidimensionalArray() {
+
+        System.out.println("Multidimensional array");
+
+        int [][] differentSize = {{1, 4}, {3}, {9, 8, 7}};
+        for(int i = 0; i < differentSize.length; i++){
+            for(int j = 0; j < differentSize[i].length; j++){
+                System.out.print(differentSize[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String...args) {
 
         creatingArray();
@@ -78,5 +95,6 @@ public class ArrayExamples {
         usingArray();
         sorting();
         searching();
+        multidimensionalArray();
     }
 }
