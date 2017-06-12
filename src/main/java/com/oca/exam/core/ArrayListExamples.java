@@ -72,11 +72,79 @@ public class ArrayListExamples {
         System.out.println(birds5.isEmpty());
         System.out.println(birds5.size());
 
+        System.out.println("** contains **");
+        List<String> birds6 = new ArrayList();
+        birds6.add("hawk");
+        System.out.println(birds6.contains("hawk"));
+        System.out.println(birds6.contains("robin"));
+
+        System.out.println("** equals **");
+        List<String> one = new ArrayList();
+        List<String> two = new ArrayList();
+        System.out.println(one.equals(two));
+        one.add("a");
+        System.out.println(one.equals(two));
+        two.add("a");
+        System.out.println(one.equals(two));
+        one.add("b");
+        two.add(0,"b");
+        System.out.println(one.equals(two));
+    }
+
+    public static void wrapperClasses() {
+
+        System.out.println("** Converting String to primitive **");
+        System.out.println(Boolean.parseBoolean("true"));
+        System.out.println(Byte.parseByte("1"));
+        System.out.println(Short.parseShort("1"));
+        System.out.println(Integer.parseInt("1"));
+        System.out.println(Long.parseLong("1"));
+        System.out.println(Float.parseFloat("1"));
+        System.out.println(Double.parseDouble("1"));
+
+        System.out.println("** Converting String to warpper class **");
+        System.out.println(Boolean.valueOf("TRUE"));
+        System.out.println(Byte.valueOf("2"));
+        System.out.println(Short.valueOf("2"));
+        System.out.println(Integer.valueOf("2"));
+        System.out.println(Long.valueOf("2"));
+        System.out.println(Float.valueOf("2.2"));
+        System.out.println(Double.valueOf("2.2"));
+
+    }
+
+    public static void autoboxing() {
+
+        System.out.println("** autoboxing **");
+        List<Double> weights = new ArrayList<>();
+        weights.add(50.5);
+        weights.add(new Double(60));
+        weights.remove(50.5);
+        double first = weights.get(0);
+        System.out.println(first);
+
+        List<Integer> heights = new ArrayList<>();
+        heights.add(null);
+//        int h = heights.get(0); // NullPointerException
+
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.remove(1);
+        System.out.println(numbers);
+
+        List<Integer> numbers2 = new ArrayList<>();
+        numbers2.add(1);
+        numbers2.add(2);
+        numbers2.remove(new Integer(1));
+        System.out.println(numbers2);
     }
 
     public static void main(String...args) {
 
         creatingArrayList();
         usingArrayList();
+        wrapperClasses();
+        autoboxing();
     }
 }
