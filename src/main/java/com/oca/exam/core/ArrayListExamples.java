@@ -1,8 +1,7 @@
 package com.oca.exam.core;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ArrayListExamples {
 
@@ -140,11 +139,49 @@ public class ArrayListExamples {
         System.out.println(numbers2);
     }
 
+    public static void convertingArray() {
+
+        System.out.println("** Converting List to Array **");
+        List<String> list = new ArrayList();
+        list.add("hawk");
+        list.add("robin");
+        Object [] objectArray = list.toArray();
+        System.out.println(objectArray.length);
+        String [] stringArray = list.toArray(new String[0]);
+        System.out.println(stringArray.length);
+
+        System.out.println("** Converting List to Array **");
+        String [] array = {"hawk", "robin"};
+        List<String> arraylist = Arrays.asList(array);
+        System.out.println(arraylist.size());
+        list.set(1, "test");
+        array[0] = "new";
+        for (String b : array) System.out.println(b + " ");
+        // list.remove(1); // throws UnsupportedOperation Exception
+
+        System.out.println("** Converting varargs to List **");
+        List<String> varlist = Arrays.asList("one", "two", "three");
+        System.out.println(varlist.size());
+    }
+
+    public static void sorting () {
+
+        System.out.println("** Sorting **");
+        List<Integer> numbers = new ArrayList();
+        numbers.add(99);
+        numbers.add(5);
+        numbers.add(81);
+        Collections.sort(numbers);
+        System.out.println(numbers);
+    }
+
     public static void main(String...args) {
 
         creatingArrayList();
         usingArrayList();
         wrapperClasses();
         autoboxing();
+        convertingArray();
+        sorting();
     }
 }
