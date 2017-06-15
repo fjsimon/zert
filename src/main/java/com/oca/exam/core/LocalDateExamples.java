@@ -4,12 +4,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalAmount;
 import java.time.temporal.TemporalUnit;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public class LocalDateExamples {
@@ -97,56 +92,33 @@ public class LocalDateExamples {
         return Optional.empty();
     }
 
-    private static Map<String, String> getLocalDateTime(){
-
-        Map<String, String> map = new HashMap<>();
-
-        // Get the current date and time
-        LocalDateTime now = LocalDateTime.now();
-        map.put("Current DateTime", now.toString());
-        map.put("date1", now.toLocalDate().toString());
-
-        Month month = now.getMonth();
-        int day = now.getDayOfMonth();
-        int seconds = now.getSecond();
-        map.put("date2","Month: " + month +" day: " + day +" seconds: " + seconds);
-
-        LocalDateTime date3 = now.withDayOfMonth(10).withYear(2012);
-        map.put("date3", date3.toString());
-
-        LocalDate date4 = LocalDate.of(2014, Month.DECEMBER, 12);
-        map.put("date4", date4.toString());
-
-        LocalTime date5 = LocalTime.of(22, 15);
-        map.put("date5", date5.toString());
-
-        LocalTime date6 = LocalTime.parse("20:15:30");
-        map.put("date6", date6.toString());
-
-        return map;
-    }
-
     public static void main(String...args) {
 
-        System.out.println("LocalTime.now " + getLocalDate());
+        System.out.println("LocalDate.now " + getLocalDate());
 
-        System.out.println(getLocalDateFormat());
+        System.out.println("LocalDate Format " + getLocalDateFormat());
 
-        System.out.println(getLocalDateOf(2017, 10, 9));
+        System.out.println("LocalDate Format " + getLocalDateOf(2017, 10, 9));
 
-        System.out.println(getMonthDay());
+        System.out.println("MonthDay " +getMonthDay());
 
         LocalDate today = LocalDate.now();
-        System.out.println(Period.between(today, getLocalDatePlus(today, 1L, ChronoUnit.WEEKS)).getDays());
-        System.out.println(Period.between(today, getLocalDatePlus(today, 1L, ChronoUnit.DAYS)).getDays());
-        System.out.println(Period.between(today, getLocalDatePlus(today, 1L, ChronoUnit.YEARS)).getYears());
+        System.out.println("Period (days) " + Period.between(today,
+                getLocalDatePlus(today, 1L, ChronoUnit.WEEKS)).getDays());
+        System.out.println("Period (days) " + Period.between(today,
+                getLocalDatePlus(today, 1L, ChronoUnit.DAYS)).getDays());
+        System.out.println("Period (years) " + Period.between(today,
+                getLocalDatePlus(today, 1L, ChronoUnit.YEARS)).getYears());
 
-        System.out.println(Period.between(today, getLocalDateMinus(today, 1L, ChronoUnit.WEEKS)).getDays());
-        System.out.println(Period.between(today, getLocalDateMinus(today, 1L, ChronoUnit.DAYS)).getDays());
-        System.out.println(Period.between(today, getLocalDateMinus(today, 1L, ChronoUnit.YEARS)).getYears());
+        System.out.println("Period (days) " + Period.between(today,
+                getLocalDateMinus(today, 1L, ChronoUnit.WEEKS)).getDays());
+        System.out.println("Period (days) " + Period.between(today,
+                getLocalDateMinus(today, 1L, ChronoUnit.DAYS)).getDays());
+        System.out.println("Period (years) " + Period.between(today,
+                getLocalDateMinus(today, 1L, ChronoUnit.YEARS)).getYears());
+        System.out.println("Period " + getDifference());
 
-        System.out.println(isLeapYear());
-        System.out.println("Get difference " + getDifference());
+        System.out.println("isLeapYear " + isLeapYear());
 
         String date = "20140116";
         LocalDate localDateFormatted = formatDate(date);
@@ -158,13 +130,15 @@ public class LocalDateExamples {
 
         String localDateString = LocalDateExamples.getLocalDateTimeToString(LocalDateTime.now()).get();
         System.out.printf("Local Date at : %s %n", localDateString);
+        System.out.printf("Local Date at : %s %n", LocalDate.now());
+        System.out.printf("Local Date at : %s %n", LocalDate.of(2015, Month.JANUARY, 20));
+        System.out.printf("Local Date at : %s %n", LocalDate.of(2015, 1, 20));
+        System.out.printf("Local Date now plus 2 days : %s %n", LocalDate.now().plusDays(2));
+        System.out.printf("Local Date now plus 2 weeks : %s %n", LocalDate.now().plusWeeks(2));
+        System.out.printf("Local Date now plus 2 months : %s %n", LocalDate.now().plusMonths(2));
+        System.out.printf("Local Date now plus 2 years : %s %n", LocalDate.now().plusYears(2));
 
-        System.out.println(LocalDateExamples.getLocalDateTime().get("Current DateTime"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date1"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date2"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date3"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date4"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date5"));
-        System.out.println(LocalDateExamples.getLocalDateTime().get("date6"));
+//        LocalDate d = new LocalDate(); // DOES NOT COMPILE
+//        LocalDate.of(2015, Month.JANUARY, 32); // java.time.DateTimeException
     }
 }
