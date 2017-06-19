@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 public class LocalDateExamples {
@@ -65,6 +67,19 @@ public class LocalDateExamples {
 
         LocalDate formatted = LocalDate.parse(date, DateTimeFormatter.BASIC_ISO_DATE);
         return formatted;
+    }
+
+    // Old way
+    public static Date addDay(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, 1);
+        return cal.getTime();
+    }
+
+    // New way
+    public static LocalDate addDay(LocalDate date){
+        return date.plusDays(1);
     }
 
     private static Optional<LocalDate> parseDate(String date) {
@@ -140,5 +155,8 @@ public class LocalDateExamples {
 
 //        LocalDate d = new LocalDate(); // DOES NOT COMPILE
 //        LocalDate.of(2015, Month.JANUARY, 32); // java.time.DateTimeException
+
+        System.out.printf("Date now plus 1 day : %s %n", addDay(new Date()));
+        System.out.printf("LocalDate now plus 1 day: %s %n", addDay(LocalDate.now()));
     }
 }

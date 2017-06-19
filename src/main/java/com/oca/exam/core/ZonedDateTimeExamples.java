@@ -63,4 +63,16 @@ public class ZonedDateTimeExamples {
         return Duration.between(parisDateTime, nyDateTime);
     }
 
+    public static void main(String...args) {
+
+        ZonedDateTime dateAndTimeInNewYork = ZonedDateTimeExamples.getZonedDateTime("America/New_York");
+        System.out.printf("Zoned Date Time New York %s %n", dateAndTimeInNewYork);
+
+        Duration duration1 = getDifferentTimeZoneExample1();
+        System.out.printf("Duration (hours) between Kuala_Lumpur and Tokyo zone %s %n", duration1.toHours());
+        System.out.println("\n");
+
+        Duration duration2 = getDifferentTimeZoneExample2();
+        System.out.printf("Duration (hours) between Paris and New York time zone %s %n", duration2.toHours());
+    }
 }

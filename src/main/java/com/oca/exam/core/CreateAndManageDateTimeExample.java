@@ -1,5 +1,7 @@
 package com.oca.exam.core;
 
+import com.sun.deploy.perf.PerfRollup;
+
 import java.time.*;
 import java.time.temporal.ChronoField;
 
@@ -73,6 +75,28 @@ public class CreateAndManageDateTimeExample {
 
         /* Period */
         System.out.printf("Period between %s and %s: %s %n", specificDate, todayDate, Period.between(specificDate, todayDate));
-        System.out.printf("Specific period(3 weeks): %s %n", Period.ofWeeks(3));
+        System.out.printf("Specific period (3 weeks): %s %n", Period.ofWeeks(3));
+
+        LocalDate start = LocalDate.of(2015, Month.JANUARY, 1);
+        LocalDate end = LocalDate.of(2015, Month.MARCH, 30);
+        Period period = Period.ofMonths(1); // ofWeeks, ofDays, of
+        while(start.isBefore(end)) {
+            System.out.println("Give toy: " + start);
+            start = start.plus(period);
+        }
+
+        Period wrong = Period.ofYears(1); // It is redundant
+        wrong = Period.ofWeeks(7);
+        System.out.println(wrong);
+
+        /**
+         *
+         */
+        System.out.printf("Number of days since January 1, 1970: %s %n", LocalDate.now().toEpochDay());
+        System.out.printf("Number of seconds since January 1, 1970: %s %n",
+                LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
     }
+
+
 }
