@@ -9,4 +9,8 @@ public class InstantExamples {
         Instant timestamp = Instant.now();
         return timestamp;
     }
+
+    public static void main(String ...args) {
+        System.out.println(getInstant());
+    }
 }
