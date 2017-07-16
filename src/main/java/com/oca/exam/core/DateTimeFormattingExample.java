@@ -32,6 +32,39 @@ public class DateTimeFormattingExample {
 
     }
 
+    private static void ofLocalizedMethods() {
+        LocalDate date = LocalDate.of(2020, Month.JANUARY, 20);
+        LocalTime time = LocalTime.of(11,12,34);
+        LocalDateTime dateTime = LocalDateTime.of(date, time);
+
+        DateTimeFormatter shortFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+        DateTimeFormatter mediumFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        DateTimeFormatter customFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm");
+
+        System.out.printf("shortFormat = %s%n", shortFormat.format(dateTime));
+        System.out.printf("mediumFormat = %s%n", mediumFormat.format(dateTime));
+        System.out.printf("customFormat = %s%n", customFormat.format(dateTime));
+
+        DateTimeFormatter customFormatPattern = DateTimeFormatter.ofPattern("hh:mm");
+        System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(dateTime));
+//        System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(date)); // UnsupportedTemporalTypeException
+        System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(time));
+
+    }
+
+    public static void parsingDatesAndTimes() {
+
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM dd yyyy");
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH mm");
+
+        LocalDate date = LocalDate.parse("01 02 2015", formatDate);
+        LocalTime time = LocalTime.parse("10 15", formatTime);
+
+        System.out.printf("date = %s%n", date);
+        System.out.printf("time = %s%n", time);
+
+    }
+
     public static void main(String... args) {
 
         LocalDate nowLocalDate = LocalDate.now();
@@ -56,5 +89,9 @@ public class DateTimeFormattingExample {
                 nowLocalDate.format(canadianFrenchFormatter));
 
         formattingDatesAndTimes();
+
+        ofLocalizedMethods();
+
+        parsingDatesAndTimes();
     }
 }

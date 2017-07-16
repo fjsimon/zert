@@ -32,6 +32,13 @@ public class StringBuilderExamples {
         return Arrays.asList(a,b);
     }
 
+    public static StringBuilder getStringBuilderInsert(){
+
+        StringBuilder sb = new StringBuilder("Hello ");
+        sb.insert(1, "World");
+        return sb;
+    }
+
     public static void printStringBuilderMethods() {
 
         StringBuilder sb = new StringBuilder("animals");
@@ -87,14 +94,14 @@ public class StringBuilderExamples {
         System.out.println(e1.equals(e2));
     }
 
-    public static StringBuilder getStringBuilderInsert(){
-
-        StringBuilder sb = new StringBuilder("Hello ");
-        sb.insert(1, "World");
-        return sb;
-    }
-
     public static void main(String...args) {
+
+        List<StringBuilder> stringBuilderAppendChaining = getStringBuilderAppendChaining();
+        System.out.printf("%s%n", stringBuilderAppendChaining.get(0).toString());
+        System.out.printf("%s%n", stringBuilderAppendChaining.get(1).toString());
+        System.out.printf("%s%n", getStringBuilderAppend().toString());
+        System.out.printf("%s%n", getStringBuilderAppendIter().toString());
+        System.out.printf("%s%n", getStringBuilderInsert().toString());
 
         printStringBuilderMethods();
         printStringBuilderEquality();
