@@ -32,7 +32,7 @@ public class InstanceVariable {
         return map;
     }
 
-    public static String getBinaryResult(){
+    private static String getBinaryResult(){
         int aInt = 0b101;
         double aDouble = 0b101;
         StringBuilder sb = new StringBuilder();
@@ -41,16 +41,27 @@ public class InstanceVariable {
         return sb.toString();
     }
 
-    public static String getHexResult(){
+    private static String getHexResult(){
         int aInt = 0xE;
         double aDouble = 0xE;
-
         StringBuilder sb = new StringBuilder();
         sb.append("aInt = " + aInt);
         sb.append(", aDouble = " + aDouble);
         return sb.toString();
     }
 
+    public static void main(String...args) {
 
+        System.out.printf("String %s %n", getDefaultValues().get("aString"));
+        System.out.printf("Boolean %b %n", getDefaultValues().get("aBoolean"));
+        System.out.printf("Integer %d %n", getDefaultValues().get("anInt"));
+        System.out.printf("Double %f %n", getDefaultValues().get("aDouble"));
+        System.out.printf("Byte %s %n", getDefaultValues().get("aByte"));
+        System.out.printf("Float %f %n", getDefaultValues().get("aFloat"));
+        System.out.printf("Char %s %n", getDefaultValues().get("aChar"));
+
+        System.out.printf("%s%n", getBinaryResult());
+        System.out.printf("%s%n", getHexResult());
+    }
 
 }

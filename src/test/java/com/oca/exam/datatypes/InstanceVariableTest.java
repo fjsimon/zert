@@ -21,15 +21,4 @@ public class InstanceVariableTest {
         assertThat(InstanceVariable.getDefaultValues().get("aChar"), is('\u0000'));
     }
 
-    @Test
-    public void getBinaryResult(){
-
-        assertThat(InstanceVariable.getBinaryResult(), is("aInt = 5, aDouble = 5.0"));
-    }
-
-    @Test
-    public void getHexResult(){
-
-        assertThat(InstanceVariable.getHexResult(), is("aInt = 14, aDouble = 14.0"));
-    }
 }
