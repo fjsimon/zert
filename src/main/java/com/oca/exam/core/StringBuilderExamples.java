@@ -94,6 +94,20 @@ public class StringBuilderExamples {
         System.out.println(e1.equals(e2));
     }
 
+    public static void roar(String a, StringBuilder b) {
+
+        a.concat("!!!");
+        b.append(("!!!"));
+    }
+
+    public static void printRoar() {
+
+        String s = "roar";
+        StringBuilder st = new StringBuilder("roar");
+        roar(s, st);
+        System.out.println(s + " " + st);
+    }
+
     public static void main(String...args) {
 
         List<StringBuilder> stringBuilderAppendChaining = getStringBuilderAppendChaining();
@@ -105,6 +119,7 @@ public class StringBuilderExamples {
 
         printStringBuilderMethods();
         printStringBuilderEquality();
+        printRoar();
     }
 
 
