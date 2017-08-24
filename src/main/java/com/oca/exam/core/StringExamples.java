@@ -3,13 +3,13 @@ package com.oca.exam.core;
 public class StringExamples {
 
 
-    public static void unicodeEscapes() {
+    private static void unicodeEscapes() {
 
         System.out.println("************************");
         System.out.printf("The Unicode encoding of the character %s%n", "\\u2122=\u2122");
     }
 
-    public static void concatenationString() {
+    private static void concatenationString() {
 
         String s1 = "1";
         String s2 = s1.concat("2");
@@ -26,7 +26,7 @@ public class StringExamples {
 
     }
 
-    public static void compareString() {
+    private static void compareString() {
 
         String hello = "Hello", lo = "lo";
         System.out.println("************************");
@@ -41,7 +41,7 @@ public class StringExamples {
 
     }
 
-    public static void printSubstrings() {
+    private static void printSubstrings() {
 
         String numbers = "012345678";
         System.out.println("************************");
@@ -51,12 +51,36 @@ public class StringExamples {
         System.out.printf("numbers.substring(7) is \'%s\' %n", numbers.substring(7));
     }
 
+    private static void c3q9() {
+
+        String s = "purr";
+        System.out.println("************************");
+        s.toUpperCase();
+        s.trim();
+        s.substring(1, 3);
+        s += " two";
+        System.out.printf("Length equals to %d%n",  s.length());
+    }
+
+    private static void c3e10() {
+
+        String a = "";
+        System.out.println("************************");
+        a += 2;
+        a += 'c';
+        a += false;
+        if(a == "2cfalse") System.out.println("==");
+        if(a.equals("2cfalse")) System.out.println("equals");
+    }
+
     public static void main(String...args) {
 
         unicodeEscapes();
         concatenationString();
         compareString();
         printSubstrings();
+        c3q9();
+        c3e10();
     }
 
 }

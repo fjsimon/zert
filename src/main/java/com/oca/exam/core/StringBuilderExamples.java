@@ -16,7 +16,6 @@ public class StringBuilderExamples {
     public static StringBuilder getStringBuilderAppendIter() {
 
         StringBuilder alpha = new StringBuilder();
-
         for(char current = 'a'; current <= 'z'; current++) {
             alpha.append(current);
         }
@@ -45,27 +44,28 @@ public class StringBuilderExamples {
         String sub = sb.substring(sb.indexOf("a"), sb.indexOf("al"));
         int len = sb.length();
         char ch = sb.charAt(6);
-        System.out.println(String.format("substring %s%nlength %d%ncharacter %c%n", sub, len, ch));
+        System.out.println("************************");
+        System.out.printf("substring %s%nlength %d%ncharacter %c%n", sub, len, ch);
 
         StringBuilder sbd1 = new StringBuilder().append(1).append('c');
         sbd1.append("-").append(true);
-        System.out.println(String.format("append %s%n", sbd1.toString()));
+        System.out.printf("append %s%n", sbd1.toString());
 
 
         StringBuilder sbd2 = new StringBuilder("animals");
         sbd2.insert(7, "-");
         sbd2.insert(0, "-");
         sbd2.insert(4, "-");
-        System.out.println(String.format("insert %s%n", sbd2.toString()));
+        System.out.printf("insert %s%n", sbd2.toString());
 
         StringBuilder sbd3 = new StringBuilder("abcdef");
         sbd3.delete(1, 3);  // adef
         sbd3.deleteCharAt(3); //ade
-        System.out.println(String.format("delete %s%n", sbd3.toString()));
+        System.out.printf("delete %s%n", sbd3.toString());
 
         StringBuilder sbd4 = new StringBuilder("ABC");
         sbd4.reverse();
-        System.out.println(String.format("reverse %s%n", sbd4.toString()));
+        System.out.printf("reverse %s%n", sbd4.toString());
 
     }
 
@@ -74,6 +74,7 @@ public class StringBuilderExamples {
         StringBuilder one = new StringBuilder();
         StringBuilder two = new StringBuilder();
         StringBuilder three = one.append("a");
+        System.out.println("************************");
         System.out.println(one == two);
         System.out.println(one == three);
 
@@ -103,9 +104,32 @@ public class StringBuilderExamples {
     public static void printRoar() {
 
         String s = "roar";
+        System.out.println("************************");
         StringBuilder st = new StringBuilder("roar");
         roar(s, st);
         System.out.println(s + " " + st);
+    }
+
+    public static void c3e12() {
+
+        System.out.println("************************");
+        StringBuilder numbers = new StringBuilder("0123456789");
+        numbers.delete(2, 8);
+        numbers.append("-").insert(2, "+");
+        System.out.println(numbers);
+    }
+
+    public static void c3e14() {
+
+        StringBuilder puzzle1 = new StringBuilder("Java");
+        System.out.println("************************");
+        System.out.printf("puzzle1 = %s%n", puzzle1);
+        System.out.printf("puzzle1.reverse() = %s%n", puzzle1.reverse());
+
+        StringBuilder puzzle2 = new StringBuilder("Java");
+        System.out.printf("puzzle2 = %s%n", puzzle2);
+        System.out.printf("puzzle2.append(\"vaJ$\").delete(0,3).deleteCharAt(puzzle2.length() - 1) = %s%n",
+                puzzle2.append("vaJ$").delete(0,3).deleteCharAt(puzzle2.length() - 1));
     }
 
     public static void main(String...args) {
@@ -120,6 +144,8 @@ public class StringBuilderExamples {
         printStringBuilderMethods();
         printStringBuilderEquality();
         printRoar();
+        c3e12();
+        c3e14();
     }
 
 
