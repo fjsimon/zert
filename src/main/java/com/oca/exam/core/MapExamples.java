@@ -1,6 +1,8 @@
 package com.oca.exam.core;
 
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -24,6 +26,10 @@ public class MapExamples {
     public static void main(String... args) {
 
         printStackMap();
+
+        int[] nums = {8, 12, 16, 4, 0, 20};
+        int k = 4;
+        System.out.println(countDistinctPairs(nums, k));
     }
 
     private static void printStackMap() {
@@ -35,5 +41,28 @@ public class MapExamples {
         map.put(new Stack("Jaime"), "5");
 
         map.forEach((k, v) -> System.out.println(v.toString()));
+    }
+
+    private static int countDistinctPairs(int[] nums, int k) {
+
+        HashMap<Integer, Boolean> map = new HashMap<Integer, Boolean>();
+        HashSet<String> set = new HashSet<String>();
+        for(int i =0;i < nums.length;i++){
+            map.put(nums[i],true);
+        }
+        for (int i = 0 ; i < nums.length; i++){
+            if(map.containsKey(nums[i]+k)){
+                String a = "";
+                if(nums[i]<nums[i]+k){
+                    a = "("+nums[i]+","+(nums[i]+k)+")";
+                }
+                else{
+                    a = "("+(nums[i] + k)+","+nums[i]+")";
+                }
+                set.add(a);
+            }
+        }
+        System.out.println(set);
+        return set.size();
     }
 }
