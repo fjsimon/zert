@@ -111,4 +111,21 @@ public class ArrayExamplesTest {
         assertThat(Arrays.binarySearch(ordered, 3), is(-1));
         assertThat(Arrays.binarySearch(ordered, 9), is(-3));
     }
+
+    @Test
+    public void testQ25() {
+        String[] sa = {"a", "b", "c"};
+        for(String s :  sa){
+            if("b".equals(s)) {
+                System.out.println("continue");
+                continue;
+            }
+            System.out.println(s);
+            if("b".equals(s)) {
+                System.out.println("break");
+                break;
+            }
+            System.out.println(s+" again");
+        }
+    }
 }
