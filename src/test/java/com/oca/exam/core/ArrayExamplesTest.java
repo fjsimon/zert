@@ -113,7 +113,7 @@ public class ArrayExamplesTest {
     }
 
     @Test
-    public void testQ25() {
+    public void test02_Q25() {
         String[] sa = {"a", "b", "c"};
         for(String s :  sa){
             if("b".equals(s)) {
@@ -128,4 +128,16 @@ public class ArrayExamplesTest {
             System.out.println(s+" again");
         }
     }
+
+    @Test
+    public void test03_Q07() {
+        int i = 4;
+        int ia[][][] = new int[i][i = 3][i];
+        System.out.println( ia.length + ", " + ia[0].length+", "+ ia[0][0].length);
+        assertThat(ia.length, is(4));
+        assertThat(ia[0].length, is(3));
+        assertThat(ia[0][0].length, is(3));
+
+    }
+
 }
