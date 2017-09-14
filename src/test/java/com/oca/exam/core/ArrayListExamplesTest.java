@@ -77,7 +77,7 @@ public class ArrayListExamplesTest {
         assertThat(list.size(), is(0));
     }
 
-    @Test
+    @Test(expected = IndexOutOfBoundsException.class)
     public void ArrayList_set() {
 
         List<String> list = new ArrayList();
@@ -85,12 +85,7 @@ public class ArrayListExamplesTest {
         assertThat(list.size(), is(1));
         list.set(0, "robin");
         assertThat(list.size(), is(1));
-
-        try {
-            list.set(1, "robin"); // indexOutOfBoundsException
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-        }
+        list.set(1, "robin"); // indexOutOfBoundsException
     }
 
     @Test
