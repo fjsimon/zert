@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Stack;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -14,11 +15,9 @@ public class MethodTest {
     public static void printSum(int a, int b) {
         System.out.println("In int "+(a+b));
     }
-
     public static void printSum(Integer a, Integer b) {
         System.out.println("In Integer "+(a+b));
     }
-
     public static void printSum(double a, double b) {
         System.out.println("In double "+(a+b));
     }
@@ -77,4 +76,73 @@ public class MethodTest {
         probe(a);
         assertThat("In Object\n", is(outputStream.toString()));
     }
+
+    @Test
+    public void test02_Q23() {
+        System.out.println(new MNOP().x+", "+new MNOP().y);
+    }
+
+    @Test
+    public void test02_Q30() {
+
+        ClassQ30 a, b ;
+        a = new ClassQ30();  //(2)
+        assertThat(a.l1, is(0L));
+//        b = new ClassQ30(5);  //(3) Compilation error
+    }
+
+    class Super {  }
+    class Sub extends Super {  }
+
+    @Test
+    public void test02_Q38() {
+        Super s1 = new Super(); //1
+        Sub s2 = new Sub();     //2
+        s1 = (Super) s2;        //3
+        assertThat(s1, instanceOf(Super.class));
+        assertThat(s2, instanceOf(Super.class));
+    }
+
+    class A {}
+    class AA extends A {}
+
+    @Test
+    public void test02_Q40() {
+        A a = new A();
+        AA aa = new AA();
+        a = aa;
+        assertThat(a.getClass().toString(), is("class com.oca.exam.methods.MethodTest$AA"));
+        assertThat(aa.getClass().toString(), is("class com.oca.exam.methods.MethodTest$AA"));
+    }
+
+    class Base3{
+        public short getValue(){ return 1; } //1
+    }
+    class Base4 extends Base3 {
+//    public byte getValue(){ return 2; } //2 Compile error
+    }
+
+    @Test
+    public void test02_Q45() {
+        Base3 b = new Base4();
+        assertThat(b.getValue(), is((short) 1)); //3
+    }
+}
+
+class ABCD{
+    int x = 10;
+    static int y = 20;
+}
+
+class MNOP extends ABCD{
+    int x = 30;
+    static int y = 40;
+}
+
+class ClassQ30 {
+    long l1;
+
+    public void ClassQ30(long pLong) {
+        l1 = pLong;
+    }//(1)
 }
