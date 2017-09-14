@@ -1,4 +1,4 @@
-package com.oca.exam.exception;
+package com.oca.exam.exceptions;
 
 import java.math.BigInteger;
 import java.util.*;

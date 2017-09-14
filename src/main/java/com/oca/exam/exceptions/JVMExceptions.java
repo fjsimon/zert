@@ -1,4 +1,4 @@
-package com.oca.exam.exception;
+package com.oca.exam.exceptions;
 
 public class JVMExceptions {
 
@@ -17,7 +17,7 @@ public class JVMExceptions {
 
         try {
             Object s = "asdf";
-            StringBuffer sb = (StringBuffer) s; //exception at runtime because s is referring to a String.
+            StringBuffer sb = (StringBuffer) s; //exceptions at runtime because s is referring to a String.
         }catch (ClassCastException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package com.oca.exam.exception;
+package com.oca.exam.exceptions;
 
 public class JVMErrors {
 
