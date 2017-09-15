@@ -13,6 +13,7 @@ import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class CoreTest {
 
@@ -65,6 +66,37 @@ public class CoreTest {
         ClassInit classInit = new ClassInit();
         assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n%s%n", "a", "b", "c", "2", "3", "4", "1"),
                 CoreMatchers.is(outputStream.toString()));
+    }
+
+    @Test
+    public void stringFromCharTest(){
+        String myStr = "good";
+        char[] myCharArr = {'g', 'o', 'o', 'd' };
+
+        String newStr = null;
+        for(char ch : myCharArr){
+            newStr = newStr + ch;
+        }
+
+        assertThat((newStr == myStr)+ " " + (newStr.equals(myStr)), is("false false"));
+        assertThat(newStr, is("nullgood"));
+        assertThat(myStr, is("good"));
+    }
+
+    @Test
+    public void test01_Q49() {
+
+        String s = "MINIMUM";
+        assertThat(s.substring(4, 7), is("MUM")); //1
+        assertThat(s.substring(5), is("UM")); //2
+        assertThat(s.substring(s.indexOf('I', 3)), is("IMUM")); //3
+        try {
+            s.substring(s.indexOf('I', 4)); //4
+            fail();
+        }catch (StringIndexOutOfBoundsException e){
+
+        }
+
     }
 }
 
