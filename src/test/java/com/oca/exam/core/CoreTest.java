@@ -13,6 +13,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -160,6 +161,36 @@ public class CoreTest {
         assertThat(String.format("%s%n", "Hello"),
                 CoreMatchers.is(outputStream.toString()));
     }
+
+    public static void stringTest(String s) {
+        s.replace('h', 's');
+    }
+    public static void stringBuilderTest(StringBuilder s) {
+        s.append("o");
+    }
+
+    @Test
+    public void test03_Q38() {
+        String s = "hell";
+        StringBuilder sb = new StringBuilder("well");
+        stringTest(s);
+        stringBuilderTest(sb);
+        System.out.print(s + sb);
+
+        assertThat(String.format("%s", "hellwello"),
+                CoreMatchers.is(outputStream.toString()));
+    }
+
+    @Test
+    public void test03() {
+
+        StringWrapper sw = new StringWrapper("How are you?");
+        StringBuilder sb = new StringBuilder("How are you?");
+
+        assertThat("Hello, "+sw, is(not("Hello, How are you?")));
+        assertThat("Hello, "+sb, is("Hello, How are you?"));
+
+    }
 }
 
 class ClassA {
@@ -239,4 +270,9 @@ interface I1{
 interface I2{
     int VALUE = 2;
     void m1();
+}
+
+class StringWrapper {
+    private String theVal;
+    public StringWrapper(String str){ this.theVal = str; }
 }
