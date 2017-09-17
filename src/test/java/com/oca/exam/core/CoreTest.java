@@ -120,6 +120,46 @@ public class CoreTest {
         assertThat(String.format("%s %s %s%n", "30", "20", "30"),
                 CoreMatchers.is(outputStream.toString()));
     }
+
+    @Test
+    public void test03_Q44() {
+
+        ClassQ44 tc = new ClassQ44();
+        tc.looper();
+        System.out.print(tc.x);
+
+        assertThat(String.format("%s", "0"),
+                CoreMatchers.is(outputStream.toString()));
+    }
+
+    @Test
+    public void test03_Q45() {
+
+        ClassQ45 classQ45 = new ClassQ45();
+        classQ45.m();
+    }
+
+    @Test
+    public void test03_Q48() {
+
+        int var = 20, i=0;
+        do{
+            while(true){
+                if( i++ > var) break;
+            }
+        }while(i<var--);
+
+        assertThat(var, is(19));
+    }
+
+    @Test
+    public void test03_Q49() {
+        ClassQ49 tc = new ClassQ49();
+        ( (I1) tc).m1();
+
+        assertThat(String.format("%s%n", "Hello"),
+                CoreMatchers.is(outputStream.toString()));
+    }
 }
 
 class ClassA {
@@ -150,4 +190,53 @@ class ClassInit{
         System.out.println(s);
         return s;
     }
+}
+
+class ClassQ44 {
+    int x = 5;
+    int getX() { return x; }
+
+    public void looper(){
+//        int x = 0; // Error
+        while( (x = getX()) != 0 ){
+            for(int m = 10; m>=0; m--){
+                x = m;
+            }
+        }
+    }
+}
+
+class ClassQ45 {
+    int a;
+    int b = 0;
+    static int c;
+    public void m(){
+        int d;
+        int e = 0;
+        // Line 1
+
+        a++;
+        b++;
+        c++;
+//        d++; //Compilation error.
+        e++;
+    }
+}
+
+
+class ClassQ49 implements I1, I2{
+
+    public void m1() {
+        System.out.println("Hello");
+    }
+}
+
+interface I1{
+    int VALUE = 1;
+    void m1();
+}
+
+interface I2{
+    int VALUE = 2;
+    void m1();
 }
