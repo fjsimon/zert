@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,7 +98,27 @@ public class CoreTest {
         }catch (StringIndexOutOfBoundsException e){
 
         }
+    }
 
+    @Test
+    public void printerWriterTest(){
+        OutputStreamWriter osw  =  new OutputStreamWriter( System.out );
+
+        PrintWriter pw = new PrintWriter(osw);
+
+        pw.write("hello");
+        pw.close();
+    }
+
+    @Test
+    public void test03_Q08() {
+        int i = 0 ;
+        int[] iA = {10, 20} ;
+        iA[i] = i = 30 ;
+        System.out.println(""+ iA[ 0 ] + " " + iA[ 1 ] + " "+i) ;
+
+        assertThat(String.format("%s %s %s%n", "30", "20", "30"),
+                CoreMatchers.is(outputStream.toString()));
     }
 }
 
