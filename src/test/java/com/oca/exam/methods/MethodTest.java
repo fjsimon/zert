@@ -141,8 +141,26 @@ class MNOP extends ABCD{
 
 class ClassQ30 {
     long l1;
-
     public void ClassQ30(long pLong) {
         l1 = pLong;
     }//(1)
+}
+
+class ClassQ46 {
+
+    void m1() {
+        ClassQ46.m2();  // 1
+        m4();             // 2
+//        ClassQ46.m3();  // 3 Compile error
+    }
+
+    static void m2(){ }  // 4
+
+    void m3() {
+        m1();            // 5
+        m2();            // 6
+//        ClassQ46.m1(); // 7 Compile error
+    }
+
+    static void m4(){ }
 }

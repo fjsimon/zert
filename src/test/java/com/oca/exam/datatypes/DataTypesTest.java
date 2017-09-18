@@ -46,6 +46,24 @@ public class DataTypesTest {
 
         assertThat(i, is(2));
     }
+
+    @Test
+    public void test02_Q58() {
+        int i = 0;
+        loop :         // 1
+        {
+            System.out.println("Loop Label line");
+            try{
+                for (  ;  true ;  i++ ){
+                    if( i >5) break loop;       // 2
+                }
+            } catch(Exception e){
+                System.out.println("Exception in loop.");
+            } finally{
+                System.out.println("In Finally");      // 3
+            }
+        }
+    }
 }
 
 class InitTest {
