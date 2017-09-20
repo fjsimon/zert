@@ -64,6 +64,16 @@ public class DataTypesTest {
             }
         }
     }
+
+    @Test
+    public void test04_Q33() {
+        int rate = 10;
+        int t = 5;
+        double amount = 1000.0; // ? double or float
+        for(int i=0; i<t; i++){
+            amount = amount*(1 - rate/100);
+        }
+    }
 }
 
 class InitTest {

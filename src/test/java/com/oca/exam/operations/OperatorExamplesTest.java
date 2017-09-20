@@ -112,7 +112,7 @@ public class OperatorExamplesTest {
     }
 
     @Test
-    public void test04_Q22() {
+    public void test03_Q22() {
         Object obj1 = new Object();
         Object obj2 = obj1;
         if( obj1.equals(obj2) ) System.out.println("true");
@@ -120,12 +120,22 @@ public class OperatorExamplesTest {
     }
 
     @Test
-    public void test04_Q70(){
+    public void test03_Q70() {
         int sum = 0;
         for (int i = 0, j = 10; sum > 20; ++i, --j)      // 1
         {
             sum = sum + i + j;
         }
         System.out.println("Sum = " + sum);
+    }
+
+    @Test
+    public void test04_Q31(){
+        int i = 0;
+        int j = 1;
+        if( (i++ == 0) & (j++ == 2) ){
+            i = 12;
+        }
+        System.out.println(i+" "+j);
     }
 }

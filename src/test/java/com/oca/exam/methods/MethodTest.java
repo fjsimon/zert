@@ -127,6 +127,15 @@ public class MethodTest {
         Base3 b = new Base4();
         assertThat(b.getValue(), is((short) 1)); //3
     }
+
+    @Test(expected = NullPointerException.class)
+    public void test04_Q27() {
+        final Holder a = new Holder(5);
+        Holder b = new Holder(10);
+        a.link = b;
+        b.link = Holder.setIt(a, b);
+        System.out.println(a.link.value+" "+b.link.value);
+    }
 }
 
 class ABCD{
@@ -163,4 +172,20 @@ class ClassQ46 {
     }
 
     static void m4(){ }
+}
+
+class Holder{
+    int value = 1;
+    Holder link;
+
+    public Holder(int val){
+
+        this.value = val;
+    }
+
+    public static Holder setIt(final Holder x, final Holder y){
+
+        x.link = y.link;
+        return x;
+    }
 }
