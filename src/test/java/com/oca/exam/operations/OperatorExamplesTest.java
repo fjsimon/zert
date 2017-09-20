@@ -138,4 +138,24 @@ public class OperatorExamplesTest {
         }
         System.out.println(i+" "+j);
     }
+
+    @Test
+    public void test04_Q44() {
+
+        System.out.println(1 + 2 + "3");
+        System.out.println("1" + 2 + 3);
+        System.out.println(4 + 1.0f);
+        System.out.println(5/4);
+        System.out.println('a' + 1 );
+    }
+
+    @Test
+    public void test04_Q52() {
+        int i = 1;
+        int j = i++;
+        if( (i==++j) | (i++ == j) ){
+            i+=j;
+        }
+        System.out.println(i);
+    }
 }

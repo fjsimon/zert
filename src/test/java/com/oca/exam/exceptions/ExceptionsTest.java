@@ -108,4 +108,23 @@ public class ExceptionsTest {
 
         assertThat(String.format("%s%n%s%n", "MyException thrown", " Done"), CoreMatchers.is(outputStream.toString()));
     }
+
+    static int val() throws Exception {
+        throw new Exception("unimplemented");
+    }
+
+    @Test
+    public void test04_Q37() {
+
+        int[][] a = { { 00, 01 }, { 10, 11 } };
+        int i = 99;
+        try {
+            a[val()][i = 1]++;
+        } catch (Exception e) {
+            System.out.println( i+", "+a[1][1]);
+        }
+
+        assertThat(String.format("%s,%s%n", "99", " 11"), CoreMatchers.is(outputStream.toString()));
+    }
+
 }

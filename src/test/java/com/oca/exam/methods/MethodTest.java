@@ -136,6 +136,11 @@ public class MethodTest {
         b.link = Holder.setIt(a, b);
         System.out.println(a.link.value+" "+b.link.value);
     }
+
+    @Test
+    public void test04_Q39() {
+        InitTest it = new InitTest();
+    }
 }
 
 class ABCD{
@@ -187,5 +192,22 @@ class Holder{
 
         x.link = y.link;
         return x;
+    }
+}
+
+class InitTest {
+    static String s1 = sM1("a");
+
+    {
+        s1 = sM1("b");
+    }
+
+    static {
+        s1 = sM1("c");
+    }
+
+    private static String sM1(String s) {
+        System.out.println(s);
+        return s;
     }
 }

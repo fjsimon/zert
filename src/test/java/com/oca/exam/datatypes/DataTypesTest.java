@@ -74,6 +74,12 @@ public class DataTypesTest {
             amount = amount*(1 - rate/100);
         }
     }
+
+    @Test
+    public void test04_Q54() {
+
+        new AccessTest();
+    }
 }
 
 class InitTest {
@@ -97,5 +103,28 @@ class InitTest {
     {
         bool = (si > 5);
         i = 1000;
+    }
+}
+
+ class AccessTest{
+
+    String a = "x";
+    static char b = 'x';
+    String  c = "x";
+    class Inner {
+        String  a = "y";
+        String  get() {
+            String c = "temp";
+            // Line 1
+//            c = ""+AccessTest.b;
+//            c = AccessTest.this.a;
+//            c = ""+b;
+
+            return c;
+        }
+    }
+
+    AccessTest() {
+        System.out.println(  new Inner().get()  );
     }
 }
