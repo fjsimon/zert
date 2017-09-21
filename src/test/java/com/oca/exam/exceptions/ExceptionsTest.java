@@ -127,4 +127,30 @@ public class ExceptionsTest {
         assertThat(String.format("%s,%s%n", "99", " 11"), CoreMatchers.is(outputStream.toString()));
     }
 
+    private void finallyMethod(String[] args){
+        try{
+            if (args.length == 0) return;
+            else throw new Exception("Some Exception");
+        }
+        catch(Exception e){
+            System.out.println("Exception in Main");
+        }
+        finally{
+            System.out.println("The end");
+        }
+    }
+
+    @Test
+    public void test04_Q60(){
+
+        String[] args = {};
+        finallyMethod(args);
+        assertThat(String.format("%s%n", "The end"), CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+        String[] withArgs = {"args"};
+        finallyMethod(withArgs);
+        assertThat(String.format("%s%n%s%n", "Exception in Main", "The end"), CoreMatchers.is(outputStream.toString()));
+    }
+
 }

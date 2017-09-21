@@ -158,4 +158,24 @@ public class OperatorExamplesTest {
         }
         System.out.println(i);
     }
+
+    @Test
+    public void test04_Q64() {
+        int k = 1;
+        int[] a = { 1 };
+        k += (k = 4) * (k + 2);
+        a[0] += (a[0] = 4) * (a[0] + 2);
+        System.out.println( k + " , " + a[0]);
+    }
+
+    @Test
+    public void test04_Q65() {
+        int i = 0, j = 5;
+        lab1 :
+            for( ; ; i++) {
+                for( ; ; --j)  if( i >j )
+                    break lab1;
+            }
+        System.out.println(" i = "+i+", j = "+j);
+    }
 }

@@ -191,6 +191,27 @@ public class CoreTest {
         assertThat("Hello, "+sb, is("Hello, How are you?"));
 
     }
+
+    static void replaceString(String s) {
+        s = s.replace('j', 'l');
+    }
+    static void replaceStringBuilder(StringBuilder s) {
+        s.append("c");
+    }
+
+    @Test
+    public void test04_Q68() {
+
+        String s1 = new String("java");
+        StringBuilder s2 = new StringBuilder("java");
+        replaceString(s1);
+        replaceStringBuilder(s2);
+        System.out.println(s1 + s2);
+
+        assertThat(String.format("%s%n", "javajavac"),
+                CoreMatchers.is(outputStream.toString()));
+    }
+
 }
 
 class ClassA {
