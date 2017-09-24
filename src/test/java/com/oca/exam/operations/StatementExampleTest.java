@@ -68,13 +68,16 @@ public class StatementExampleTest {
     public void continueStatementTest(){
 
         assertThat(StatementExample.continueLabelStatement().size(), is(3));
-        assertThat(StatementExample.continueLabelStatement().toString(), is("[ 1a,  3a,  4a]"));
+        assertThat(StatementExample.continueLabelStatement().toString(),
+                is("[ 1a,  3a,  4a]"));
 
         assertThat(StatementExample.continueStatement().size(), is(6));
-        assertThat(StatementExample.continueStatement().toString(), is("[ 1a,  1c,  3a,  3c,  4a,  4c]"));
+        assertThat(StatementExample.continueStatement().toString(),
+                is("[ 1a,  1c,  3a,  3c,  4a,  4c]"));
 
         assertThat(StatementExample.noContinueStatement().size(), is(12));
-        assertThat(StatementExample.noContinueStatement().toString(), is("[ 1a,  1b,  1c,  2a,  2b,  2c,  3a,  3b,  3c,  4a,  4b,  4c]"));
+        assertThat(StatementExample.noContinueStatement().toString(),
+                is("[ 1a,  1b,  1c,  2a,  2b,  2c,  3a,  3b,  3c,  4a,  4b,  4c]"));
     }
 
     @Test

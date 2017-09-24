@@ -140,4 +140,11 @@ public class ArrayExamplesTest {
 
     }
 
+    @Test
+    public void test05_Q16() {
+        int[] a = { 1, 2, 3, 4 };
+        int[] b = { 2, 3, 1, 0 };
+        System.out.println( a [ (a = b)[3] ] );
+    }
+
 }
