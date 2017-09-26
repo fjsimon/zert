@@ -33,6 +33,27 @@ public class InheritanceTest {
         System.out.println(b.fi);
         System.out.println(  (  (Parent) b  ).fi  );
     }
+
+    @Test
+    public void test04_Q13() throws Exception {
+        Game g = new Soccer();
+        g.play();
+        Soccer s = (Soccer) g;
+        s.play();
+
+    }
+}
+
+class Game {
+    public void play() throws Exception   {
+        System.out.println("Playing...");
+    }
+}
+
+class Soccer extends Game {
+    public void play(String ball)    {
+        System.out.println("Playing Soccer with "+ball);
+    }
 }
 
 class A {

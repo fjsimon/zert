@@ -2,6 +2,7 @@ package com.oca.exam.operations;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -108,6 +109,7 @@ public class OperatorExamplesTest {
 
     @Test
     public void testQ02(){
+
         new JustLooping().showJ();
     }
 
@@ -214,6 +216,37 @@ public class OperatorExamplesTest {
         assertThat(amount, is(400));
     }
 
+    public static int operators(){
+
+        int x1 = -4;
+        // x2 is (x1)-- => x2 is first assigned the value of x1 i.e. -4 and then x1 in decremented by 1 to become -5
+        int x2 = x1--;
+        // x3  is ++(x2) => x2 becomes -3 first and  then its value i.e. -3 is assigned to x3
+        int x3 = ++x2;
+        // x2>x3 is false so x1++  => x1 becomes -4
+        if(x2 > x3){
+            --x3;
+        }else{
+            x1++;
+        }
+        //therefore -4 + -3 + -3 => -10
+        return x1 + x2 + x3;
+    }
+
+    @Test
+    public void test04_Q16(){
+        assertThat(operators(), is(-10));
+    }
+
+    @Test
+    public void test04_Q17() {
+        ArrayList<Double> al = new ArrayList<>();
+//        al.add(111); //Compile error
+        System.out.println(al.indexOf(1.0));
+        System.out.println(al.contains("string"));
+//        Double d = al.get(al.length); //Compile error
+
+    }
 }
 
 class ChangeTestQ29 {

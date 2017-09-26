@@ -192,6 +192,39 @@ public class CoreTest {
 
     }
 
+    @Test
+    public void test04_Q12() {
+
+        int INT1 = 0;
+        int INT2 = 5;
+
+        for(int i=INT1; i<INT2; i++){ System.out.println(i); }
+        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4),
+                CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+        for(int i=INT1; i<INT2; System.out.println(++i));
+        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
+                CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+        for(int i=INT1; i++<INT2; System.out.println(i));
+        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
+                CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+        int i=INT1; while(i++<INT2) { System.out.println(i); }
+        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
+                CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+        i=INT1; do { System.out.println(i); }while(i++<INT2);
+        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4, 5),
+                CoreMatchers.is(outputStream.toString()));
+        outputStream.reset();
+
+    }
+
     static void replaceString(String s) {
         s = s.replace('j', 'l');
     }
