@@ -80,6 +80,31 @@ public class DataTypesTest {
 
         new AccessTest();
     }
+
+    @Test
+    public void test06_Q05() {
+
+        Object a, b, c ;
+        a = new String("A");
+        b = new String("B");
+        c = a;
+        a = b;
+        System.out.println(""+c);
+
+    }
+
+    public static int m1(int i){
+        return ++i;
+    }
+
+    @Test
+    public void test06_Q08() {
+
+        int k = m1(0);
+        k += 3 + ++k;
+        System.out.println(k);
+    }
+
 }
 
 class InitTest {

@@ -15,22 +15,22 @@ public class ExceptionsTest {
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
     @Before
-    public void setup(){
+    public void setup() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    public float parseFloat(String s){
+    public float parseFloat(String s) {
         float f = 0.0f;
-        try{
+        try {
             f = Float.valueOf(s).floatValue();
-            return f ;
-        }
-        catch(NumberFormatException nfe){
-            System.out.println("Invalid input " + s);
-            f = Float.NaN ;
             return f;
+        } catch (NumberFormatException nfe) {
+            System.out.println("Invalid input " + s);
+            f = Float.NaN;
+            return f;
+        } finally {
+            System.out.println("finally");
         }
-        finally { System.out.println("finally");  }
 
     }
 
@@ -42,31 +42,31 @@ public class ExceptionsTest {
     }
 
     @Test
-    public void test02_Q57(){
+    public void test02_Q57() {
 
         int k = 0;
-        try{
-            int i = 5/k;
-        } catch (ArithmeticException e){
+        try {
+            int i = 5 / k;
+        } catch (ArithmeticException e) {
             System.out.println("1");
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             System.out.println("2");
-            return ;
-        } catch (Exception e){
+            return;
+        } catch (Exception e) {
             System.out.println("3");
-        } finally{
+        } finally {
             System.out.println("4");
         }
         System.out.println("5");
 
-        assertThat(String.format("%s%n%s%n%s%n", 1,4,5), CoreMatchers.is(outputStream.toString()));
+        assertThat(String.format("%s%n%s%n%s%n", 1, 4, 5), CoreMatchers.is(outputStream.toString()));
     }
 
-    public void myMethod() throws Exception{
+    public void myMethod() throws Exception {
         yourMethod();
     }
 
-    public void yourMethod() throws Exception{
+    public void yourMethod() throws Exception {
         throw new Exception();
     }
 
@@ -82,21 +82,28 @@ public class ExceptionsTest {
 //        else  System.out.println("Bad");
     }
 
-    class MyException extends Throwable{}
-    class MyException1 extends MyException{}
-    class MyException2 extends MyException{}
-    class MyException3 extends MyException2{}
+    class MyException extends Throwable {
+    }
+
+    class MyException1 extends MyException {
+    }
+
+    class MyException2 extends MyException {
+    }
+
+    class MyException3 extends MyException2 {
+    }
 
     void myMethodEx() throws MyException {
         throw new MyException3();
     }
 
     @Test
-    public void test02_Q04(){
+    public void test02_Q04() {
 
         try {
             myMethodEx();
-        } catch(MyException me) {
+        } catch (MyException me) {
             System.out.println("MyException thrown");
         }
 //        catch(MyException3 me3){
@@ -116,32 +123,30 @@ public class ExceptionsTest {
     @Test
     public void test04_Q37() {
 
-        int[][] a = { { 00, 01 }, { 10, 11 } };
+        int[][] a = {{00, 01}, {10, 11}};
         int i = 99;
         try {
             a[val()][i = 1]++;
         } catch (Exception e) {
-            System.out.println( i+", "+a[1][1]);
+            System.out.println(i + ", " + a[1][1]);
         }
 
         assertThat(String.format("%s,%s%n", "99", " 11"), CoreMatchers.is(outputStream.toString()));
     }
 
-    private void finallyMethod(String[] args){
-        try{
+    private void finallyMethod(String[] args) {
+        try {
             if (args.length == 0) return;
             else throw new Exception("Some Exception");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Exception in Main");
-        }
-        finally{
+        } finally {
             System.out.println("The end");
         }
     }
 
     @Test
-    public void test04_Q60(){
+    public void test04_Q60() {
 
         String[] args = {};
         finallyMethod(args);

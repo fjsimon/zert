@@ -240,12 +240,32 @@ public class OperatorExamplesTest {
 
     @Test
     public void test04_Q17() {
+
         ArrayList<Double> al = new ArrayList<>();
 //        al.add(111); //Compile error
         System.out.println(al.indexOf(1.0));
         System.out.println(al.contains("string"));
 //        Double d = al.get(al.length); //Compile error
 
+    }
+
+    @Test
+    public void test05_Q48() {
+
+        int counter = 0;
+        outer: for( int i = 0; i < 3; i++) {
+            middle: for( int j = 0; j < 3; j++) {
+                inner: for( int k = 0; k < 3; k++) {
+                    if(k - j > 0) {
+                        System.out.println("breaking middle "+j);
+                        break middle;
+                    }
+                    counter++;
+                }
+            }
+        }
+
+        System.out.println(counter);
     }
 }
 
