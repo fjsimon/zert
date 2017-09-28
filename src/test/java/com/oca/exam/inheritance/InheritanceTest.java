@@ -123,3 +123,38 @@ class Child extends Parent {
 //        System.out.println(acct.getId());
 //    }
 //}
+
+class ClassA_Q55 {
+
+    int i;
+
+    public ClassA_Q55(int x) {
+
+        this.i = x;
+    }
+}
+
+class ClassBQ55 extends ClassA_Q55 {
+    int j;
+
+//    ClassBQ55( ) { }
+
+//    ClassBQ55(int y ) { j = y; }
+
+//    ClassBQ55(int y) {
+//        super(y * 2);
+//        j = y;
+//    }
+
+//    ClassBQ55(int y ) { i = y; j = y*2; }
+
+    ClassBQ55(int z) {
+        this(z, z);
+    }
+
+    ClassBQ55(int x, int y) {
+
+        super(x);
+        this.j = y;
+    }
+}

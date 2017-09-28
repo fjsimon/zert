@@ -7,7 +7,17 @@ import static org.junit.Assert.assertThat;
 
 public class DataTypesTest {
 
+    @Test
+    public void equalTest_Q67() {
+
+        Integer i = new Integer(1) ;
+        Long m = new Long(1);
+        if( i.equals(m)) System.out.println("equal");   // 1
+        else System.out.println("not equal");
+    }
+
     public static int getSwitch(String str) {
+
         int round = (int) Math.round(Double.parseDouble(str.substring(1, str.length() - 1)));
         System.out.printf("round %d %n", round);
         return round;

@@ -267,6 +267,38 @@ public class OperatorExamplesTest {
 
         System.out.println(counter);
     }
+
+    @Test
+    public void test05_Q19() {
+
+        char i;
+        LOOP:
+        for (i=0;i<5;i++){
+            switch(i++){
+                case '0':
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("A");
+                case 1:
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("B");
+                    break LOOP;
+                case 2:
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("C");
+                    break;
+                case 3:
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("D");
+                    break;
+                case 4:
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("E");
+                case 'E':
+                    System.out.printf("%d %n", (int) i);
+                    System.out.println("F");
+             }
+        }
+    }
 }
 
 class ChangeTestQ29 {
