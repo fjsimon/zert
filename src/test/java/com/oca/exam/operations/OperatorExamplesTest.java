@@ -299,6 +299,23 @@ public class OperatorExamplesTest {
              }
         }
     }
+
+    @Test
+    public void test06_Q26() {
+        byte b = 1;
+        char c = 1;
+        short s = 1;
+        int i = 1;
+
+//        s = b * b ; // No compile
+        i = b + b ;
+        s *= b ;
+//        c = c + b ; // No compile
+        s += i ;
+
+        assertThat(i, is(2));
+        assertThat(s, is((short) 3));
+    }
 }
 
 class ChangeTestQ29 {

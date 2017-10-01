@@ -147,4 +147,17 @@ public class ArrayExamplesTest {
         System.out.println( a [ (a = b)[3] ] );
     }
 
+    class A { }
+    class B extends A { }
+
+    @Test
+    public void test06_Q27() {
+        A[] a, a1;
+        B[] b;
+        a = new A[10]; a1  = a;
+        b =  new B[20];
+        a = b;  // 1
+        b = (B[]) a;  // 2
+        b = (B[]) a1; // 3
+    }
 }
