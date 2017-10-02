@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -96,10 +97,11 @@ public class OperatorExamplesTest {
 
     class JustLooping {
         private int j;
-        void showJ(){
-            while(j<=5){
-                for(int j=1; j <= 5;){
-                    System.out.print(j+" ");
+
+        void showJ() {
+            while (j <= 5) {
+                for (int j = 1; j <= 5; ) {
+                    System.out.print(j + " ");
                     j++;
                 }
                 j++;
@@ -108,7 +110,7 @@ public class OperatorExamplesTest {
     }
 
     @Test
-    public void testQ02(){
+    public void testQ02() {
 
         new JustLooping().showJ();
     }
@@ -117,8 +119,8 @@ public class OperatorExamplesTest {
     public void test03_Q22() {
         Object obj1 = new Object();
         Object obj2 = obj1;
-        if( obj1.equals(obj2) ) System.out.println("true");
-        else  System.out.println("false");
+        if (obj1.equals(obj2)) System.out.println("true");
+        else System.out.println("false");
     }
 
     @Test
@@ -132,13 +134,13 @@ public class OperatorExamplesTest {
     }
 
     @Test
-    public void test04_Q31(){
+    public void test04_Q31() {
         int i = 0;
         int j = 1;
-        if( (i++ == 0) & (j++ == 2) ){
+        if ((i++ == 0) & (j++ == 2)) {
             i = 12;
         }
-        System.out.println(i+" "+j);
+        System.out.println(i + " " + j);
     }
 
     @Test
@@ -147,16 +149,16 @@ public class OperatorExamplesTest {
         System.out.println(1 + 2 + "3");
         System.out.println("1" + 2 + 3);
         System.out.println(4 + 1.0f);
-        System.out.println(5/4);
-        System.out.println('a' + 1 );
+        System.out.println(5 / 4);
+        System.out.println('a' + 1);
     }
 
     @Test
     public void test04_Q52() {
         int i = 1;
         int j = i++;
-        if( (i==++j) | (i++ == j) ){
-            i+=j;
+        if ((i == ++j) | (i++ == j)) {
+            i += j;
         }
         System.out.println(i);
     }
@@ -164,34 +166,35 @@ public class OperatorExamplesTest {
     @Test
     public void test04_Q64() {
         int k = 1;
-        int[] a = { 1 };
+        int[] a = {1};
         k += (k = 4) * (k + 2);
         a[0] += (a[0] = 4) * (a[0] + 2);
-        System.out.println( k + " , " + a[0]);
+        System.out.println(k + " , " + a[0]);
     }
 
     @Test
     public void test04_Q65() {
         int i = 0, j = 5;
-        lab1 :
-            for( ; ; i++) {
-                for( ; ; --j)  if( i >j )
+        lab1:
+        for (; ; i++) {
+            for (; ; --j)
+                if (i > j)
                     break lab1;
-            }
-        System.out.println(" i = "+i+", j = "+j);
+        }
+        System.out.println(" i = " + i + ", j = " + j);
     }
 
-    static String[] days = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" };
+    static String[] days = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
 
     @Test
     public void test05_Q03() {
 
         int index = 0;
-        for(String day : days) {
+        for (String day : days) {
 
-            if(index == 3) {
+            if (index == 3) {
                 break;
-            }else {
+            } else {
                 continue;
             }
 
@@ -206,17 +209,20 @@ public class OperatorExamplesTest {
     @Test
     public void test05_Q34() {
         int amount = 100, seed = 6;
-        switch( new TestQ34().luckyNumber(6) ){
-            case 3: amount = amount * 2;
-            case 7: amount = amount * 2;
-            case 6: amount = amount + amount;
-            default :
+        switch (new TestQ34().luckyNumber(6)) {
+            case 3:
+                amount = amount * 2;
+            case 7:
+                amount = amount * 2;
+            case 6:
+                amount = amount + amount;
+            default:
         }
 
         assertThat(amount, is(400));
     }
 
-    public static int operators(){
+    public static int operators() {
 
         int x1 = -4;
         // x2 is (x1)-- => x2 is first assigned the value of x1 i.e. -4 and then x1 in decremented by 1 to become -5
@@ -224,9 +230,9 @@ public class OperatorExamplesTest {
         // x3  is ++(x2) => x2 becomes -3 first and  then its value i.e. -3 is assigned to x3
         int x3 = ++x2;
         // x2>x3 is false so x1++  => x1 becomes -4
-        if(x2 > x3){
+        if (x2 > x3) {
             --x3;
-        }else{
+        } else {
             x1++;
         }
         //therefore -4 + -3 + -3 => -10
@@ -234,7 +240,7 @@ public class OperatorExamplesTest {
     }
 
     @Test
-    public void test04_Q16(){
+    public void test04_Q16() {
         assertThat(operators(), is(-10));
     }
 
@@ -253,11 +259,14 @@ public class OperatorExamplesTest {
     public void test05_Q48() {
 
         int counter = 0;
-        outer: for( int i = 0; i < 3; i++) {
-            middle: for( int j = 0; j < 3; j++) {
-                inner: for( int k = 0; k < 3; k++) {
-                    if(k - j > 0) {
-                        System.out.println("breaking middle "+j);
+        outer:
+        for (int i = 0; i < 3; i++) {
+            middle:
+            for (int j = 0; j < 3; j++) {
+                inner:
+                for (int k = 0; k < 3; k++) {
+                    if (k - j > 0) {
+                        System.out.println("breaking middle " + j);
                         break middle;
                     }
                     counter++;
@@ -273,8 +282,8 @@ public class OperatorExamplesTest {
 
         char i;
         LOOP:
-        for (i=0;i<5;i++){
-            switch(i++){
+        for (i = 0; i < 5; i++) {
+            switch (i++) {
                 case '0':
                     System.out.printf("%d %n", (int) i);
                     System.out.println("A");
@@ -296,7 +305,7 @@ public class OperatorExamplesTest {
                 case 'E':
                     System.out.printf("%d %n", (int) i);
                     System.out.println("F");
-             }
+            }
         }
     }
 
@@ -308,13 +317,70 @@ public class OperatorExamplesTest {
         int i = 1;
 
 //        s = b * b ; // No compile
-        i = b + b ;
-        s *= b ;
+        i = b + b;
+        s *= b;
 //        c = c + b ; // No compile
-        s += i ;
+        s += i;
 
         assertThat(i, is(2));
         assertThat(s, is((short) 3));
+    }
+
+    @Test
+    public void test06_Q32() {
+        int i = 5;
+
+        switch (i) {
+            default:
+            case 1:
+                System.out.println(1);
+            case 0:
+                System.out.println(0);
+            case 2:
+                System.out.println(2);
+                break;
+            case 3:
+                System.out.println(3);
+        }
+    }
+
+    @Test
+    public void test06_Q33() {
+
+        int x = 0;
+        labelA:
+        for (int i = 10; i < 0; i--) { // <==== CHECK
+            int j = 0;
+            labelB:
+            while (j < 10) {
+                if (j > i)
+                    break labelB;
+                if (i == j) {
+                    x++;
+                    continue labelA;
+                }
+                j++;
+            }
+            x--;
+        }
+        System.out.println(x);
+    }
+
+    @Test
+    public void test06_Q38() {
+        int i = 5;
+        float f = 5.5f;
+        double d = 3.8;
+        char c = 'a';
+
+        if (i == f) {
+            c++;
+        }
+
+        if (((int) (f + d)) == ((int) f + (int) d)) {
+            c += 2;
+        }
+        System.out.println(c);
     }
 }
 
@@ -341,18 +407,16 @@ class ChangeTestQ29 {
 }
 
 
- class TestQ34{
-    public int luckyNumber(int seed){
-        if(seed > 10) return seed%10;
+class TestQ34 {
+    public int luckyNumber(int seed) {
+        if (seed > 10) return seed % 10;
         int x = 0;
-        try{
-            if(seed%2 == 0) throw new Exception("No Even no.");
+        try {
+            if (seed % 2 == 0) throw new Exception("No Even no.");
             else return x;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return 3;
-        }
-        finally{
+        } finally {
             return 7;
         }
     }
