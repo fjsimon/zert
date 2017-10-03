@@ -40,7 +40,12 @@ public class InheritanceTest {
         g.play();
         Soccer s = (Soccer) g;
         s.play();
+    }
 
+    @Test
+    public void test05_Q53() {
+
+        System.out.println( new SubClass() );
     }
 }
 
@@ -123,6 +128,18 @@ class Child extends Parent {
 //        System.out.println(acct.getId());
 //    }
 //}
+
+class Super{
+    public String toString(){
+        return "4";
+    }
+}
+
+class SubClass extends Super{
+    public String toString(){
+        return super.toString()+"3";
+    }
+}
 
 class ClassA_Q55 {
 

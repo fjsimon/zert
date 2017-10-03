@@ -147,10 +147,18 @@ public class ArrayExamplesTest {
         System.out.println( a [ (a = b)[3] ] );
     }
 
+    @Test(expected = NullPointerException.class)
+    public void test05_Q57() {
+        int ia[][] = { {1, 2}, null };
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                System.out.println(ia[i][j]);
+    }
+
     class A { }
     class B extends A { }
 
-    @Test
+    @Test()
     public void test06_Q27() {
         A[] a, a1;
         B[] b;
@@ -158,6 +166,11 @@ public class ArrayExamplesTest {
         b =  new B[20];
         a = b;  // 1
         b = (B[]) a;  // 2
-        b = (B[]) a1; // 3
+        try {
+            b = (B[]) a1; // 3
+            fail();
+        } catch (ClassCastException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

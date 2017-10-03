@@ -382,6 +382,16 @@ public class OperatorExamplesTest {
         }
         System.out.println(c);
     }
+
+    @Test
+    public void test05_Q54() {
+        boolean b = false;
+        int i = 1;
+        do{
+            i++ ;
+        } while (b = !b);
+        System.out.println( i );
+    }
 }
 
 class ChangeTestQ29 {

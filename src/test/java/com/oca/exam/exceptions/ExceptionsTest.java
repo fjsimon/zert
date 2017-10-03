@@ -150,14 +150,29 @@ public class ExceptionsTest {
 
         String[] args = {};
         finallyMethod(args);
-        assertThat(String.format("%s%n", "The end"), CoreMatchers.is(outputStream.toString()));
+        assertThat(String.format("%s%n", "The end"), is(outputStream.toString()));
         outputStream.reset();
 
         String[] withArgs = {"args"};
         finallyMethod(withArgs);
-        assertThat(String.format("%s%n%s%n", "Exception in Main", "The end"), CoreMatchers.is(outputStream.toString()));
+        assertThat(String.format("%s%n%s%n", "Exception in Main", "The end"), is(outputStream.toString()));
     }
 
+    @Test
+    public void test05_Q56() {
+        Float f = null;
+        try{
+            f = Float.valueOf("12.3");
+            String s = f.toString();
+            int i = Integer.parseInt(s);
+            System.out.println("i = "+i);
+        }
+        catch(Exception e){
+            System.out.println("trouble : "+f);
+        }
+
+        assertThat(String.format("%s%s%n", "trouble : ", f), is(outputStream.toString()));
+    }
 }
 
 //class PortConnector {
