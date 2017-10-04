@@ -115,6 +115,13 @@ public class DataTypesTest {
         System.out.println(k);
     }
 
+    @Test
+    public void test06_Q47() {
+
+        byte b = 0;
+        b--;
+        System.out.println(b);
+    }
 }
 
 class InitTest {

@@ -173,4 +173,11 @@ public class ArrayExamplesTest {
             System.out.println(e.getMessage());
         }
     }
+
+    @Test
+    public void test06_Q46() {
+        int size = 10;
+        int[] arr = new int[size];
+        for (int i = 0 ; i < size ; ++i) System.out.println(arr[i]);
+    }
 }

@@ -387,10 +387,58 @@ public class OperatorExamplesTest {
     public void test05_Q54() {
         boolean b = false;
         int i = 1;
-        do{
-            i++ ;
+        do {
+            i++;
         } while (b = !b);
-        System.out.println( i );
+        System.out.println(i);
+    }
+
+    @Test
+    public void test06_Q41() {
+
+        int c = 0;
+        A:
+        for (int i = 0; i < 2; i++) {
+            B:
+            for (int j = 0; j < 2; j++) {
+                C:
+                for (int k = 0; k < 3; k++) {
+                    c++;
+                    System.out.printf("%d %d %d %n", i, j, k);
+                    if (k > j) break;
+
+                }
+            }
+        }
+        System.out.println(c);
+    }
+
+    @Test
+    public void test06_Q45() {
+
+        boolean flag = false;
+
+        if (flag)   //1
+            if (flag)   //2
+                System.out.println("True False");
+            else        // 3
+                System.out.println("True True");
+        else        // 4
+            System.out.println("False False");
+    }
+
+    @Test
+    public void test06_Q50() {
+
+        int count = 0, sum = 0;
+
+        do {
+            if (count % 3 == 0) continue;
+
+            System.out.printf("sum %d count %d %n", sum , count);
+            sum += count;
+        } while (count++ < 11);
+        System.out.println(sum);
     }
 }
 
