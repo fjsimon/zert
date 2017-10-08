@@ -122,6 +122,15 @@ public class DataTypesTest {
         b--;
         System.out.println(b);
     }
+
+    @Test
+    public void test06_Q64() {
+
+        int x = 1____3;   //1
+        long y = 1_3;     //2
+        float z = 3.234_567f; //3
+        System.out.println(x+" "+y+" "+z);
+    }
 }
 
 class InitTest {

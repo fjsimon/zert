@@ -177,6 +177,13 @@ public class MethodTest {
 
         InitClassQ37 obj = new InitClassQ37(5);
     }
+
+    @Test
+    public void test06_Q70() {
+
+        TestClassQ70 tc = new TestClassQ70();
+        tc.method(null);
+    }
 }
 
 class ABCD {
@@ -287,4 +294,17 @@ class InitClassQ37 {
     static {
         i1++;
     }      // Static Initializer
+}
+
+class TestClassQ70{
+
+    public void method(Object o){
+        System.out.println("Object Version");
+    }
+    public void method(java.io.FileNotFoundException s){
+        System.out.println("java.io.FileNotFoundException Version");
+    }
+    public void method(java.io.IOException s){
+        System.out.println("IOException Version");
+    }
 }

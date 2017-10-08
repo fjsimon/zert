@@ -41,4 +41,21 @@ public class StringTest {
         assertThat("String".replace('g', 'g') == "String", is(true));
 
     }
+
+    @Test
+    public void test06_Q66() {
+
+        String fullPhoneNumber = "ddd-ddd-dddd";
+
+        assertThat(new StringBuilder(fullPhoneNumber).substring(0, 8)+"xxxx",
+                is("ddd-ddd-xxxx"));
+        assertThat(new StringBuilder(fullPhoneNumber).replace(8, 12, "xxxx").toString(),
+                is("ddd-ddd-xxxx"));
+//        assertThat(new StringBuilder(fullPhoneNumber).append("xxxx", 8, 12).toString(),
+//                is("ddd-ddd-xxxx"));
+        assertThat(new StringBuilder("xxxx").append(fullPhoneNumber, 0, 8).toString(),
+                is("xxxxddd-ddd-"));
+        assertThat(new StringBuilder("xxxx").insert(0, fullPhoneNumber, 0, 8).toString(),
+                is("ddd-ddd-xxxx"));
+    }
 }

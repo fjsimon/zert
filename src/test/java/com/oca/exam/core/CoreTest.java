@@ -41,6 +41,17 @@ public class CoreTest {
         assertFalse(new Boolean("true") == Boolean.TRUE);
 
         assertTrue(new Boolean("no") == false);
+
+        assertTrue(Boolean.parseBoolean("true"));
+
+        assertFalse(new Boolean(null));
+
+//        System.out.println(new Boolean());
+
+        assertTrue(new Boolean("true"));
+
+        assertTrue(new Boolean("trUE"));
+
     }
 
     @Test
