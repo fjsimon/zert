@@ -172,18 +172,9 @@ public class MethodTest {
         new TestClassQ18().m1();
     }
 
-    @Test
-    public void test06_Q37() {
 
-        InitClassQ37 obj = new InitClassQ37(5);
-    }
 
-    @Test
-    public void test06_Q70() {
 
-        TestClassQ70 tc = new TestClassQ70();
-        tc.method(null);
-    }
 }
 
 class ABCD {
@@ -271,40 +262,5 @@ class TestClassQ18 {
     public void m2(char c, char[] cA) {
         c = 'b';
         cA[1] = cA[0] = 'm';
-    }
-}
-
-class InitClassQ37 {
-
-    int m;
-    static int i1 = 5;
-    static int i2;
-    int j = 100;
-    int x;
-
-    public InitClassQ37(int m) {
-        System.out.println(i1 + "  " + i2 + "   " + x + "  " + j + "  " + m);
-    }
-
-    {
-        j = 30;
-        i2 = 40;
-    }  // Instance Initializer
-
-    static {
-        i1++;
-    }      // Static Initializer
-}
-
-class TestClassQ70{
-
-    public void method(Object o){
-        System.out.println("Object Version");
-    }
-    public void method(java.io.FileNotFoundException s){
-        System.out.println("java.io.FileNotFoundException Version");
-    }
-    public void method(java.io.IOException s){
-        System.out.println("IOException Version");
     }
 }

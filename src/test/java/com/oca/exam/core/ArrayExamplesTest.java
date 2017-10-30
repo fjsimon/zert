@@ -154,30 +154,4 @@ public class ArrayExamplesTest {
             for (int j = 0; j < 2; j++)
                 System.out.println(ia[i][j]);
     }
-
-    class A { }
-    class B extends A { }
-
-    @Test()
-    public void test06_Q27() {
-        A[] a, a1;
-        B[] b;
-        a = new A[10]; a1  = a;
-        b =  new B[20];
-        a = b;  // 1
-        b = (B[]) a;  // 2
-        try {
-            b = (B[]) a1; // 3
-            fail();
-        } catch (ClassCastException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @Test
-    public void test06_Q46() {
-        int size = 10;
-        int[] arr = new int[size];
-        for (int i = 0 ; i < size ; ++i) System.out.println(arr[i]);
-    }
 }

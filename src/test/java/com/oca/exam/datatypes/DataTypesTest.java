@@ -91,46 +91,9 @@ public class DataTypesTest {
         new AccessTest();
     }
 
-    @Test
-    public void test06_Q05() {
 
-        Object a, b, c ;
-        a = new String("A");
-        b = new String("B");
-        c = a;
-        a = b;
-        System.out.println(""+c);
 
-    }
 
-    public static int m1(int i){
-        return ++i;
-    }
-
-    @Test
-    public void test06_Q08() {
-
-        int k = m1(0);
-        k += 3 + ++k;
-        System.out.println(k);
-    }
-
-    @Test
-    public void test06_Q47() {
-
-        byte b = 0;
-        b--;
-        System.out.println(b);
-    }
-
-    @Test
-    public void test06_Q64() {
-
-        int x = 1____3;   //1
-        long y = 1_3;     //2
-        float z = 3.234_567f; //3
-        System.out.println(x+" "+y+" "+z);
-    }
 }
 
 class InitTest {

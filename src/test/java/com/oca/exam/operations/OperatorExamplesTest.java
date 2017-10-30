@@ -309,79 +309,9 @@ public class OperatorExamplesTest {
         }
     }
 
-    @Test
-    public void test06_Q26() {
-        byte b = 1;
-        char c = 1;
-        short s = 1;
-        int i = 1;
 
-//        s = b * b ; // No compile
-        i = b + b;
-        s *= b;
-//        c = c + b ; // No compile
-        s += i;
 
-        assertThat(i, is(2));
-        assertThat(s, is((short) 3));
-    }
 
-    @Test
-    public void test06_Q32() {
-        int i = 5;
-
-        switch (i) {
-            default:
-            case 1:
-                System.out.println(1);
-            case 0:
-                System.out.println(0);
-            case 2:
-                System.out.println(2);
-                break;
-            case 3:
-                System.out.println(3);
-        }
-    }
-
-    @Test
-    public void test06_Q33() {
-
-        int x = 0;
-        labelA:
-        for (int i = 10; i < 0; i--) { // <==== CHECK
-            int j = 0;
-            labelB:
-            while (j < 10) {
-                if (j > i)
-                    break labelB;
-                if (i == j) {
-                    x++;
-                    continue labelA;
-                }
-                j++;
-            }
-            x--;
-        }
-        System.out.println(x);
-    }
-
-    @Test
-    public void test06_Q38() {
-        int i = 5;
-        float f = 5.5f;
-        double d = 3.8;
-        char c = 'a';
-
-        if (i == f) {
-            c++;
-        }
-
-        if (((int) (f + d)) == ((int) f + (int) d)) {
-            c += 2;
-        }
-        System.out.println(c);
-    }
 
     @Test
     public void test05_Q54() {
@@ -391,54 +321,6 @@ public class OperatorExamplesTest {
             i++;
         } while (b = !b);
         System.out.println(i);
-    }
-
-    @Test
-    public void test06_Q41() {
-
-        int c = 0;
-        A:
-        for (int i = 0; i < 2; i++) {
-            B:
-            for (int j = 0; j < 2; j++) {
-                C:
-                for (int k = 0; k < 3; k++) {
-                    c++;
-                    System.out.printf("%d %d %d %n", i, j, k);
-                    if (k > j) break;
-
-                }
-            }
-        }
-        System.out.println(c);
-    }
-
-    @Test
-    public void test06_Q45() {
-
-        boolean flag = false;
-
-        if (flag)   //1
-            if (flag)   //2
-                System.out.println("True False");
-            else        // 3
-                System.out.println("True True");
-        else        // 4
-            System.out.println("False False");
-    }
-
-    @Test
-    public void test06_Q50() {
-
-        int count = 0, sum = 0;
-
-        do {
-            if (count % 3 == 0) continue;
-
-            System.out.printf("sum %d count %d %n", sum , count);
-            sum += count;
-        } while (count++ < 11);
-        System.out.println(sum);
     }
 }
 
