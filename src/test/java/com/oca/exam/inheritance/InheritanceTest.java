@@ -25,14 +25,7 @@ public class InheritanceTest {
         a.m2();
     }
 
-    @Test
-    public void test05_Q02() {
 
-        Child b = new Child();
-        b.fi = 20;
-        System.out.println(b.fi);
-        System.out.println(  (  (Parent) b  ).fi  );
-    }
 
     @Test
     public void test04_Q13() throws Exception {
@@ -42,11 +35,7 @@ public class InheritanceTest {
         s.play();
     }
 
-    @Test
-    public void test05_Q53() {
 
-        System.out.println( new SubClass() );
-    }
 }
 
 class Game {
@@ -105,15 +94,6 @@ class BQ46 extends AQ46 {
     }
 }
 
-class Parent {
-    final int fi = 10;
-}
-
-class Child extends Parent {
-    int fi = 15;
-}
-
-
 //interface Account{
 //    public default String getId(){
 //        return "0000";
@@ -128,18 +108,6 @@ class Child extends Parent {
 //        System.out.println(acct.getId());
 //    }
 //}
-
-class Super{
-    public String toString(){
-        return "4";
-    }
-}
-
-class SubClass extends Super{
-    public String toString(){
-        return super.toString()+"3";
-    }
-}
 
 class ClassA_Q55 {
 

@@ -184,43 +184,7 @@ public class OperatorExamplesTest {
         System.out.println(" i = " + i + ", j = " + j);
     }
 
-    static String[] days = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
 
-    @Test
-    public void test05_Q03() {
-
-        int index = 0;
-        for (String day : days) {
-
-            if (index == 3) {
-                break;
-            } else {
-                continue;
-            }
-
-//            index++;
-//            if(days[index].length()>3){
-//                days[index] = day.substring(0,3);
-//            }
-        }
-        System.out.println(days[index]);
-    }
-
-    @Test
-    public void test05_Q34() {
-        int amount = 100, seed = 6;
-        switch (new TestQ34().luckyNumber(6)) {
-            case 3:
-                amount = amount * 2;
-            case 7:
-                amount = amount * 2;
-            case 6:
-                amount = amount + amount;
-            default:
-        }
-
-        assertThat(amount, is(400));
-    }
 
     public static int operators() {
 
@@ -254,74 +218,6 @@ public class OperatorExamplesTest {
 //        Double d = al.get(al.length); //Compile error
 
     }
-
-    @Test
-    public void test05_Q48() {
-
-        int counter = 0;
-        outer:
-        for (int i = 0; i < 3; i++) {
-            middle:
-            for (int j = 0; j < 3; j++) {
-                inner:
-                for (int k = 0; k < 3; k++) {
-                    if (k - j > 0) {
-                        System.out.println("breaking middle " + j);
-                        break middle;
-                    }
-                    counter++;
-                }
-            }
-        }
-
-        System.out.println(counter);
-    }
-
-    @Test
-    public void test05_Q19() {
-
-        char i;
-        LOOP:
-        for (i = 0; i < 5; i++) {
-            switch (i++) {
-                case '0':
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("A");
-                case 1:
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("B");
-                    break LOOP;
-                case 2:
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("C");
-                    break;
-                case 3:
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("D");
-                    break;
-                case 4:
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("E");
-                case 'E':
-                    System.out.printf("%d %n", (int) i);
-                    System.out.println("F");
-            }
-        }
-    }
-
-
-
-
-
-    @Test
-    public void test05_Q54() {
-        boolean b = false;
-        int i = 1;
-        do {
-            i++;
-        } while (b = !b);
-        System.out.println(i);
-    }
 }
 
 class ChangeTestQ29 {
@@ -343,21 +239,5 @@ class ChangeTestQ29 {
         System.out.println(ct.myValue);
         ct.showTwo(200);
         System.out.println(ct.myValue);
-    }
-}
-
-
-class TestQ34 {
-    public int luckyNumber(int seed) {
-        if (seed > 10) return seed % 10;
-        int x = 0;
-        try {
-            if (seed % 2 == 0) throw new Exception("No Even no.");
-            else return x;
-        } catch (Exception e) {
-            return 3;
-        } finally {
-            return 7;
-        }
     }
 }

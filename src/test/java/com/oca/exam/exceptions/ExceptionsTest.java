@@ -158,21 +158,7 @@ public class ExceptionsTest {
         assertThat(String.format("%s%n%s%n", "Exception in Main", "The end"), is(outputStream.toString()));
     }
 
-    @Test
-    public void test05_Q56() {
-        Float f = null;
-        try{
-            f = Float.valueOf("12.3");
-            String s = f.toString();
-            int i = Integer.parseInt(s);
-            System.out.println("i = "+i);
-        }
-        catch(Exception e){
-            System.out.println("trouble : "+f);
-        }
 
-        assertThat(String.format("%s%s%n", "trouble : ", f), is(outputStream.toString()));
-    }
 }
 
 //class PortConnector {

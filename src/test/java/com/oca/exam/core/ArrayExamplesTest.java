@@ -140,18 +140,4 @@ public class ArrayExamplesTest {
 
     }
 
-    @Test
-    public void test05_Q16() {
-        int[] a = { 1, 2, 3, 4 };
-        int[] b = { 2, 3, 1, 0 };
-        System.out.println( a [ (a = b)[3] ] );
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void test05_Q57() {
-        int ia[][] = { {1, 2}, null };
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                System.out.println(ia[i][j]);
-    }
 }
