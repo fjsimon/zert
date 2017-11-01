@@ -2,6 +2,10 @@ package com.oca.exam.inheritance;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 public class InheritanceTest {
 
     @Test
@@ -34,7 +38,6 @@ public class InheritanceTest {
         Soccer s = (Soccer) g;
         s.play();
     }
-
 
 }
 
@@ -142,4 +145,22 @@ class ClassBQ55 extends ClassA_Q55 {
         super(x);
         this.j = y;
     }
+}
+
+class CorbaComponent{
+    String ior;
+    CorbaComponent(){ startUp("IOR"); }
+    void startUp(String s){ ior  =  s; }
+    void print(){ System.out.println(ior); }
+}
+
+class OrderManager extends CorbaComponent{
+    OrderManager(){  }
+    void startUp(String s){  ior = getIORFromURL(s);   }
+    String getIORFromURL(String s){  return "URL://"+s; }
+}
+
+class Application{
+    public static void main(String args[]){ start(new OrderManager()); }
+    static void start(CorbaComponent cc){ cc.print(); }
 }

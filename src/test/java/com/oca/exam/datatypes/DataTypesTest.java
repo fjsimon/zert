@@ -118,6 +118,15 @@ class InitTest {
         bool = (si > 5);
         i = 1000;
     }
+
+    @Test
+    public void test06_Q59() {
+        assertThat(Boolean.parseBoolean(" true "), is(false));
+        assertThat(Boolean.parseBoolean("true"), is(true));
+        assertThat(Boolean.valueOf(true), is(true));
+        assertThat(Boolean.valueOf("trUE"), is(true));
+        assertThat(Boolean.TRUE, is(true));
+    }
 }
 
  class AccessTest{

@@ -1,14 +1,29 @@
 package com.oca.exam;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.UnsupportedTemporalTypeException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class Test06 {
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     public LocalDate process(LocalDate ld) {
 
@@ -59,6 +74,92 @@ public class Test06 {
             System.out.println("false");
         }
     }
+
+    @Test(expected = ExceptionInInitializerError.class)
+    public void q16() {
+
+        AX ax = new AX();
+    }
+
+    @Test
+    public void q23() {
+
+        char c = 320;
+        float f = 320;
+        double d = 320;
+        //byte b = 320;
+        float v = 22.0f/7.0f;
+    }
+
+    @Test
+    public void q24(){
+
+        java.time.LocalDate dt = java.time.LocalDate.parse("2015-01-01").minusMonths(1).minusDays(1).plusYears(1);
+        System.out.println(dt);
+    }
+
+    void crazyLoop(){
+        int c = 0;
+        JACK: while (c < 8){
+            JILL: System.out.println(c);
+            if (c > 3) break JACK; else c++;
+        }
+    }
+
+    @Test
+    public void q25() {
+
+        crazyLoop();
+    }
+
+    @Test
+    public void q27() {
+
+        String[] args = {};
+        Truck.main(args);
+    }
+
+    @Test(expected = UnsupportedTemporalTypeException.class)
+    public void q28() {
+
+        System.out.println(LocalDate.of(2015, Month.JANUARY, 01)
+                .format(DateTimeFormatter.ISO_DATE_TIME));
+    }
+
+    @Test
+    public void q29() {
+
+        String[] args = {};
+        TestQ29.main(args);
+    }
+}
+
+class TestQ29{
+    public static void main(String[] args){
+        int j = 1;
+        try{
+            int i = doIt() / (j = 2);
+        } catch (Exception e){
+            System.out.println(" j = " + j);
+        }
+    }
+    public static int doIt() throws Exception {  throw new Exception("FORGET IT");  }
+}
+
+class Automobile{
+    public void drive() {  System.out.println("Automobile: drive");   }
+}
+
+class Truck extends Automobile{
+    public void drive() {  System.out.println("Truck: drive");   }
+    public static void main (String args [ ]){
+        Automobile  a = new Automobile();
+        Truck t  = new Truck();
+        a.drive(); //1
+        t.drive(); //2
+        a = t;     //3
+        a.drive(); //4
+    }
 }
 
 /**
@@ -100,5 +201,53 @@ class TestClassQ10 {
     public static String method() {
         changeIt(str);
         return str;
+    }
+}
+
+class AX{
+    static int[] x = new int[0];
+    static{
+        x[0] = 10;
+    }
+}
+
+class SomeThrowable extends Throwable { }
+class MyThrowable extends SomeThrowable { }
+class TestClassQ17{
+    public static void main(String args[]) throws SomeThrowable{
+        try{
+            m1();
+        }catch(SomeThrowable e){
+            throw e;
+        }finally{
+            System.out.println("Done");
+        }
+    }
+    public static void m1() throws MyThrowable{
+        throw new MyThrowable();
+    }
+}
+
+class Wrapper{
+    int w = 10;
+}
+
+class TestQ18{
+
+    static Wrapper changeWrapper(Wrapper w){
+        w = new Wrapper();
+        w.w += 9;
+        return w;
+    }
+
+
+    public static void main(String[] args){
+        Wrapper w = new Wrapper();
+        w.w = 20;
+        changeWrapper(w);
+        w.w += 30;
+        System.out.println(w.w);
+        w = changeWrapper(w);
+        System.out.println(w.w);
     }
 }
