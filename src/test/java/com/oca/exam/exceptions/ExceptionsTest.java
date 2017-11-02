@@ -116,49 +116,6 @@ public class ExceptionsTest {
         assertThat(String.format("%s%n%s%n", "MyException thrown", " Done"), CoreMatchers.is(outputStream.toString()));
     }
 
-    static int val() throws Exception {
-        throw new Exception("unimplemented");
-    }
-
-    @Test
-    public void test04_Q37() {
-
-        int[][] a = {{00, 01}, {10, 11}};
-        int i = 99;
-        try {
-            a[val()][i = 1]++;
-        } catch (Exception e) {
-            System.out.println(i + ", " + a[1][1]);
-        }
-
-        assertThat(String.format("%s,%s%n", "99", " 11"), CoreMatchers.is(outputStream.toString()));
-    }
-
-    private void finallyMethod(String[] args) {
-        try {
-            if (args.length == 0) return;
-            else throw new Exception("Some Exception");
-        } catch (Exception e) {
-            System.out.println("Exception in Main");
-        } finally {
-            System.out.println("The end");
-        }
-    }
-
-    @Test
-    public void test04_Q60() {
-
-        String[] args = {};
-        finallyMethod(args);
-        assertThat(String.format("%s%n", "The end"), is(outputStream.toString()));
-        outputStream.reset();
-
-        String[] withArgs = {"args"};
-        finallyMethod(withArgs);
-        assertThat(String.format("%s%n%s%n", "Exception in Main", "The end"), is(outputStream.toString()));
-    }
-
-
 }
 
 //class PortConnector {

@@ -1,5 +1,6 @@
 package com.oca.exam;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -218,6 +219,15 @@ public class Test05 {
     }
 
     @Test
+    public void test06_Q59() {
+        assertThat(Boolean.parseBoolean(" true "), CoreMatchers.is(false));
+        assertThat(Boolean.parseBoolean("true"), CoreMatchers.is(true));
+        assertThat(Boolean.valueOf(true), CoreMatchers.is(true));
+        assertThat(Boolean.valueOf("trUE"), CoreMatchers.is(true));
+        assertThat(Boolean.TRUE, CoreMatchers.is(true));
+    }
+
+    @Test
     public void test06_Q64() {
 
         int x = 1____3;   //1
@@ -225,6 +235,7 @@ public class Test05 {
         float z = 3.234_567f; //3
         System.out.println(x+" "+y+" "+z);
     }
+
     @Test
     public void test06_Q66() {
 

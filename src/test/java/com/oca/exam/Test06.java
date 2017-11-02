@@ -240,7 +240,6 @@ class TestQ18{
         return w;
     }
 
-
     public static void main(String[] args){
         Wrapper w = new Wrapper();
         w.w = 20;

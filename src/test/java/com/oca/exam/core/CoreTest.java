@@ -202,60 +202,6 @@ public class CoreTest {
         assertThat("Hello, "+sb, is("Hello, How are you?"));
 
     }
-
-    @Test
-    public void test04_Q12() {
-
-        int INT1 = 0;
-        int INT2 = 5;
-
-        for(int i=INT1; i<INT2; i++){ System.out.println(i); }
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4),
-                CoreMatchers.is(outputStream.toString()));
-        outputStream.reset();
-
-        for(int i=INT1; i<INT2; System.out.println(++i));
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-                CoreMatchers.is(outputStream.toString()));
-        outputStream.reset();
-
-        for(int i=INT1; i++<INT2; System.out.println(i));
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-                CoreMatchers.is(outputStream.toString()));
-        outputStream.reset();
-
-        int i=INT1; while(i++<INT2) { System.out.println(i); }
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-                CoreMatchers.is(outputStream.toString()));
-        outputStream.reset();
-
-        i=INT1; do { System.out.println(i); }while(i++<INT2);
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4, 5),
-                CoreMatchers.is(outputStream.toString()));
-        outputStream.reset();
-
-    }
-
-    static void replaceString(String s) {
-        s = s.replace('j', 'l');
-    }
-    static void replaceStringBuilder(StringBuilder s) {
-        s.append("c");
-    }
-
-    @Test
-    public void test04_Q68() {
-
-        String s1 = new String("java");
-        StringBuilder s2 = new StringBuilder("java");
-        replaceString(s1);
-        replaceStringBuilder(s2);
-        System.out.println(s1 + s2);
-
-        assertThat(String.format("%s%n", "javajavac"),
-                CoreMatchers.is(outputStream.toString()));
-    }
-
 }
 
 class ClassA {
