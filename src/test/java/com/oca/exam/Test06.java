@@ -132,6 +132,69 @@ public class Test06 {
         String[] args = {};
         TestQ29.main(args);
     }
+
+    @Test
+    public void q41() {
+
+        boolean b1 = false;
+        boolean b2  = false;
+        if (b2 = b1 == false){
+            System.out.println("true");
+        } else{
+            System.out.println("false");
+        }
+    }
+
+    @Test
+    public void q42() {
+
+        String s = "blooper";
+        StringBuilder sb = new StringBuilder(s);
+        String substring = s.substring(4);
+        System.out.println(substring);
+        sb.append(substring).delete(3, 5);
+        System.out.println(sb);
+    }
+
+    @Test
+    public void q45() {
+
+        int a = 1 + 2 + 3 * 4;
+        int b = 2 * 3 + 4;
+        int total = a + b;
+        System.out.println(total);
+        assertThat(total, is(25));
+    }
+
+    @Test
+    public void q46() {
+
+        int i;
+        int j;
+        for (i = 0, j = 0 ; j < 1 ; ++j , i++){
+            System.out.println( i + " " + j );
+        }
+        System.out.println( i + " " + j );
+    }
+
+    @Test
+    public void q47() {
+
+        String blank  = " ";  // one space
+        String line = blank + "hello" + blank + blank;
+        line.concat("world");
+        String newLine  =  line.trim();
+        System.out.println((int)(line.length() + newLine.length()));
+    }
+
+    @Test
+    public void q48() {
+
+        TestQ48 testQ48 = new TestQ48();
+        String[] args = {};
+        testQ48.main(args);
+    }
+
 }
 
 class TestQ29{
@@ -248,5 +311,37 @@ class TestQ18{
         System.out.println(w.w);
         w = changeWrapper(w);
         System.out.println(w.w);
+    }
+}
+
+ class TestQ48 {
+
+    static String s = "";
+
+    public static void m0(int a, int b) {
+        s += a;
+        m2();
+        m1(b);
+    }
+
+    public static void m1(int i) {
+        s += i;
+    }
+
+    public static void m2() {
+        throw new NullPointerException("aa");
+    }
+
+    public static void m() {
+        m0(1, 2);
+        m1(3);
+    }
+
+    public static void main(String args[]) {
+        try {
+            m();
+        } catch (Exception e) {
+        }
+        System.out.println(s);
     }
 }
