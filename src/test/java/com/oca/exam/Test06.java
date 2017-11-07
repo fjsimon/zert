@@ -10,6 +10,9 @@ import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.UnsupportedTemporalTypeException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -60,7 +63,7 @@ public class Test06 {
     @Test
     public void q10() {
 
-        assertThat(TestClassQ10.method(), is("Hello World"));
+        assertThat(T06Q10.method(), is("Hello World"));
     }
 
     @Test
@@ -130,7 +133,50 @@ public class Test06 {
     public void q29() {
 
         String[] args = {};
-        TestQ29.main(args);
+        T06Q29.main(args);
+    }
+
+    @Test
+    public void q32() {
+
+        Integer a = 1, b = 2;
+        Double c = 1.0, d = 2.0;
+        Short e = 1;
+
+        assertThat(c.equals(c), is(true));
+        assertThat(c == c, is(true));
+
+        assertThat(a.equals(e), is(false));
+
+    }
+
+    @Test
+    public void q35() {
+
+        List s1 = new ArrayList();
+        s1.add("a");
+        s1.add("b");
+        s1.add("c");
+        s1.add("a");
+        if (s1.remove("a")) {
+            if (s1.remove("a")) {
+                s1.remove("b");
+            } else {
+                s1.remove("c");
+            }
+        }
+        System.out.println(s1);
+    }
+
+    @Test
+    public void q38() {
+
+        char cA[][] = new char[3][];
+        for (int i=0; i<cA.length; i++)
+            cA[i] = new char[4];
+
+        System.out.println(cA[2][3]);
+        assertThat(cA[2][3], is('\u0000'));
     }
 
     @Test
@@ -190,14 +236,28 @@ public class Test06 {
     @Test
     public void q48() {
 
-        TestQ48 testQ48 = new TestQ48();
+        T06Q48 testQ48 = new T06Q48();
         String[] args = {};
         testQ48.main(args);
     }
 
+    @Test
+    public void q57() {
+
+        String a = "java";
+        char[] b = { 'j', 'a', 'v', 'a' };
+        String c = new String(b);
+        String d = a;
+
+        assertThat((a == d), is(true));
+        assertThat((a == "java"), is(true));
+        assertThat((a.equals(c)), is(true));
+    }
+
 }
 
-class TestQ29{
+class T06Q29 {
+
     public static void main(String[] args){
         int j = 1;
         try{
@@ -206,7 +266,20 @@ class TestQ29{
             System.out.println(" j = " + j);
         }
     }
-    public static int doIt() throws Exception {  throw new Exception("FORGET IT");  }
+
+    public static int doIt() throws Exception {
+        throw new Exception("FORGET IT");
+    }
+}
+
+class T06Q32 {
+
+    public static void main(String args[]) {
+        int i = 0;
+        for (i = 1; i < 5; i++) continue;  //(1)
+        for (i = 0; ; i++) break;       //(2)
+        for (; i < 5 ? false : true; ) ;     //(3)
+    }
 }
 
 class Automobile{
@@ -253,7 +326,7 @@ final class BigBang extends Bang {
     int m;
 }
 
-class TestClassQ10 {
+class T06Q10 {
 
     static String str = "Hello World";
 
@@ -276,7 +349,7 @@ class AX{
 
 class SomeThrowable extends Throwable { }
 class MyThrowable extends SomeThrowable { }
-class TestClassQ17{
+class T06Q17{
     public static void main(String args[]) throws SomeThrowable{
         try{
             m1();
@@ -295,7 +368,7 @@ class Wrapper{
     int w = 10;
 }
 
-class TestQ18{
+class T06Q18{
 
     static Wrapper changeWrapper(Wrapper w){
         w = new Wrapper();
@@ -314,7 +387,7 @@ class TestQ18{
     }
 }
 
- class TestQ48 {
+class T06Q48 {
 
     static String s = "";
 
@@ -343,5 +416,50 @@ class TestQ18{
         } catch (Exception e) {
         }
         System.out.println(s);
+    }
+}
+
+interface Pow{
+    static void wow(){
+        System.out.println("In Pow.wow");
+    }
+}
+
+abstract class Wow{
+    static void wow(){
+        System.out.println("In Wow.wow");
+    }
+}
+
+class T06Q52 extends Wow implements Pow {
+    public static void main(String[] args) {
+        T06Q52 f = new T06Q52();
+        f.wow();
+    }
+}
+
+class Data {
+    int value;
+
+    Data(int value) {
+        this.value = value;
+    }
+
+    public String toString() {
+        return "" + value;
+    }
+
+    public static void main(String[] args) {
+        Data[] dataArr = new Data[]{new Data(1), new Data(2), new Data(3), new Data(4)};
+
+        List<Data> dataList = Arrays.asList(dataArr); //1
+
+        for (Data element : dataList) {
+            dataList.removeIf((Data d) -> {
+                return d.value % 2 == 0;
+            });  //2
+
+//            System.out.println("Removed "+d+", "); //3 Compiled error
+        }
     }
 }
