@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -254,6 +255,86 @@ public class Test06 {
         assertThat((a.equals(c)), is(true));
     }
 
+    @Test
+    public void q60() {
+
+        String[] dataList = {"x", "y", "z"};
+        for (String dataElement : dataList) {
+            int innerCounter = 0;
+            while (innerCounter < dataList.length) {
+                System.out.println(dataElement + ", " + innerCounter);
+                innerCounter++;
+            }
+        }
+    }
+
+    @Test
+    public void q61() {
+
+        Integer i1 = 1;
+        Integer i2 = new Integer(1);
+        int i3 = 1;
+        Byte b1 = 1;
+        Long g1 = 1L;
+
+        assertThat(i1 == i2, is(false));
+        assertThat(i1 == i3, is(true));
+        assertThat(i1.equals(i2), is(true));
+        assertThat(i1.equals(g1), is(false));
+        assertThat(i1.equals(b1), is(false));
+
+
+    }
+
+    public String getDateString(LocalDateTime ldt){
+        return DateTimeFormatter.ISO_ZONED_DATE_TIME.format(ldt);
+    }
+
+    @Test(expected = UnsupportedTemporalTypeException.class)
+    public void q63() {
+
+        getDateString(LocalDateTime.now());
+    }
+
+    @Test
+    public void q66() {
+
+        StringBuilder sb1 = new StringBuilder(100);
+        assertThat(sb1.capacity(), is(100));
+
+        StringBuilder sb2 = new StringBuilder();
+        sb2.ensureCapacity(100);
+        assertThat(sb2.capacity(), is(100));
+    }
+
+    @Test
+    public void q67() {
+
+        int a = 5, b = 7, k1 = 0, k2 = 0, k3 = 0;
+        Integer m = null;
+
+        k1 = new Integer(a) + new Integer(b);  //1
+        k2 = new Integer(a) + b; //2
+        k3 = a + new Integer(b); //3
+        m = new Integer(a) + new Integer(b); //4
+
+        assertThat(k1, is(12));
+        assertThat(k2, is(12));
+        assertThat(k3, is(12));
+        assertThat(m, is(12));
+
+    }
+
+    @Test
+    public void q68() {
+
+        LocalDateTime dt = LocalDateTime.parse("2015-01-02T17:13:50");
+
+        assertThat(dt.format(java.time.format.DateTimeFormatter.ISO_DATE_TIME), is("2015-01-02T17:13:50"));
+
+        assertThat(dt.toString(), is("2015-01-02T17:13:50"));
+
+    }
 }
 
 class T06Q29 {
