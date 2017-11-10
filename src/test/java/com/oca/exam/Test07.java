@@ -1,10 +1,22 @@
 package com.oca.exam;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
+
 import java.util.ArrayList;
 
 public class Test07 {
 
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     public void processList(ArrayList<DataHolder> dataList, Process p){
         for(DataHolder d: dataList){
@@ -52,6 +64,16 @@ public class Test07 {
         for (int i = 10; i > 0; i--) System.out.print(i + " ");  //2
         int i = 20;                  //3
         System.out.print(i + " ");   //4
+    }
+
+    @Test
+    public void q11() {
+
+        if (true)
+            if (false)
+                System.out.println("True False");
+            else
+                System.out.println("True True");
     }
 }
 
@@ -109,6 +131,7 @@ class BaseClassQ09{
         System.out.println("BaseClass : "+s);
     }
 }
+
 class SubClassQ09 extends BaseClassQ09{
 
     public void print(String s){
