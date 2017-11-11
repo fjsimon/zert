@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Test07 {
 
@@ -75,6 +76,54 @@ public class Test07 {
             else
                 System.out.println("True True");
     }
+
+    @Test
+    public void q16() {
+
+//        int condition = 2;
+//        Byte condition = 1;
+        Integer condition = new Integer("1");
+        switch( condition ){
+            case 1  : System.out.println("1");   break;
+            case 2  : System.out.println("2");   break;
+            case 3 : System.out.println("3");  break;
+        }
+
+    }
+
+    @Test
+    public void q17() {
+
+        String[][][] arr  ={{ { "a", "b" , "c"}, { "d", "e", null } },{ {"x"}, null },{{"y"}},{ { "z","p"}, {} }};
+        System.out.println(arr[0][1][2]);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void q18() {
+
+        int value = Integer.parseInt(null);
+    }
+
+    public void printUsefulData(ArrayList<Data> dataList, Predicate<Data> p){
+        for(Data d: dataList){
+            if(p.test(d)) System.out.println(d.value);
+        }
+    }
+
+    @Test
+    public void q19() {
+
+        ArrayList<Data> al = new ArrayList<Data>();
+        al.add(new Data(1));
+        al.add(new Data(2));
+        al.add(new Data(3));
+
+        printUsefulData(al, d-> d.value>2 );
+
+        printUsefulData(al, (Data d)-> { return d.value>2; }  );
+
+    }
+
 }
 
 
