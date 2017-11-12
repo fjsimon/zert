@@ -124,6 +124,42 @@ public class Test07 {
 
     }
 
+    @Test
+    public void q22() {
+
+        try {
+            RuntimeException re = null;
+            throw re;
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void q24() {
+
+        ArrayList<String> al = new ArrayList<>();
+        al.add("111");
+        al.add("222");
+        System.out.println(al.get(al.size()));
+    }
+
+    @Test
+    public void q26() {
+
+        Object t = new Integer(106);
+        int k = ((Integer) t).intValue()/10;
+        System.out.println(k); // int
+
+        System.out.println(100/9.9); // double
+
+        System.out.println(100/10.0); // double
+
+        System.out.println(100/10); // int
+
+        System.out.println(3 + 100 / 10 * 2 - 13); // int => 3 + ((100 / 10) * 2) - 13
+    }
+
 }
 
 
@@ -191,5 +227,50 @@ class SubClassQ09 extends BaseClassQ09{
     public static void main(String args[]){
         SubClassQ09 sc = new SubClassQ09();
         sc.print("location");
+    }
+}
+
+class NewException extends Exception {}
+class AnotherException extends Exception {}
+class T07Q23 {
+
+    public static void main(String[] args) throws Exception {
+        try {
+            m2();
+        } finally {
+            m3();
+        }
+    }
+
+    public static void m2() throws NewException {
+        throw new NewException();
+    }
+
+    public static void m3() throws AnotherException {
+        throw new AnotherException();
+    }
+}
+
+class T07Q28 {
+    public static void main(String args[]) {
+        try {
+            m1();
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("1");
+            throw new NullPointerException();
+        } catch (NullPointerException e) {
+            System.out.println("2");
+            return;
+        } catch (Exception e) {
+            System.out.println("3");
+        } finally {
+            System.out.println("4");
+        }
+        System.out.println("END");
+    }
+
+    static void m1() {
+        System.out.println("m1 Starts");
+        throw new IndexOutOfBoundsException("Big Bang ");
     }
 }
