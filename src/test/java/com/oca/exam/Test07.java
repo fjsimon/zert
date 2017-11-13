@@ -288,11 +288,11 @@ class T06Q02 {
     }
 }
 
-class T06Q04 {
+class T07Q04 {
 
     static String url = "jdbc://derby://localhost:1527//mydb";
 
-    static T06Q04 getDatabase() {
+    static T07Q04 getDatabase() {
         System.out.println("Getting DB");
         return null;
     }
