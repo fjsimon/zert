@@ -80,6 +80,52 @@ public class EasyTest01 {
         bool = (bool1 || method1("4"));  //4
     }
 
+    @Test
+    public void q23() {
+
+        StringBuilder sb = new StringBuilder("12345678");
+        sb.setLength(5);
+        sb.setLength(10);
+        System.out.println(sb.length());
+    }
+
+    @Test
+    public void q25() {
+
+        int i;
+        int j;
+        for (i = 0, j = 0; j < i; ++j, i++){
+            System.out.println(i + " " + j);
+        }
+        System.out.println(i + " " + j);
+    }
+
+    @Test
+    public void q27() {
+
+        String s = "blooper";
+        StringBuilder sb = new StringBuilder(s);
+//        s.append("whopper"); // It will not compile
+        sb.append("shopper");
+
+        System.out.println(s);
+        System.out.println(sb);
+    }
+
+    public static void printSum(double a, double b){
+        System.out.println("In double "+(a+b));
+    }
+    public static void printSum(float a, float b){
+        System.out.println("In float "+(a+b));
+    }
+
+    @Test
+    public void q30() {
+
+        printSum(1.0, 2.0);
+        printSum(1,2);
+    }
+
 }
 
 
