@@ -1,8 +1,26 @@
 package com.oca.exam;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 public class ToughTest {
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
+
+    @After
+    public void after() {
+        System.out.printf("End %s %n%n", name.getMethodName());
+    }
 
     @Test
     public void q01() {
@@ -49,16 +67,59 @@ public class ToughTest {
 
     @Test
     public void q06() {
-        int var = 20, i=0;
-        do{
-            while(true){
-                if( i++ > var) break;
+        int var = 20, i = 0;
+        do {
+            while (true) {
+                if (i++ > var) break;
                 System.out.printf("i = %s, var = %s%n", i, var);
             }
             System.out.printf("i = %s, var = %s%n", i, var);
-        }while(i<var--);
+        } while (i < var--);
 
         System.out.println(var);
     }
 
+    static void start(CorbaComponent cc) {
+        cc.print();
+    }
+
+    @Test
+    public void q11() {
+
+        start(new OrderManager());
+    }
+
+}
+
+class CorbaComponent {
+    String ior;
+
+    CorbaComponent() {
+        System.out.println("CorbaComponent constructor");
+        startUp("IOR");
+    }
+
+    void startUp(String s) {
+        System.out.println("CorbaComponent startUp");
+        ior = s;
+    }
+
+    void print() {
+        System.out.println(ior);
+    }
+}
+
+class OrderManager extends CorbaComponent {
+    OrderManager() {
+        System.out.println("OrderManager constructor");
+    }
+
+    void startUp(String s) {
+        System.out.println("OrderManager startUp");
+        ior = getIORFromURL(s);
+    }
+
+    String getIORFromURL(String s) {
+        return "URL://" + s;
+    }
 }
