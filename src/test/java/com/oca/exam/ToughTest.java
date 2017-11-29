@@ -89,6 +89,15 @@ public class ToughTest {
         start(new OrderManager());
     }
 
+    @Test()
+    public void q16() {
+
+        int i = 0 ;
+        int[] iA = {10, 20} ;
+        iA[i] = i = 30 ;
+        System.out.println(""+ iA[ 0 ] + " " + iA[ 1 ] + "  "+i) ;
+    }
+
 }
 
 class CorbaComponent {
@@ -111,15 +120,18 @@ class CorbaComponent {
 
 class OrderManager extends CorbaComponent {
     OrderManager() {
+
         System.out.println("OrderManager constructor");
     }
 
     void startUp(String s) {
+
         System.out.println("OrderManager startUp");
         ior = getIORFromURL(s);
     }
 
     String getIORFromURL(String s) {
+
         return "URL://" + s;
     }
 }
