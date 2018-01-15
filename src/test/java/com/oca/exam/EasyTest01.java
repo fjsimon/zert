@@ -1,12 +1,33 @@
 package com.oca.exam;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class EasyTest01 {
 
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
+
+    @Test
+    public void q02() {
+
+        String string = new String("123456789");
+        string.charAt('1');
+
+        char ch = "12345".charAt(3);
+        System.out.println(ch);
+    }
 
     @Test(expected = NullPointerException.class)
     public void q04() {
