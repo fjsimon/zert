@@ -92,3 +92,58 @@ class Application{
     public static void main(String args[]){ start(new OrderManager()); }
     static void start(CorbaComponent cc){ cc.print(); }
 }
+
+class MyCarStation{
+
+
+    public static void main(String... args){
+
+        FourWheel fourWheel = new FourWheel();
+        Car car = fourWheel;
+
+        System.out.println(fourWheel.getSize());
+        System.out.println(car.getSize());
+
+        System.out.println(getInfo(fourWheel));
+        System.out.println(getInfo(car));
+
+        System.out.println(fourWheel.getPrice());
+        System.out.println(car.getPrice());
+
+        System.out.println(FourWheel.getSize());
+        System.out.println(Car.getSize());
+    }
+
+    private static String getInfo(FourWheel fourWheel){
+
+        return "fourWheel";
+    }
+
+    private static String getInfo(Car car){
+
+        return "car";
+    }
+}
+
+class Car {
+
+    public static String getSize(){
+        return "small";
+    }
+
+    public int getPrice(){
+        return 100;
+    }
+
+}
+
+class FourWheel extends Car {
+
+    public static String getSize(){
+        return "big";
+    }
+
+    public int getPrice(){
+        return 200;
+    }
+}

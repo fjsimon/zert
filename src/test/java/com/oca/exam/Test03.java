@@ -28,37 +28,27 @@ public class Test03 {
         int INT2 = 5;
 
         for (int i = INT1; i < INT2; i++) {
-            System.out.println(i);
+            System.out.printf("%s \t", i); // 0 1 2 3 4
         }
-//        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4),
-//                CoreMatchers.is(outputStream.toString()));
-//        outputStream.reset();
+        System.out.println();
 
-        for (int i = INT1; i < INT2; System.out.println(++i)) ;
-//        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-//                CoreMatchers.is(outputStream.toString()));
-//        outputStream.reset();
+        for (int i = INT1; i < INT2; System.out.printf("%s \t", ++i)); // 1, 2, 3, 4, 5
+        System.out.println();
 
-        for (int i = INT1; i++ < INT2; System.out.println(i)) ;
-//        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-//                CoreMatchers.is(outputStream.toString()));
-//        outputStream.reset();
+        for (int i = INT1; i++ < INT2; System.out.printf("%s \t", i)) ; // 1, 2, 3, 4, 5
+        System.out.println();
 
         int i = INT1;
         while (i++ < INT2) {
-            System.out.println(i);
+            System.out.printf("%s \t", i); // 1, 2, 3, 4, 5
         }
-//        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n", 1, 2, 3, 4, 5),
-//                CoreMatchers.is(outputStream.toString()));
-//        outputStream.reset();
+        System.out.println();
 
         i = INT1;
         do {
-            System.out.println(i);
+            System.out.printf("%s \t", i); // 0, 1, 2, 3, 4, 5
         } while (i++ < INT2);
-//        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n", 0, 1, 2, 3, 4, 5),
-//                CoreMatchers.is(outputStream.toString()));
-//        outputStream.reset();
+        System.out.println();
     }
 
     class Game {
@@ -388,5 +378,40 @@ class InitTest {
     private static String sM1(String s) {
         System.out.println(s);
         return s;
+    }
+}
+class LoopTest{
+    public static void main(String args[]) {
+        int counter = 0;
+        outer:
+        for (int i = 0; i < 3; i++) {
+            middle:
+            for (int j = 0; j < 3; j++) {
+                inner:
+                for (int k = 0; k < 3; k++) {
+                    if (k - j > 0) {
+                        System.out.printf("i %s j %s k %s%n", i, j, k);
+                        break middle;
+                    }
+                    counter++;
+                }
+            }
+        }
+        System.out.println(counter);
+    }
+}
+
+class TestClassQ29{
+    void probe(int... x) { System.out.println("In ..."); }  //1
+
+    void probe(Integer x) { System.out.println("In Integer"); } //2
+
+    void probe(long x) { System.out.println("In long"); } //3
+
+    void probe(Long x) { System.out.println("In LONG"); } //4
+
+    public static void main(String[] args){
+        Integer a = 4; new TestClassQ29().probe(a); //5
+        int b = 4; new TestClassQ29().probe(b); //6
     }
 }
