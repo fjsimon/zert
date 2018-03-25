@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class ExceptionsTest {
@@ -17,28 +16,6 @@ public class ExceptionsTest {
     @Before
     public void setup() {
         System.setOut(new PrintStream(outputStream));
-    }
-
-    public float parseFloat(String s) {
-        float f = 0.0f;
-        try {
-            f = Float.valueOf(s).floatValue();
-            return f;
-        } catch (NumberFormatException nfe) {
-            System.out.println("Invalid input " + s);
-            f = Float.NaN;
-            return f;
-        } finally {
-            System.out.println("finally");
-        }
-
-    }
-
-    @Test
-    public void test03_Q04() {
-
-        assertThat(parseFloat("1"), is(1.0F));
-        assertThat(String.format("finally%n"), CoreMatchers.is(outputStream.toString()));
     }
 
     @Test

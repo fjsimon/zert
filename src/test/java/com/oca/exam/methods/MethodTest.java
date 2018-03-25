@@ -12,27 +12,7 @@ import static org.junit.Assert.assertThat;
 
 public class MethodTest {
 
-    public static void printSum(int a, int b) {
-        System.out.println("In int " + (a + b));
-    }
 
-    public static void printSum(Integer a, Integer b) {
-        System.out.println("In Integer " + (a + b));
-    }
-
-    public static void printSum(double a, double b) {
-        System.out.println("In double " + (a + b));
-    }
-
-    @Test
-    public void test03_Q06() {
-
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        printSum(1, 2);
-        assertThat("In int 3\n", is(outputStream.toString()));
-    }
 
     public static void processStacks(Stack x1, Stack x2) {
 

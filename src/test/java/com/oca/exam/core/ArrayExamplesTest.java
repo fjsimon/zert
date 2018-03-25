@@ -130,15 +130,4 @@ public class ArrayExamplesTest {
         }
     }
 
-    @Test
-    public void test03_Q07() {
-        int i = 4;
-        int ia[][][] = new int[i][i = 3][i];
-        System.out.println( ia.length + ", " + ia[0].length+", "+ ia[0][0].length);
-        assertThat(ia.length, is(4));
-        assertThat(ia[0].length, is(3));
-        assertThat(ia[0][0].length, is(3));
-
-    }
-
 }

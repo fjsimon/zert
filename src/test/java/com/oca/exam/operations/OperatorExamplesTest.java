@@ -114,24 +114,6 @@ public class OperatorExamplesTest {
 
         new JustLooping().showJ();
     }
-
-    @Test
-    public void test03_Q22() {
-        Object obj1 = new Object();
-        Object obj2 = obj1;
-        if (obj1.equals(obj2)) System.out.println("true");
-        else System.out.println("false");
-    }
-
-    @Test
-    public void test03_Q70() {
-        int sum = 0;
-        for (int i = 0, j = 10; sum > 20; ++i, --j)      // 1
-        {
-            sum = sum + i + j;
-        }
-        System.out.println("Sum = " + sum);
-    }
 }
 
 class ChangeTestQ29 {
