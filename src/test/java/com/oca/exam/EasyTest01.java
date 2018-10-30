@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class EasyTest01 {
 
@@ -19,14 +21,14 @@ public class EasyTest01 {
         System.out.printf("Running %s:%n", name.getMethodName());
     }
 
-    @Test
+    @Test(expected = StringIndexOutOfBoundsException.class)
     public void q02() {
-
-        String string = new String("123456789");
-        string.charAt('1');
 
         char ch = "12345".charAt(3);
         System.out.println(ch);
+
+        String string = new String("123456789");
+        string.charAt('1');
     }
 
     @Test(expected = NullPointerException.class)
@@ -96,9 +98,13 @@ public class EasyTest01 {
         boolean bool2 = false;
         boolean bool = false;
         bool = (bool2 & method1("1"));  //1 call method1
+        assertFalse(bool);
         bool = (bool2 && method1("2"));  //2
+        assertFalse(bool);
         bool = (bool1 | method1("3"));  //3 call method1
+        assertTrue(bool);
         bool = (bool1 || method1("4"));  //4
+        assertTrue(bool);
     }
 
     @Test
