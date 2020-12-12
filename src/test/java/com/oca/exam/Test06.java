@@ -38,7 +38,7 @@ public class Test06 {
     @Test
     public void q04() {
         LocalDate now = LocalDate.now();
-        assertThat(process(now).getMonthValue(), is(now.getMonthValue() + 1));
+        assertThat(process(now).getMonthValue(), is((now.getMonthValue() + 1) % 12));
         assertThat(process(now).getDayOfMonth(), is(now.getDayOfMonth() + 1));
     }
 
