@@ -1,5 +1,7 @@
 package com.oca.exam.core;
 
+import org.junit.Test;
+
 import java.util.Calendar;
 import java.util.Formatter;
 import java.util.GregorianCalendar;
@@ -7,9 +9,10 @@ import java.util.Locale;
 
 import static java.util.Calendar.MAY;
 
-public class FormatterExamples {
+public class FormatterTest {
 
-    private static void formatter() {
+    @Test
+    public void formatterTest() {
 
         StringBuilder sb = new StringBuilder();
         // Send all output to the Appendable object sb
@@ -37,11 +40,5 @@ public class FormatterExamples {
         String s = String.format("Duke's Birthday: %1$tm %1$te,%1$tY", c);
         // -> s == "Duke's Birthday: May 23, 1995"
         System.out.println(s);
-    }
-
-    public static void main(String...args) {
-
-        formatter();
-
     }
 }
