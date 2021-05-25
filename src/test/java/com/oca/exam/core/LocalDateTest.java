@@ -28,43 +28,6 @@ public class LocalDateTest {
     }
 
     @Test
-    public void localTimeTest() {
-
-        /* LocalTime */
-        LocalTime specificTime = LocalTime.of(21, 16, 59);
-        System.out.printf("Specific time[21:16:59]: hour[%d], minute[%d], second[%d]%n",
-                specificTime.getHour(),
-                specificTime.getMinute(),
-                specificTime.getSecond());
-
-        LocalTime nowTime = LocalTime.now();
-        System.out.printf("Now time: hour[%d], minute[%d], second[%d]%n",
-                nowTime.get(ChronoField.HOUR_OF_DAY),
-                nowTime.get(ChronoField.MINUTE_OF_HOUR),
-                nowTime.get(ChronoField.SECOND_OF_MINUTE));
-    }
-
-    @Test
-    public void localDateTimeTest() {
-
-        LocalDate specificDate = LocalDate.of(2016, 2, 15);
-        LocalTime specificTime = LocalTime.of(21, 16, 59);
-
-        /* LocalDateTime */
-        System.out.printf("Parsing specific date[2015-02-24]: %s %n", LocalDate.parse("2015-02-24"));
-        System.out.printf("Parsing specific time[23:54:08]: %s %n", LocalTime.parse("23:54:08"));
-
-        LocalDateTime nowDateTime = LocalDateTime.now();
-        System.out.printf("Now date/time: %s %n", nowDateTime);
-
-        LocalDateTime specificDateTime = LocalDateTime.of(1940, Month.JANUARY, 20, 0, 0, 1);
-        System.out.printf("Specific date/time 1: %s %n", specificDateTime);
-        System.out.printf("Specific date/time 2: %s %n", LocalDateTime.of(specificDate, specificTime));
-        System.out.printf("Specific date/time 3: %s %n", specificDate.atTime(specificTime));
-        System.out.printf("Specific date/time 4: %s %n", specificTime.atDate(specificDate));
-    }
-
-    @Test
     public void instantTest() {
 
         /* Instant */
