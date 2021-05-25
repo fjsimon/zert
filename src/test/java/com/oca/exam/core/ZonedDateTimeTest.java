@@ -65,4 +65,22 @@ public class ZonedDateTimeTest {
         System.out.printf("Duration (hours) between Paris and New York time zone %s %n",
                 Duration.between(parisDateTime, nyDateTime).toHours());
     }
+
+    @Test
+    public void timeZonesTest() {
+
+        LocalDateTime nowDateTime = LocalDateTime.now();
+
+        ZoneId montrealZone = ZoneId.of("America/Montreal");
+        ZonedDateTime montrealZonedDateTime = ZonedDateTime.of(nowDateTime, montrealZone);
+        System.out.printf("Montreal-zoned now date/time: %s %n", montrealZonedDateTime);
+
+        ZoneId moscowZone = ZoneId.of("Europe/Moscow");
+        ZonedDateTime moscowZonedDateTime = montrealZonedDateTime.withZoneSameInstant(moscowZone);
+        System.out.printf("Moscow-zoned now date/time: %s %n", moscowZonedDateTime);
+
+        // Typically the amount is zero during winter and one hour during summer.
+        System.out.printf("Current daylight savings offset for [%s]: %s %n",
+                moscowZone, moscowZone.getRules().getDaylightSavings(Instant.now()));
+    }
 }
