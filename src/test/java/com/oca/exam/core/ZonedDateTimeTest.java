@@ -1,20 +1,23 @@
 package com.oca.exam.core;
 
+import org.junit.Test;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public class ZonedDateTimeExamples {
+public class ZonedDateTimeTest {
 
+    @Test
+    public void zonedDateTimeTest() {
 
-    public static ZonedDateTime getZonedDateTime(String zone) {
-        ZoneId zoneId = ZoneId.of(zone);
+        ZoneId zoneId = ZoneId.of("America/New_York");
         LocalDateTime localDateAndTime = LocalDateTime.now();
         ZonedDateTime dateAndTimeInNewYork = ZonedDateTime.of(localDateAndTime, zoneId);
-        return dateAndTimeInNewYork;
+        System.out.printf("Zoned Date Time New York %s %n", dateAndTimeInNewYork);
     }
 
-    public static Duration getDifferentTimeZoneExample1(){
+    @Test
+    public void differentTimeZoneAsiaTest(){
 
         DateTimeFormatter format = DateTimeFormatter.ofPattern("HHmm, dd MMM yyyy");
 
@@ -32,12 +35,13 @@ public class ZonedDateTimeExamples {
         System.out.println("\n---Detail---");
         System.out.println("Depart : " + klDateTime);
         System.out.println("Arrive : " + japanDateTime);
-
-        return Duration.between(klDateTime, japanDateTime);
+        System.out.printf("Duration (hours) between Kuala_Lumpur and Tokyo zone %s %n",
+                Duration.between(klDateTime, japanDateTime).toHours());
     }
 
+    @Test
+    public void differentTimeZoneEuropeTest() {
 
-    public static Duration getDifferentTimeZoneExample2(){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("HHmm, dd MMM yyyy");
 
         //Convert String to LocalDateTime
@@ -58,21 +62,7 @@ public class ZonedDateTimeExamples {
         System.out.println("\n---Detail---");
         System.out.println("Depart : " + parisDateTime);
         System.out.println("Arrive : " + nyDateTime);
-        System.out.println("\n");
-
-        return Duration.between(parisDateTime, nyDateTime);
-    }
-
-    public static void main(String...args) {
-
-        ZonedDateTime dateAndTimeInNewYork = ZonedDateTimeExamples.getZonedDateTime("America/New_York");
-        System.out.printf("Zoned Date Time New York %s %n", dateAndTimeInNewYork);
-
-        Duration duration1 = getDifferentTimeZoneExample1();
-        System.out.printf("Duration (hours) between Kuala_Lumpur and Tokyo zone %s %n", duration1.toHours());
-        System.out.println("\n");
-
-        Duration duration2 = getDifferentTimeZoneExample2();
-        System.out.printf("Duration (hours) between Paris and New York time zone %s %n", duration2.toHours());
+        System.out.printf("Duration (hours) between Paris and New York time zone %s %n",
+                Duration.between(parisDateTime, nyDateTime).toHours());
     }
 }

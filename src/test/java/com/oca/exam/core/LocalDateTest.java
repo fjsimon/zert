@@ -74,6 +74,9 @@ public class LocalDateTest {
         Instant nowInstant = Instant.now();
         System.out.printf("%s seconds since the Unix epoch time to now %n",
                 nowInstant.getEpochSecond());
+        System.out.printf("%s instant string %n",
+                nowInstant.toString());
+
     }
 
     @Test
