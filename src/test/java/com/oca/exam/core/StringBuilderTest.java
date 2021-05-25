@@ -1,44 +1,58 @@
 package com.oca.exam.core;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 
-public class StringBuilderExamples {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
+public class StringBuilderTest {
 
-    public static StringBuilder getStringBuilderAppend(){
+    @Test
+    public void stringBuilderAppendTest(){
 
         StringBuilder sb = new StringBuilder("Hello ");
         sb.append("World");
-        return sb;
+
+        assertThat(sb.toString(), is("Hello World"));
     }
 
-    public static StringBuilder getStringBuilderAppendIter() {
+    @Test
+    public void stringBuilderAppendIterTest() {
 
-        StringBuilder alpha = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for(char current = 'a'; current <= 'z'; current++) {
-            alpha.append(current);
+            sb.append(current);
         }
 
-        return alpha;
+        assertThat(sb.toString(), is("abcdefghijklmnopqrstuvwxyz"));
     }
 
-    public static List<StringBuilder> getStringBuilderAppendChaining() {
+    @Test
+    public void stringBuilderChainTest() {
 
         StringBuilder a = new StringBuilder("abc");
         StringBuilder b = a.append("de");
         b.append("f").append("g");
-        return Arrays.asList(a,b);
+        List<StringBuilder> stringBuilderAppendChaining = Arrays.asList(a, b);
+
+        assertThat(stringBuilderAppendChaining.get(0).toString(), is("abcdefg"));
+        assertThat(stringBuilderAppendChaining.get(1).toString(), is("abcdefg"));
     }
 
-    public static StringBuilder getStringBuilderInsert(){
+    @Test
+    public void stringBuilderInsertTest() {
 
         StringBuilder sb = new StringBuilder("Hello ");
         sb.insert(1, "World");
-        return sb;
+
+        assertThat(sb.toString(), is("HWorldello "));
     }
 
-    public static void printStringBuilderMethods() {
+    @Test
+    public void printStringBuilderMethodsTest() {
 
         StringBuilder sb = new StringBuilder("animals");
         String sub = sb.substring(sb.indexOf("a"), sb.indexOf("al"));
@@ -66,10 +80,10 @@ public class StringBuilderExamples {
         StringBuilder sbd4 = new StringBuilder("ABC");
         sbd4.reverse();
         System.out.printf("reverse %s%n", sbd4.toString());
-
     }
 
-    public static void printStringBuilderEquality() {
+    @Test
+    public void printStringBuilderEqualityTest() {
 
         StringBuilder one = new StringBuilder();
         StringBuilder two = new StringBuilder();
@@ -101,16 +115,19 @@ public class StringBuilderExamples {
         b.append(("!!!"));
     }
 
-    public static void printRoar() {
+    @Test
+    public void printRoarTest() {
 
         String s = "roar";
-        System.out.println("************************");
-        StringBuilder st = new StringBuilder("roar");
-        roar(s, st);
-        System.out.println(s + " " + st);
+        StringBuilder sb = new StringBuilder("roar");
+        roar(s, sb);
+
+        assertThat(s, is("roar"));
+        assertThat(sb.toString(), is("roar!!!"));
     }
 
-    public static void c3e12() {
+    @Test
+    public void c3e12() {
 
         System.out.println("************************");
         StringBuilder numbers = new StringBuilder("0123456789");
@@ -119,7 +136,8 @@ public class StringBuilderExamples {
         System.out.println(numbers);
     }
 
-    public static void c3e14() {
+    @Test
+    public void c3e14() {
 
         StringBuilder puzzle1 = new StringBuilder("Java");
         System.out.println("************************");
@@ -131,22 +149,4 @@ public class StringBuilderExamples {
         System.out.printf("puzzle2.append(\"vaJ$\").delete(0,3).deleteCharAt(puzzle2.length() - 1) = %s%n",
                 puzzle2.append("vaJ$").delete(0,3).deleteCharAt(puzzle2.length() - 1));
     }
-
-    public static void main(String...args) {
-
-        List<StringBuilder> stringBuilderAppendChaining = getStringBuilderAppendChaining();
-        System.out.printf("%s%n", stringBuilderAppendChaining.get(0).toString());
-        System.out.printf("%s%n", stringBuilderAppendChaining.get(1).toString());
-        System.out.printf("%s%n", getStringBuilderAppend().toString());
-        System.out.printf("%s%n", getStringBuilderAppendIter().toString());
-        System.out.printf("%s%n", getStringBuilderInsert().toString());
-
-        printStringBuilderMethods();
-        printStringBuilderEquality();
-        printRoar();
-        c3e12();
-        c3e14();
-    }
-
-
 }
