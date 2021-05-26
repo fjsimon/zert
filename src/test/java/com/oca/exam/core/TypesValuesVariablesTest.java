@@ -1,29 +1,31 @@
 package com.oca.exam.core;
 
+import org.junit.Test;
+
 /**
 
  Primitive Types and Values
  PrimitiveType:
-    {Annotation} NumericType
-    {Annotation} boolean
+ {Annotation} NumericType
+ {Annotation} boolean
 
  NumericType:
-    IntegralType
-    FloatingPointType
+ IntegralType
+ FloatingPointType
 
  IntegralType:
-    (one of)
-    byte short int long char
+ (one of)
+ byte short int long char
 
  FloatingPointType:
-    (one of)
-    float double
+ (one of)
+ float double
 
  */
-public class TypesValuesVariablesExamples {
+public class TypesValuesVariablesTest {
 
-
-    public static void integerOperation() {
+    @Test
+    public void integerOperationTest() {
         int i = 1000000;
         System.out.println(i * i);
         long l = i;
@@ -31,7 +33,8 @@ public class TypesValuesVariablesExamples {
 //        System.out.println(20296 / (l - i)); // ArithmeticException in the division by l - i (0).
     }
 
-    public static void floatingPointOperation() {
+    @Test
+    public void floatingPointOperationTest() {
 
         // An example of overflow:
         double d = 1e308;
@@ -72,12 +75,5 @@ public class TypesValuesVariablesExamples {
         System.out.print("cast to int rounds toward 0: ");
         d = 12345.6;
         System.out.println((int)d + " " + (int)(-d));
-    }
-
-
-    public static void main(String...args) {
-
-        integerOperation();
-        floatingPointOperation();
     }
 }
