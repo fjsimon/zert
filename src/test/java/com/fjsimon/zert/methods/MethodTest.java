@@ -6,9 +6,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Stack;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MethodTest {
 
@@ -111,8 +111,8 @@ public class MethodTest {
         A a = new A();
         AA aa = new AA();
         a = aa;
-        assertThat(a.getClass().toString(), is("class com.oca.exam.methods.MethodTest$AA"));
-        assertThat(aa.getClass().toString(), is("class com.oca.exam.methods.MethodTest$AA"));
+        assertThat(a.getClass().toString(), is("class com.fjsimon.zert.methods.MethodTest$AA"));
+        assertThat(aa.getClass().toString(), is("class com.fjsimon.zert.methods.MethodTest$AA"));
     }
 
     class Base3 {
