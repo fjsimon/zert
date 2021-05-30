@@ -118,12 +118,12 @@ public class StringBuilderTest {
     @Test
     public void printRoarTest() {
 
-        String s = "roar";
-        StringBuilder sb = new StringBuilder("roar");
-        roar(s, sb);
+        String string = "roar";
+        StringBuilder stringBuilder = new StringBuilder("roar");
+        roar(string, stringBuilder);
 
-        assertThat(s, is("roar"));
-        assertThat(sb.toString(), is("roar!!!"));
+        assertThat(string, is("roar"));
+        assertThat(stringBuilder.toString(), is("roar!!!"));
     }
 
     @Test

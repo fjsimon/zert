@@ -9,6 +9,23 @@ class OtherString{ static String hello = "Hello"; }
 
 public class StringTest {
 
+
+    public static void op(String st) {
+
+        System.out.printf("st = %s%n", st);
+        st += " world!!!";
+        System.out.printf("st = %s%n", st);
+    }
+
+    @Test
+    public void stringTest() {
+        String string = "hola";
+        op(string);
+        System.out.printf("string = %s%n", string);
+
+        assertThat(string, is("hola"));
+    }
+
     @Test
     public void compareStringTest() {
 
