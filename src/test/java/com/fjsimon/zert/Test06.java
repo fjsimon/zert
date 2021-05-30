@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class Test06 {
 
@@ -31,7 +32,7 @@ public class Test06 {
 
     public LocalDate process(LocalDate ld) {
 
-        LocalDate ld2 = ld.plus(Period.of(0, 1, 1));
+        LocalDate ld2 = ld.plus(Period.of(0, 0, 31));
         return ld2;
     }
 
@@ -39,7 +40,7 @@ public class Test06 {
     public void q04() {
         LocalDate now = LocalDate.now();
         assertThat(process(now).getMonthValue(), is((now.getMonthValue() + 1) % 12));
-        assertThat(process(now).getDayOfMonth(), is(now.getDayOfMonth() + 1));
+        assertThat(process(now).getDayOfMonth(), is(now.getDayOfMonth()));
     }
 
     public void loopTest(int x) {
