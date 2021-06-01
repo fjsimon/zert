@@ -5,10 +5,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.UnsupportedTemporalTypeException;
 import java.util.ArrayList;
@@ -31,8 +28,9 @@ public class Test06 {
     }
 
     public LocalDate process(LocalDate ld) {
-
-        LocalDate ld2 = ld.plus(Period.of(0, 0, 31));
+        // Get the number of days in that month
+        YearMonth yearMonthObject = YearMonth.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue());
+        LocalDate ld2 = ld.plus(Period.of(0, 0, yearMonthObject.lengthOfMonth()));
         return ld2;
     }
 
