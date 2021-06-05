@@ -1,6 +1,9 @@
 package com.fjsimon.zert.exceptions;
 
-public class JVMErrors {
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class JVMErrorsTest {
 
     public static class X {
         int k = 0;
@@ -10,22 +13,27 @@ public class JVMErrors {
         }
     }
 
-    public static void stackOverflowError(int k) {
-        try {
-            stackOverflowError(k++);
-        }catch (StackOverflowError e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String...args) {
+    @Test
+    public void arithmeticExceptionTest() {
 
         try {
             X x = new X();
         } catch (ArithmeticException e) {
             e.printStackTrace();
         }
+    }
 
-        stackOverflowError(1);
+    private void overflow(int k) {
+        overflow(k++);
+    }
+
+    @Ignore
+    @Test
+    public void stackOverflowError() {
+        try {
+            overflow(1);
+        }catch (StackOverflowError e){
+            e.printStackTrace();
+        }
     }
 }
