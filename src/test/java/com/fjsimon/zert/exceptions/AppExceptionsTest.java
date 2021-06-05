@@ -1,17 +1,18 @@
 package com.fjsimon.zert.exceptions;
 
+import org.junit.Test;
 
 import java.util.Optional;
 
-public class AppExceptions {
-
+public class AppExceptionsTest {
 
     public static void processData(byte[] data, int datatype) {
         if(datatype != 1 || datatype != 2)
             throw new IllegalArgumentException();
     }
 
-    public static void illegalArgumentException() {
+    @Test
+    public void illegalArgumentException() {
         try {
             processData(new byte[3], 3);
         } catch (IllegalArgumentException e){
@@ -27,7 +28,8 @@ public class AppExceptions {
         }
     }
 
-    public static void illegalStateException() {
+    @Test
+    public void illegalStateException() {
 
         try {
             of(null);
@@ -36,17 +38,12 @@ public class AppExceptions {
         }
     }
 
-    public static void numberFormatException(){
+    @Test
+    public void numberFormatException(){
         try {
             Integer.parseInt("asf");
         }catch (NumberFormatException e){
             e.printStackTrace();
         }
-    }
-    public static void main(String...args){
-
-        illegalArgumentException();
-        illegalStateException();
-        numberFormatException();
     }
 }
