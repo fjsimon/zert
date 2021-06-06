@@ -1,9 +1,11 @@
 package com.fjsimon.zert.exceptions;
 
-public class JVMExceptions {
+import org.junit.Test;
 
+public class JVMExceptionsTest {
 
-    public static void arrayIndexOutOfBoundsException() {
+    @Test
+    public void arrayIndexOutOfBoundsException() {
 
         try {
             int[] ia = new int[]{ 1, 2, 3}; // ia is of length 3.
@@ -13,7 +15,8 @@ public class JVMExceptions {
         }
     }
 
-    public static void classCastException(){
+    @Test
+    public void classCastException(){
 
         try {
             Object s = "asdf";
@@ -23,7 +26,8 @@ public class JVMExceptions {
         }
     }
 
-    public static void nullPointerException() {
+    @Test
+    public void nullPointerException() {
 
         try {
             String s = null;
@@ -33,19 +37,12 @@ public class JVMExceptions {
         }
     }
 
-    public static void arithmeticException() {
+    @Test
+    public void arithmeticException() {
         try {
             int k = 10/0;
         }catch(ArithmeticException e){
             e.printStackTrace();
         }
-    }
-
-    public static void main(String...args){
-
-        arrayIndexOutOfBoundsException();
-        classCastException();
-        nullPointerException();
-        arithmeticException();
     }
 }
