@@ -18,11 +18,13 @@ public class OutOfMemoryTest {
         List l = new ArrayList<>();
 
         Key(Integer id) {
+
             this.id = id;
         }
 
         @Override
         public int hashCode() {
+
             return id.hashCode();
         }
     }
