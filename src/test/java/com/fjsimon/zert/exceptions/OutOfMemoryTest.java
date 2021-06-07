@@ -1,9 +1,15 @@
 package com.fjsimon.zert.exceptions;
 
-import java.math.BigInteger;
-import java.util.*;
+import org.junit.Ignore;
+import org.junit.Test;
 
-class OutOfMemory {
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class OutOfMemoryTest {
 
     static class Key {
         Integer id;
@@ -21,7 +27,10 @@ class OutOfMemory {
         }
     }
 
-    public static void main(String[] args) {
+    @Ignore
+    @Test
+    public void outOfMemoryTest() {
+
         Map m = new HashMap();
         while (true) {
             for (int i = 0; i < 1000; i++) {
