@@ -4,28 +4,114 @@ package com.fjsimon.zert.extra.features.collection.operations;
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
 
 public class CalculationsExampleTest {
 
     @Test
-    public void futuramaCharactersTest(){
+    public void getFuturamaCharacters() {
 
-        CalculationsExample ex = new CalculationsExample();
-        List<FuturamaCharacter> characters = ex.getFuturamaCharacters();
-        assertThat(characters, is(not(nullValue())));
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
 
-        assertThat(ex.getCount(characters), is(3L));
-        assertThat(ex.getMinAge(characters).getAsInt(), is(5));
-        assertThat(ex.getMaxAge(characters).getAsInt(), is(126));
-        assertThat(ex.getAverageAge(characters).getAsDouble(), is(51.0));
-        assertThat(ex.getTotal(characters), is(153));
-
+        System.out.println("Futurama characters:");
+        characters.forEach(System.out::println); // c -> System.out.println(c)
     }
+
+    @Test
+    public void getCount() {
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
+
+        long count = characters
+                .stream()
+                .count();
+        System.out.println("\nCharacters count: " + count);
+
+        assertThat(count, is(3L));
+    }
+
+    @Test
+    public void getMinAge() {
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
+
+        OptionalInt minAge = characters
+                .stream()
+                .mapToInt(FuturamaCharacter::getAge) // c -> c.getAge()
+                .min();
+        System.out.println("Characters min age: "
+                + (minAge.isPresent() ? minAge.getAsInt() : "Not available"));
+
+        assertThat(minAge.getAsInt(), is(5));
+    }
+
+    @Test
+    public void getMaxAge() {
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
+
+        OptionalInt maxAge = characters
+                .stream()
+                .mapToInt(FuturamaCharacter::getAge)
+                .max();
+        System.out.println("Characters max age: "
+                + (maxAge.isPresent() ? maxAge.getAsInt() : "Not available"));
+
+        assertThat(maxAge.getAsInt(), is(126));
+    }
+
+    @Test
+    public void getAverageAge() {
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
+
+        OptionalDouble averageAge = characters
+                .stream()
+                .mapToDouble(FuturamaCharacter::getAge)
+                .average();
+        System.out.println("Characters average age: "
+                + (averageAge.isPresent() ? averageAge.getAsDouble() : "Not available"));
+
+        assertThat(averageAge.getAsDouble(), is(51.0));
+    }
+
+    @Test
+    public void getTotal() {
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                new FuturamaCharacter("Bender", "Rodriguez", 5),
+                new FuturamaCharacter("Philip", "Fry", 126),
+                new FuturamaCharacter("Turanga", "Leela", 22));
+
+        int sumAge = characters
+                .stream()
+                .mapToInt(FuturamaCharacter::getAge)
+                .sum();
+        System.out.println("Characters sum of ages: " + sumAge);
+
+        assertThat(sumAge, is(153));
+    }
+
 
 }
