@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
+import java.util.function.BiFunction;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -24,6 +25,30 @@ public class CalculationsExampleTest {
 
         System.out.println("Futurama characters:");
         characters.forEach(System.out::println); // c -> System.out.println(c)
+    }
+
+    @Test
+    public void forEachTest() {
+
+        BiFunction<String, String, FuturamaCharacter> bf = FuturamaCharacter::new;
+
+        List<FuturamaCharacter> characters = Arrays.asList(
+                bf.apply("Philip", "Fry"),
+                bf.apply("Bender", "Rodriguez"),
+                bf.apply("Turanga", "Leela"));
+
+        // Java 7
+        System.out.println("\nJava 7\n");
+        for (FuturamaCharacter character : characters) {
+            character.print();
+        }
+
+        // Java 8
+        System.out.println("\nJava 8\n");
+        characters.forEach(FuturamaCharacter::print);
+
+        System.out.println("\nJava 8 uppercase\n");
+        characters.forEach(c -> System.out.println(c.getFirstName().toUpperCase() + " " + c.getLastName().toUpperCase()));
     }
 
     @Test
