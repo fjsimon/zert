@@ -1,6 +1,7 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,15 +10,17 @@ import java.util.List;
 
 import static java.util.Comparator.comparing;
 
-public class SortCollectionWithLambdas {
+public class SortDataExampleTest {
 
-    public static void main(String... args) {
+    private static final List<FuturamaCharacter> characters = Arrays.asList(
+            new FuturamaCharacter("Bender", "Rodriguez", 5),
+            new FuturamaCharacter("Cubert", "Farnsworth", 12),
+            new FuturamaCharacter("Turanga", "Leela", 22),
+            new FuturamaCharacter("Hubert", "Farnsworth", 161));
 
-        List<FuturamaCharacter> characters = Arrays.asList(
-                new FuturamaCharacter("Bender", "Rodriguez", 5),
-                new FuturamaCharacter("Cubert", "Farnsworth", 12),
-                new FuturamaCharacter("Turanga", "Leela", 22),
-                new FuturamaCharacter("Hubert", "Farnsworth", 161));
+
+    @Test
+    public void sortTest() {
 
         System.out.println("Futurama characters:");
         characters.forEach(System.out::println);
@@ -39,6 +42,10 @@ public class SortCollectionWithLambdas {
                 c1.getFirstName().compareTo(c2.getFirstName());
         Collections.sort(characters, firstNameAscComparator);
         characters.forEach(System.out::println);
+    }
+
+    @Test
+    public void sortByTest() {
 
         System.out.println("\nSorted by age ASC (Java 8):");
         Collections.sort(characters, comparing(FuturamaCharacter::getAge));
