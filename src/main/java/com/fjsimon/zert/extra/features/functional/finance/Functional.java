@@ -16,7 +16,7 @@ public class Functional {
     public static void printStocksOverHundred() {
         System.out.println("Stocks priced over $100 are " +
                 Tickers.symbols.stream()
-                        .filter(symbol -> YahooFinance.getPrice(symbol).compareTo(HUNDRED) > 0)
+                        .filter(symbol -> YahooFinance.getPrice().compareTo(HUNDRED) > 0)
                         .sorted().collect(Collectors.joining(", ")));
     }
 

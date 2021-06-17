@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 public class StockUtil {
 
     public static StockInfo getPrice(final String ticker){
-        return new StockInfo(ticker, YahooFinance.getPrice(ticker));
+        return new StockInfo(ticker, YahooFinance.getPrice());
     }
 
     public static Predicate<StockInfo> isPriceLessThan(final int price){

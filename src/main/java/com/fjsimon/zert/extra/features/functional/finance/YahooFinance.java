@@ -1,11 +1,15 @@
 package com.fjsimon.zert.extra.features.functional.finance;
 
+import org.apache.commons.lang.math.RandomUtils;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.URL;
 
 public class YahooFinance {
+
+    @Deprecated
     public static BigDecimal getPrice(final String ticker){
         try {
             final URL url = new URL("http://ichart.finance.yahoo.com/table.csv?s=" + ticker);
@@ -16,5 +20,10 @@ public class YahooFinance {
         }catch(Exception ex){
             throw new RuntimeException(ex);
         }
+    }
+
+    public static BigDecimal getPrice(){
+
+        return new BigDecimal(RandomUtils.nextDouble() * 200);
     }
 }
