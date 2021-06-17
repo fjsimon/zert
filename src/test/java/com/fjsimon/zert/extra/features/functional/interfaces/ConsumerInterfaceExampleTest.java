@@ -1,33 +1,37 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
-
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
-
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
+import java.util.function.Consumer;
 
 public class ConsumerInterfaceExampleTest {
+
+    private static final List<FuturamaCharacter> characters = Arrays.asList(
+            new FuturamaCharacter("Bender", "Rodriguez"),
+            new FuturamaCharacter("Philip", "Fry"),
+            new FuturamaCharacter("Turanga", "Leela"));
+
+    public Consumer<FuturamaCharacter> getFullnameConsumer() {
+
+        Consumer<FuturamaCharacter> fullNameConsumer = c -> System.out.println(c.getFirstName() + " " + c.getLastName());
+        return fullNameConsumer;
+    }
 
     @Test
     public void futuramaCharactersTest() {
 
-        ConsumerInterfaceExample ex = new ConsumerInterfaceExample();
-        List<FuturamaCharacter> characters = ex.getFuturamaCharacters();
-        assertThat(characters, is(not(nullValue())));
 
         System.out.println("\nFull names:");
-        characters.forEach(ex.getFullnameConsumer());
+        characters.forEach(getFullnameConsumer());
 
         System.out.println("\nInverted full names:");
         characters.forEach(new InvertedFullNameConsumer());
 
         System.out.println("\nFull names after introducing the side effect:");
-        characters.forEach(ex.getFullnameConsumer());
+        characters.forEach(getFullnameConsumer());
 
     }
 }
