@@ -1,5 +1,7 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
+import org.junit.Test;
+
 import java.util.function.Supplier;
 
 public class SupplierInterfaceExample {
@@ -8,12 +10,15 @@ public class SupplierInterfaceExample {
         System.out.println(supplier.get().getGreeting());
     }
 
-    public static void main(String... args) {
+    @Test
+    public void supplierPrintTest() {
 
         Supplier<HelloWorld> supplier = HelloWorld::new;
         printGreeting(supplier);
+
         printGreeting(() -> new HelloWorld());
-        printGreeting(new CustomGreetingSupplier());
+
+        printGreeting(new SupplierGreeting());
     }
 
 }
