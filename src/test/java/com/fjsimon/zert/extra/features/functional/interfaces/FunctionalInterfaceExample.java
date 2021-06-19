@@ -1,6 +1,8 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
 
+import org.junit.Test;
+
 public class FunctionalInterfaceExample {
 
     public static void process(Hello h) {
@@ -8,7 +10,8 @@ public class FunctionalInterfaceExample {
         h.printGreeting();
     }
 
-    public static void main(String... args) {
+    @Test
+    public void functionalInterfaceTest() {
 
         Hello hw1 = () -> System.out.println("Hello World 1!");
 
