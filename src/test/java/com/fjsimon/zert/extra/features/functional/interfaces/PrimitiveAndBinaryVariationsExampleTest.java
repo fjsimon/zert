@@ -1,6 +1,7 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,27 +10,29 @@ import java.util.function.BiFunction;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntConsumer;
 
+public class PrimitiveAndBinaryVariationsExampleTest {
 
-public class PrimitiveAndBinaryVariationsExample {
 
-    public static void main(String... args) {
+    @Test
+    public void biConsumerTest() {
 
-        BiFunction<String, String, FuturamaCharacter> bf =
-                (firstName, lastName)
-                        -> new FuturamaCharacter(firstName, lastName);
+        BiFunction<String, String, FuturamaCharacter> bf = (firstName, lastName) -> new FuturamaCharacter(firstName, lastName);
 
         List<FuturamaCharacter> characters = Arrays.asList(
                 bf.apply("Bender", "Rodriguez"),
                 bf.apply("Philip", "Fry"),
                 bf.apply("Turanga", "Leela"));
 
-        BiConsumer<String, String> biConsumer =
-                (firstName, lastName)
-                        -> System.out.println(lastName.toUpperCase() + ", " + firstName);
+        BiConsumer<String, String> biConsumer = (firstName, lastName) -> System.out.println(lastName.toUpperCase() + ", " + firstName);
 
         for (FuturamaCharacter c : characters) {
             biConsumer.accept(c.getFirstName(), c.getLastName());
         }
+
+    }
+
+    @Test
+    public void intConsumerTest() {
 
         IntBinaryOperator intBinaryOperator = (s1, s2) -> s1 * s2;
         int side1 = 3, side2 = 8;
