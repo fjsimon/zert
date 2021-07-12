@@ -4,21 +4,33 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.IntStream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class FibonacciTest {
+
+    private Map<Integer, Integer> cache = new ConcurrentHashMap<>();
+
+    public int get(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        return cache.computeIfAbsent(n, key -> get(n - 2) + get(n - 1));
+    }
 
     @Test
     public void fibonacci(){
 
-        Fibonacci fibonacci = new Fibonacci();
-        System.out.print("\nFirst 10 Fibonacci numbers: ");
+        System.out.println("\nFirst 10 Fibonacci numbers: ");
 
         List<Integer> results = new ArrayList();
-        IntStream.range(0, 10).forEach(x -> results.add(fibonacci.get(x)));
+        IntStream.range(0, 10).forEach(x -> results.add(get(x)));
+        results.forEach(System.out::println);
 
         assertThat(results.get(0), is(0));
         assertThat(results.get(1), is(1));
