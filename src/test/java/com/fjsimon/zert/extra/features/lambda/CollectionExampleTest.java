@@ -2,30 +2,48 @@ package com.fjsimon.zert.extra.features.lambda;
 
 
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import com.fjsimon.zert.extra.features.common.Species;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 public class CollectionExampleTest {
+
+    private static final List<FuturamaCharacter> characters = new LinkedList<>(
+            Arrays.asList(
+                    new FuturamaCharacter("Bender", "Rodriguez", 5, Optional.of(Species.ROBOT)),
+                    new FuturamaCharacter("Philip", "Fry", 126, Optional.of(Species.HUMAN)),
+                    new FuturamaCharacter("Turanga", "Leela", 22, Optional.of(Species.MUTANT)),
+                    new FuturamaCharacter("Hubert", "Farnsworth", 161, Optional.of(Species.HUMAN))
+            )
+    );
 
     @Test
     public void collection(){
 
-        CollectionExample ex = new CollectionExample();
-        List<FuturamaCharacter> characters = ex.getFuturamaCharacters();
         assertThat(characters.size(), is(4));
 
         System.out.println("\nCharacters by species: ");
-        ex.getMap(characters).forEach((k, v) -> System.out.println(k + ": " + v));
-        assertThat(ex.getMap(characters).size(), is(3));
-
-        assertThat(ex.removeHumanCharacter(characters).size(), is(2));
-
-        assertThat(ex.getIntegerList().size(), is(7));
-        assertThat(ex.getIntegerList().contains(0), is(true));
-
+        getMapGroupBySpecies(characters).forEach((k, v) -> System.out.println(k + ": " + v));
+        assertThat(getMapGroupBySpecies(characters).size(), is(3));
+        assertThat(removeHumanCharacter(characters).size(), is(2));
     }
+
+    private Map<Species, List<FuturamaCharacter>> getMapGroupBySpecies(List<FuturamaCharacter> characters) {
+
+        return characters
+                .stream()
+                .collect(Collectors.groupingBy(c -> c.getSpeciesEnum().get()));
+    }
+
+    private List<FuturamaCharacter> removeHumanCharacter(List<FuturamaCharacter> characters) {
+
+        characters.removeIf(c -> !c.getSpecies().equals(Species.HUMAN.toString()));
+        return characters;
+    }
+
 }
