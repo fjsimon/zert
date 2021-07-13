@@ -36,7 +36,7 @@ public class FileExampleTest {
                 .filter(p -> p.toString().contains("FileExampleTest.java"))
                 .collect(Collectors.toList());
 
-        assertThat(paths.get(0).toString(), is("./src/test/java/com/fjsimon/zert/extra/features/lambda/FileExampleTest.java"));
+        assertThat(paths.get(0).toString().contains("zert/extra/features/lambda/FileExampleTest.java"), is(true));
 
         System.out.println("\nFile content: ");
         Files.lines(paths.get(0), Charset.defaultCharset())
