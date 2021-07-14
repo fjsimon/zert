@@ -4,7 +4,12 @@ import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
 
 import org.junit.Test;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -57,6 +62,42 @@ public class ExtractDataWithMapExampleTest {
         long count = Arrays.stream(words).count();
         System.out.printf("%nWords count: %d%n", count);
         assertThat(count, is(6L));
+    }
+
+    @Test
+    public void streamFlatMap() {
+
+        List<String> phrases = Arrays.asList(
+                "sporadic perjury",
+                "confounded skimming",
+                "incumbent jailer",
+                "confounded jailer");
+
+        List<String> uniqueWords = phrases
+                .stream()
+                .flatMap(phrase -> Stream.of(phrase.split(" +")))
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+
+        System.out.println("Unique words: " + uniqueWords);
+
+        assertThat(uniqueWords.size(), is(6));
+    }
+
+    @Test
+    public void lengthOfWordsMapTest() {
+
+        Map<Integer, String> lengthToWordsMap = new HashMap<>();
+        Consumer<String> action = w -> {
+            BiFunction<String, String, String> remappingFunction = (value, newValue) -> value + ", " + newValue;
+            lengthToWordsMap.merge(w.length(), w, remappingFunction);
+        };
+
+        Arrays.asList("confounded", "incumbent", "jailer", "perjury", "skimming", "sporadic").forEach(action);
+
+        lengthToWordsMap.forEach((key, value) -> System.out.printf("%nWords with length %d: %s", key, value));
+
     }
 
     @Test
