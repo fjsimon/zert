@@ -44,6 +44,21 @@ public class ExtractDataWithMapExampleTest {
 //        java.lang.IllegalStateException: stream has already been operated upon or closed
     }
 
+
+    @Test
+    public void getCountStringStream() {
+
+        String[] words = {"sporadic", "perjury", "confounded", "skimming", "incumbent", "jailer"};
+
+        Stream<String> stream = Stream.of(words);
+        System.out.println("Words in upper case: ");
+        stream.map(String::toUpperCase).forEach(System.out::println);
+
+        long count = Arrays.stream(words).count();
+        System.out.printf("%nWords count: %d%n", count);
+        assertThat(count, is(6L));
+    }
+
     @Test
     public void getIntStream() {
 
@@ -57,5 +72,16 @@ public class ExtractDataWithMapExampleTest {
 
 //        hashcodeStream.forEach(System.out::println);
 //        java.lang.IllegalStateException: stream has already been operated upon or closed
+    }
+
+    @Test
+    public void getSumStream() {
+
+        int startInclusive = 1;
+        int endExclusive = 100_000;
+        long sum = IntStream.range(startInclusive, endExclusive).sum();
+        System.out.printf("%nSum[%d, %d]: %d", startInclusive, endExclusive, sum);
+
+        assertThat(sum, is(704982704L));
     }
 }
