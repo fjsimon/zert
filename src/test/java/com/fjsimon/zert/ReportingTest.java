@@ -1,11 +1,16 @@
 package com.fjsimon.zert;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Reporting {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+public class ReportingTest {
 
     private static final List<String> MOVIES_TYPE = Arrays.asList("mp4", "avi", "wmv");
     private static final List<String> IMAGES_TYPE = Arrays.asList("jpg", "jpeg", "gif");
@@ -33,7 +38,8 @@ public class Reporting {
                 map.get("music"), map.get("movies"), map.get("images"), map.get("other"));
     }
 
-    public static void main(String ...args){
+    @Test
+    public void reporting() {
 
         String arg = "track01.mp3 100450b\n" +
                 "film01.avi 1005000b\n" +
@@ -43,6 +49,7 @@ public class Reporting {
                 "movie01.mp4 1767900b\n" +
                 "pic02.gif 2456b\n" +
                 "other.doc 3455b";
-        System.out.println(solution(arg));
+
+        assertThat(solution(arg), is("Music 207150b\nMovies 2772900b\nImages 3456b\nOther 3555b\n"));
     }
 }
