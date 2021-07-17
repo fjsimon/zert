@@ -1,13 +1,16 @@
 package com.fjsimon.zert.extra.features.lambda;
 
-public class RefactoringCodeExample {
+import org.junit.Test;
+
+public class RefactoringCodeTest {
 
     public static void process(Hello h) {
 
         h.printGreeting(2);
     }
 
-    public static void main(String... args) {
+    @Test
+    public void anonymousClassTest() {
 
         // anonymous class
         process(new Hello() {
@@ -18,6 +21,10 @@ public class RefactoringCodeExample {
                 }
             }
         });
+    }
+
+    @Test
+    public void lambdaExpressionTest() {
 
         // refactor to lambda expression
         process((int count) -> {
