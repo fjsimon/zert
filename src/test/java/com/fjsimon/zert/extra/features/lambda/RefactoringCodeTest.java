@@ -9,6 +9,11 @@ public class RefactoringCodeTest {
         h.printGreeting(2);
     }
 
+    abstract static class HelloWorld {
+
+        public abstract void printGreeting();
+    }
+
     @Test
     public void anonymousClassTest() {
 
@@ -32,5 +37,17 @@ public class RefactoringCodeTest {
                 System.out.println("LAMBDA: Hello World " + i);
             }
         });
+    }
+
+    @Test
+    public void anonymousClassExampleTest() {
+
+        HelloWorld helloWorld = new HelloWorld() {
+            @Override
+            public void printGreeting() {
+                System.out.println("ANONYMOUS: Hello World!");
+            }
+        };
+        helloWorld.printGreeting();
     }
 }
