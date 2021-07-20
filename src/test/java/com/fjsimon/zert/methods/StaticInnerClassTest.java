@@ -1,14 +1,16 @@
-package com.fjsimon.zert.extra.features.method.enhancements;
+package com.fjsimon.zert.methods;
 
 import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class StaticInnerClassExample {
+public class StaticInnerClassTest {
 
-    public static void main(String... args) {
+    @Test
+    public void staticInnerClassTest () {
 
         List<FuturamaCharacter> characters = Arrays.asList(
                 new FuturamaCharacter("Bender", "Rodriguez"),
@@ -21,6 +23,7 @@ public class StaticInnerClassExample {
                 comparator =
                 new FuturamaCharacter.FirstNameAscComparator();
         Collections.sort(characters, comparator);
+
         System.out.println("After sorting: " + characters);
     }
 }
