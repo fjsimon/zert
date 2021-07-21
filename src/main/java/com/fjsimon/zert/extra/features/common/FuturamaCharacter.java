@@ -107,6 +107,14 @@ public class FuturamaCharacter {
         }
     }
 
+    public static class FirstNameDescComparator implements Comparator<FuturamaCharacter> {
+
+        @Override
+        public int compare(FuturamaCharacter o1, FuturamaCharacter o2) {
+            return o2.getFirstName().compareTo(o1.getFirstName());
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
 

@@ -1,6 +1,8 @@
-package com.fjsimon.zert.extra.features.method.enhancements;
+package com.fjsimon.zert.methods;
 
-public class LocalMethodClassExample {
+import org.junit.Test;
+
+public class LocalMethodClassTest {
 
     private String greeting = "Hello World!";
 
@@ -16,7 +18,9 @@ public class LocalMethodClassExample {
         helloWorld.printGreeting();
     }
 
-    public static void main(String... args) {
-        new LocalMethodClassExample().printGreeting();
+    @Test
+    public void localMethodClassTest() {
+
+        new LocalMethodClassTest().printGreeting();
     }
 }

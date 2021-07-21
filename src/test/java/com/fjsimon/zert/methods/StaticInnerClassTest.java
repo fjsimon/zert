@@ -20,10 +20,17 @@ public class StaticInnerClassTest {
         System.out.println("Before sorting: " + characters);
 
         FuturamaCharacter.FirstNameAscComparator
-                comparator =
+                comparatorAsc =
                 new FuturamaCharacter.FirstNameAscComparator();
-        Collections.sort(characters, comparator);
+        Collections.sort(characters, comparatorAsc);
 
-        System.out.println("After sorting: " + characters);
+        System.out.println("After sorting (asc): " + characters);
+
+        FuturamaCharacter.FirstNameDescComparator
+                comparatorDesc =
+                new FuturamaCharacter.FirstNameDescComparator();
+        Collections.sort(characters, comparatorDesc);
+
+        System.out.println("After sorting (desc): " + characters);
     }
 }
