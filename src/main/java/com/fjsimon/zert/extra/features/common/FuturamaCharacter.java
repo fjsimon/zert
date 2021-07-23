@@ -91,7 +91,7 @@ public class FuturamaCharacter {
     @Override
     public String toString() {
 
-        return format("%s %s [%s]", firstName, lastName, species);
+        return format("%s %s [%s] (%d)", firstName, lastName, species, age);
     }
 
     public void print() {
