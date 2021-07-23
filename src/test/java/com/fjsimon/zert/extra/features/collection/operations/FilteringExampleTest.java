@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -42,6 +43,24 @@ public class FilteringExampleTest {
                 .filter(new MutantSpeciesPredicate())
                 .collect(toList()).size(), is(1));
 
+    }
+
+    @Test
+    public void streamFlatMap() {
+
+        String[][] data = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
+
+        Stream<String[]> temp = Arrays.stream(data);
+        //filter a stream of string[], and return a string[]?
+        Stream<String[]> stream = temp.filter(x -> "a".equals(x.toString()));
+        System.out.println("Filter :");
+        stream.forEach(System.out::println);
+
+        temp = Arrays.stream(data);
+        Stream<String> stringStream = temp.flatMap(x -> Arrays.stream(x));
+        Stream<String> flatStream = stringStream.filter(x -> "a".equals(x));
+        System.out.println("Filter flatMap :");
+        flatStream.forEach(System.out::println);
     }
 
     private class MutantSpeciesPredicate implements Predicate<FuturamaCharacter> {
