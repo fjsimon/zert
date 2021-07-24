@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 import static org.junit.Assert.fail;
 
 public class Test04 {
@@ -96,6 +97,22 @@ public class Test04 {
                 case 'E':
                     System.out.printf("%d %n", (int) i);
                     System.out.println("F");
+            }
+        }
+    }
+
+    @Test
+    public void loop_test() {
+
+        int a = 5;
+
+        loop:
+        for (int i = 1; i < 3; i++) {
+            for (int j = 1; j < 3; j++) {
+                if (a == 5) {
+                    break loop;
+                }
+                System.out.println(i * j);
             }
         }
     }
