@@ -27,41 +27,6 @@ public class OperatorExamples {
 
 
     /**
-     * +       Additive operator (also used for String concatenation)
-     * -       Subtraction operator
-     * *       Multiplication operator
-     * /       Division operator
-     * %       Remainder operator
-     */
-    public static int getArithmeticOperatorsOperation() {
-
-        int result = 1 + 2;
-        System.out.println("1 + 2 = " + result);
-        int original_result = result;
-
-        result = result - 1;
-        System.out.println(original_result + " - 1 = " + result);
-        original_result = result;
-
-        result = result * 2;
-        System.out.println(original_result + " * 2 = " + result);
-        original_result = result;
-
-        result = result / 2;
-        System.out.println(original_result + " / 2 = " + result);
-        original_result = result;
-
-        result = result + 8;
-        System.out.println(original_result + " + 8 = " + result);
-        original_result = result;
-
-        result = result % 7;
-        System.out.println(original_result + " % 7 = " + result);
-
-        return result;
-    }
-
-    /**
      * +       Unary plus operator; indicates positive value (numbers are positive without this, however)
      * -       Unary minus operator; negates an expression
      * ++      Increment operator; increments a value by 1

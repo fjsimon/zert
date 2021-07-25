@@ -4,15 +4,48 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class OperatorExamplesTest {
+
+
+    /**
+     * +       Additive operator (also used for String concatenation)
+     * -       Subtraction operator
+     * *       Multiplication operator
+     * /       Division operator
+     * %       Remainder operator
+     */
 
     @Test
     public void getArithmeticOperatorsOperation() {
 
-        assertThat(OperatorExamples.getArithmeticOperatorsOperation(), is(3));
+        int result = 1 + 2;
+        System.out.println("1 + 2 = " + result);
+        int original_result = result;
+
+        result = result - 1;
+        System.out.println(original_result + " - 1 = " + result);
+        original_result = result;
+
+        result = result * 2;
+        System.out.println(original_result + " * 2 = " + result);
+        original_result = result;
+
+        result = result / 2;
+        System.out.println(original_result + " / 2 = " + result);
+        original_result = result;
+
+        result = result + 8;
+        System.out.println(original_result + " + 8 = " + result);
+        original_result = result;
+
+        result = result % 7;
+        System.out.println(original_result + " % 7 = " + result);
+
+        assertThat(result, is(3));
     }
 
     @Test
