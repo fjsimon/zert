@@ -25,22 +25,6 @@ import java.util.Map;
  */
 public class OperatorExamples {
 
-    public static Map<String, Integer> getPrePostOperations() {
-
-        Map<String, Integer> map = new HashMap();
-        int i = 3;
-        map.put("0 i", i);
-        i++;
-        map.put("1 i", i);
-        ++i;
-        map.put("2 i", i);
-        map.put("3 i", i);
-        map.put("4 ++i", ++i);
-        map.put("5 i++", i++);
-        map.put("6 i", i);
-        return map;
-    }
-
     /**
      * ==      Equal to
      * !=      Not equal to

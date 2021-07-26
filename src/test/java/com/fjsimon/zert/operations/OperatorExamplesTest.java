@@ -2,6 +2,7 @@ package com.fjsimon.zert.operations;
 
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -80,14 +81,15 @@ public class OperatorExamplesTest {
     @Test
     public void getPrePostOperations() {
 
-        Map<String, Integer> map = OperatorExamples.getPrePostOperations();
-        assertThat(map.get("0 i"), is(3));
-        assertThat(map.get("1 i"), is(4));
-        assertThat(map.get("2 i"), is(5));
-        assertThat(map.get("3 i"), is(5));
-        assertThat(map.get("4 ++i"), is(6));
-        assertThat(map.get("5 i++"), is(6));
-        assertThat(map.get("6 i"), is(7));
+        int i = 3;
+        assertThat(i, is(3));
+        assertThat(i++, is(3));
+        assertThat(i, is(4));
+        assertThat(++i, is(5));
+        assertThat(i, is(5));
+        assertThat(++i, is(6));
+        assertThat(i++, is(6));
+        assertThat(i, is(7));
     }
 
     @Test
