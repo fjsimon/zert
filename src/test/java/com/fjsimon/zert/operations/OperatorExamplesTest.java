@@ -48,10 +48,33 @@ public class OperatorExamplesTest {
         assertThat(result, is(3));
     }
 
+    /**
+     * +       Unary plus operator; indicates positive value (numbers are positive without this, however)
+     * -       Unary minus operator; negates an expression
+     * ++      Increment operator; increments a value by 1
+     * --      Decrement operator; decrements a value by 1
+     * !       Logical complement operator; inverts the value of a boolean
+     */
     @Test
     public void getUnaryOperatorsOperation() {
 
-        assertThat(OperatorExamples.getUnaryOperatorsOperation(), is(-1));
+        int result = +1;
+        System.out.println(result);
+
+        result--;
+        System.out.println(result);
+
+        result++;
+        System.out.println(result);
+
+        result = -result;
+        System.out.println(result);
+
+        boolean success = false;
+        System.out.println(success);
+        System.out.println(!success);
+
+        assertThat(result, is(-1));
     }
 
     @Test

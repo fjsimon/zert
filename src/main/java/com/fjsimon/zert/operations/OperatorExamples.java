@@ -25,35 +25,6 @@ import java.util.Map;
  */
 public class OperatorExamples {
 
-
-    /**
-     * +       Unary plus operator; indicates positive value (numbers are positive without this, however)
-     * -       Unary minus operator; negates an expression
-     * ++      Increment operator; increments a value by 1
-     * --      Decrement operator; decrements a value by 1
-     * !       Logical complement operator; inverts the value of a boolean
-     */
-    public static int getUnaryOperatorsOperation() {
-
-        int result = +1;
-        System.out.println(result);
-
-        result--;
-        System.out.println(result);
-
-        result++;
-        System.out.println(result);
-
-        result = -result;
-        System.out.println(result);
-
-        boolean success = false;
-        System.out.println(success);
-        System.out.println(!success);
-
-        return result;
-    }
-
     public static Map<String, Integer> getPrePostOperations() {
 
         Map<String, Integer> map = new HashMap();
