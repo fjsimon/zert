@@ -132,12 +132,18 @@ public class OperatorExamplesTest {
         assertThat(value1 <= value2 , is(true));
     }
 
+    /**
+     * &&      Conditional-AND
+     * ||      Conditional-OR
+     */
     @Test
     public void getConditionalOperators() {
 
-        Map<String, Boolean> map = OperatorExamples.getConditionalOperators();
-        assertThat(map.get("value1 is 1 AND value2 is 2"), is(true));
-        assertThat(map.get("value1 is 1 OR value2 is 1"), is(true));
+        int value1 = 1;
+        int value2 = 2;
+
+        assertThat((value1 == 1) && (value2 == 2), is(true));
+        assertThat((value1 == 1) || (value2 == 1), is(true));
     }
 
     @Test

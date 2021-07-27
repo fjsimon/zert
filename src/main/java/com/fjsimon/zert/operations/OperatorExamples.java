@@ -7,21 +7,6 @@ import java.util.Map;
 public class OperatorExamples {
 
     /**
-     * &&      Conditional-AND
-     * ||      Conditional-OR
-     */
-    public static Map<String, Boolean> getConditionalOperators() {
-
-        int value1 = 1;
-        int value2 = 2;
-
-        Map<String, Boolean> map = new HashMap<>();
-        map.put("value1 is 1 AND value2 is 2", (value1 == 1) && (value2 == 2));
-        map.put("value1 is 1 OR value2 is 1", (value1 == 1) || (value2 == 1));
-        return map;
-    }
-
-    /**
      * ?:      Ternary (shorthand for if-then-else statement)
      */
     public static int getTernaryOperation() {
