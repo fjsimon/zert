@@ -3,49 +3,8 @@ package com.fjsimon.zert.operations;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * Operator Precedence
- * Operators	Precedence
- * postfix	expr++ expr--
- * unary	++expr --expr +expr -expr ~ !
- * multiplicative	* / %
- * additive	+ -
- * shift	<< >> >>>
- * relational	< > <= >= instanceof
- * equality	== !=
- * bitwise AND	&
- * bitwise exclusive OR	^
- * bitwise inclusive OR	|
- * logical AND	&&
- * logical OR	||
- * ternary	? :
- * assignment	= += -= *= /= %= &= ^= |= <<= >>= >>>=
- *
- */
+
 public class OperatorExamples {
-
-    /**
-     * ==      Equal to
-     * !=      Not equal to
-     * >       Greater than
-     * >=      Greater than or equal to
-     * <       Less than
-     * <=      Less than or equal to
-     */
-    public static Map<String, Boolean> getEqualityRelationalOperators() {
-
-        int value1 = 1;
-        int value2 = 2;
-
-        Map<String, Boolean> map = new HashMap<>();
-        map.put("value1 == value2", value1 == value2);
-        map.put("value1 != value2", value1 != value2);
-        map.put("value1 > value2", value1 > value2);
-        map.put("value1 < value2", value1 < value2);
-        map.put("value1 <= value2", value1 <= value2);
-        return map;
-    }
 
     /**
      * &&      Conditional-AND

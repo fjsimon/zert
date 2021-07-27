@@ -2,13 +2,32 @@ package com.fjsimon.zert.operations;
 
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
+/**
+ *
+ * Operator Precedence
+ * Operators	Precedence
+ * postfix	expr++ expr--
+ * unary	++expr --expr +expr -expr ~ !
+ * multiplicative	* / %
+ * additive	+ -
+ * shift	<< >> >>>
+ * relational	< > <= >= instanceof
+ * equality	== !=
+ * bitwise AND	&
+ * bitwise exclusive OR	^
+ * bitwise inclusive OR	|
+ * logical AND	&&
+ * logical OR	||
+ * ternary	? :
+ * assignment	= += -= *= /= %= &= ^= |= <<= >>= >>>=
+ *
+ */
 public class OperatorExamplesTest {
 
 
@@ -82,25 +101,35 @@ public class OperatorExamplesTest {
     public void getPrePostOperations() {
 
         int i = 3;
-        assertThat(i, is(3));
-        assertThat(i++, is(3));
-        assertThat(i, is(4));
-        assertThat(++i, is(5));
-        assertThat(i, is(5));
-        assertThat(++i, is(6));
-        assertThat(i++, is(6));
-        assertThat(i, is(7));
+        assertThat(i    , is(3));
+        assertThat(i++  , is(3));
+        assertThat(i    , is(4));
+        assertThat(++i  , is(5));
+        assertThat(i    , is(5));
+        assertThat(++i  , is(6));
+        assertThat(i++  , is(6));
+        assertThat(i    , is(7));
     }
 
+    /**
+     * ==      Equal to
+     * !=      Not equal to
+     * >       Greater than
+     * >=      Greater than or equal to
+     * <       Less than
+     * <=      Less than or equal to
+     */
     @Test
     public void getEqualityRelationalOperators() {
 
-        Map<String, Boolean> map = OperatorExamples.getEqualityRelationalOperators();
-        assertThat(map.get("value1 == value2"), is(false));
-        assertThat(map.get("value1 != value2"), is(true));
-        assertThat(map.get("value1 > value2"), is(false));
-        assertThat(map.get("value1 < value2"), is(true));
-        assertThat(map.get("value1 <= value2"), is(true));
+        int value1 = 1;
+        int value2 = 2;
+
+        assertThat(value1 == value2 , is(false));
+        assertThat(value1 != value2 , is(true));
+        assertThat(value1 > value2  , is(false));
+        assertThat(value1 < value2  , is(true));
+        assertThat(value1 <= value2 , is(true));
     }
 
     @Test
