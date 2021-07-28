@@ -146,10 +146,19 @@ public class OperatorExamplesTest {
         assertThat((value1 == 1) || (value2 == 1), is(true));
     }
 
+    /**
+     * ?:      Ternary (shorthand for if-then-else statement)
+     */
     @Test
     public void getTernaryOperation() {
 
-        assertThat(OperatorExamples.getTernaryOperation(), is(1));
+        int value1 = 1;
+        int value2 = 2;
+        int result;
+        boolean someCondition = true;
+        result = someCondition ? value1 : value2;
+
+        assertThat(result, is(1));
     }
 
     @Test

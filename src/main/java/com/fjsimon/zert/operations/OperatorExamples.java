@@ -7,19 +7,6 @@ import java.util.Map;
 public class OperatorExamples {
 
     /**
-     * ?:      Ternary (shorthand for if-then-else statement)
-     */
-    public static int getTernaryOperation() {
-
-        int value1 = 1;
-        int value2 = 2;
-        int result;
-        boolean someCondition = true;
-        result = someCondition ? value1 : value2;
-        return result;
-    }
-
-    /**
      * instanceof      Compares an object to a specified type
      */
     public static Map<String, Boolean> getTypeComparisonOperator() {
