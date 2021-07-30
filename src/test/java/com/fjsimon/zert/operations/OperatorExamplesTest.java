@@ -3,6 +3,7 @@ package com.fjsimon.zert.operations;
 import org.junit.Test;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -182,27 +183,49 @@ public class OperatorExamplesTest {
 
     }
 
+    /**
+     *  Bitwise and Bit Shift Operators
+     *  ~       Unary bitwise complement
+     *  <<      Signed left shift
+     *  >>      Signed right shift
+     *  >>>     Unsigned right shift
+     *  &       Bitwise AND
+     *  ^       Bitwise exclusive OR
+     *  |       Bitwise inclusive OR
+     */
+
     @Test
     public void getBitwiseBitShiftOperators() {
 
-        assertThat(OperatorExamples.getBitwiseBitShiftOperators(), is(2));
+        int bitmask = 0x000F;
+        int val = 0x2222;
+        // prints "2"
+
+        assertThat(val & bitmask, is(2));
     }
 
     @Test
     public void getBitShiftOperators() {
 
-        Map<String, Byte> map = OperatorExamples.getBitShiftOperators();
-        assertThat(map.get("initial byte value"), is((byte) 2));
-        assertThat(map.get("~byte"), is((byte) -3));
-        assertThat(map.get("a bitwise AND b"), is((byte) 0));
-        assertThat(map.get("a bitwise OR b"), is((byte) 6));
-        assertThat(map.get("a XOR b"), is((byte) 6));
+        byte n = 2; //0010
+        byte a = 2; //0010
+        byte b = 4; //0100
+
+        assertThat(n, is((byte) 2));
+        assertThat((byte) ~n, is((byte) -3));
+        assertThat((byte) (a&b), is((byte) 0));
+        assertThat((byte) (a|b), is((byte) 6));
+        assertThat((byte) (a^b), is((byte) 6));
     }
 
     @Test
     public void getBooleanStringTest() {
 
-        assertThat(OperatorExamples.getBooleanString(), is("true, 20, false"));
+        boolean x = true, z = true;
+        int y = 20;
+        x = (y != 10) ^ (z=false);
+
+        assertThat(x + ", " + y + ", " + z, is("true, 20, false"));
     }
 
     class JustLooping {
