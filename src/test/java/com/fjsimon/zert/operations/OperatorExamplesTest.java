@@ -2,6 +2,7 @@ package com.fjsimon.zert.operations;
 
 import org.junit.Test;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -161,16 +162,24 @@ public class OperatorExamplesTest {
         assertThat(result, is(1));
     }
 
+    /**
+     * instanceof      Compares an object to a specified type
+     */
     @Test
     public void getTypeComparisonOperator() {
 
-        Map<String, Boolean> map = OperatorExamples.getTypeComparisonOperator();
-        assertThat(map.get("obj1 instanceof Parent"), is(true));
-        assertThat(map.get("obj1 instanceof Child"), is(false));
-        assertThat(map.get("obj1 instanceof MyInterface"), is(false));
-        assertThat(map.get("obj2 instanceof Parent"), is(true));
-        assertThat(map.get("obj2 instanceof Child"), is(true));
-        assertThat(map.get("obj2 instanceof MyInterface"), is(true));
+        Integer integer = new Integer(5);
+        Number number = new Integer(5);
+
+        assertThat(integer instanceof Number, is(true));
+        assertThat(integer instanceof Integer, is(true));
+        assertThat(integer instanceof Serializable, is(true));
+        assertThat(integer instanceof Object, is(true));
+        assertThat(integer instanceof Comparable, is(true));
+        assertThat(number instanceof Double, is(false));
+        assertThat(number instanceof Serializable, is(true));
+        assertThat(number instanceof Comparable, is(true));
+
     }
 
     @Test

@@ -6,23 +6,6 @@ import java.util.Map;
 
 public class OperatorExamples {
 
-    /**
-     * instanceof      Compares an object to a specified type
-     */
-    public static Map<String, Boolean> getTypeComparisonOperator() {
-
-        Parent obj1 = new Parent();
-        Parent obj2 = new Child();
-
-        Map<String, Boolean> map = new HashMap<>();
-        map.put("obj1 instanceof Parent", obj1 instanceof Parent);
-        map.put("obj1 instanceof Child", obj1 instanceof Child);
-        map.put("obj1 instanceof MyInterface", obj1 instanceof MyInterface);
-        map.put("obj2 instanceof Parent", obj2 instanceof Parent);
-        map.put("obj2 instanceof Child", obj2 instanceof Child);
-        map.put("obj2 instanceof MyInterface", obj2 instanceof MyInterface);
-        return map;
-    }
 
     /**
      *  Bitwise and Bit Shift Operators
@@ -63,13 +46,4 @@ public class OperatorExamples {
         return x + ", " + y + ", " + z;
     }
 
-}
-
-class Parent {
-}
-
-class Child extends Parent implements MyInterface {
-}
-
-interface MyInterface {
 }
