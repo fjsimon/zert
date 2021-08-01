@@ -230,10 +230,19 @@ public class OperatorExamplesTest {
     public void orderInitTest() {
 
         System.out.println(Order.result);
-        System.out.println(Order.result);
+        assertThat(Order.result, is("u"));
+
         new Order();
+        System.out.println(Order.result);
+        assertThat(Order.result, is("ucr"));
+
         new Order();
         System.out.println(Order.result);
+        assertThat(Order.result, is("ucrcr"));
+
+        new Order();
+        System.out.println(Order.result);
+        assertThat(Order.result, is("ucrcrcr"));
     }
 
     class JustLooping {
