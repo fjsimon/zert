@@ -226,6 +226,16 @@ public class OperatorExamplesTest {
         assertThat(x + ", " + y + ", " + z, is("true, 20, false"));
     }
 
+    @Test
+    public void orderInitTest() {
+
+        System.out.println(Order.result);
+        System.out.println(Order.result);
+        new Order();
+        new Order();
+        System.out.println(Order.result);
+    }
+
     class JustLooping {
         private int j;
 
