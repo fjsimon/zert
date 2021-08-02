@@ -3,6 +3,8 @@ package com.fjsimon.zert.operations;
 import org.junit.Test;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.function.Predicate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -243,6 +245,24 @@ public class OperatorExamplesTest {
         new Order();
         System.out.println(Order.result);
         assertThat(Order.result, is("ucrcrcr"));
+    }
+
+    @Test
+    public void predicateCheckTest() {
+
+        BigDecimal d1 = new BigDecimal(1);
+        assertThat(check(d1, p -> p.compareTo(BigDecimal.valueOf(5)) < 0), is("match"));
+
+        BigDecimal d2 = new BigDecimal(6);
+        assertThat(check(d2, p -> p.compareTo(BigDecimal.valueOf(5)) < 0), is("not match"));
+
+    }
+
+    private static String check(BigDecimal bigDecimal, Predicate<BigDecimal> pred) {
+
+        String result = pred.test(bigDecimal) ? "match" : "not match";
+        System.out.print(result);
+        return result;
     }
 
     class JustLooping {
