@@ -267,12 +267,6 @@ public class OperatorExamplesTest {
         return result;
     }
 
-    public static long pow(int x) {
-        long y = x * (long) x;
-        x = -1;
-        return y;
-    }
-
     @Test
     public void whenModifyingPrimitives_thenOriginalValuesNotModified_test() {
 
@@ -282,6 +276,13 @@ public class OperatorExamplesTest {
         assertThat(value, is(9));
         assertThat(result, is(81L));
     }
+
+    private static long pow(int x) {
+        long y = x * (long) x;
+        x = -1;
+        return y;
+    }
+
     class JustLooping {
         private int j;
 
