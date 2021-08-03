@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -265,6 +267,21 @@ public class OperatorExamplesTest {
         return result;
     }
 
+    public static long pow(int x) {
+        long y = x * (long) x;
+        x = -1;
+        return y;
+    }
+
+    @Test
+    public void whenModifyingPrimitives_thenOriginalValuesNotModified_test() {
+
+        int value = 9;
+        long result = pow(value);
+
+        assertThat(value, is(9));
+        assertThat(result, is(81L));
+    }
     class JustLooping {
         private int j;
 
