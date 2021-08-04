@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -281,6 +279,37 @@ public class OperatorExamplesTest {
         long y = x * (long) x;
         x = -1;
         return y;
+    }
+
+    @Test
+    public void whenModifyingObjects_thenOriginalObjectChanged() {
+        Foo a = new Foo(1);
+        Foo b = new Foo(1);
+
+        // Before Modification
+        assertThat(a.num, is(1));
+        assertThat(b.num, is(1));
+
+        modify(a, b);
+
+        // After Modification
+        assertThat(a.num, is(2));
+        assertThat(b.num, is(1));
+    }
+
+    private void modify(Foo a1, Foo b1) {
+        a1.num++;
+
+        b1 = new Foo(1);
+        b1.num++;
+    }
+
+    class Foo {
+        public int num;
+
+        public Foo(int num) {
+            this.num = num;
+        }
     }
 
     class JustLooping {
