@@ -2,6 +2,9 @@ package com.fjsimon.zert.operations;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -340,39 +343,124 @@ public class StatementExampleTest {
     @Test
     public void continueStatementTest(){
 
-        assertThat(StatementExample.continueLabelStatement().size(), is(3));
-        assertThat(StatementExample.continueLabelStatement().toString(),
+        assertThat(continueLabelStatement().size(), is(3));
+        assertThat(continueLabelStatement().toString(),
                 is("[ 1a,  3a,  4a]"));
 
-        assertThat(StatementExample.continueStatement().size(), is(6));
-        assertThat(StatementExample.continueStatement().toString(),
+        assertThat(continueStatement().size(), is(6));
+        assertThat(continueStatement().toString(),
                 is("[ 1a,  1c,  3a,  3c,  4a,  4c]"));
 
-        assertThat(StatementExample.noContinueStatement().size(), is(12));
-        assertThat(StatementExample.noContinueStatement().toString(),
+        assertThat(noContinueStatement().size(), is(12));
+        assertThat(noContinueStatement().toString(),
                 is("[ 1a,  1b,  1c,  2a,  2b,  2c,  3a,  3b,  3c,  4a,  4b,  4c]"));
+    }
+
+    private static List<String> continueLabelStatement() {
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+
+                if (a == 2 || x == 'b')
+                    continue FIRST_CHAR_LOOP;
+                result.add(" " + a + x);
+            }
+        }
+
+        return result;
+    }
+
+    private static List<String> continueStatement() {
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+
+                if (a == 2 || x == 'b')
+                    continue;
+                result.add(" " + a + x);
+            }
+        }
+
+        return result;
+    }
+
+    private static List<String> noContinueStatement() {
+
+        List<String> result = new ArrayList();
+        FIRST_CHAR_LOOP:
+        for (int a = 1; a <= 4; a++) {
+            for (char x = 'a'; x <= 'c'; x++) {
+                result.add(" " + a + x);
+            }
+        }
+
+        return result;
     }
 
     @Test
     public void getTernaryValueTest(){
-        assertThat(StatementExample.getTernaryValue(), is(8));
+        assertThat(getTernaryValue(), is(8));
+    }
+
+    private static int getTernaryValue() {
+
+        int x = 5;
+        return x > 2 ? x < 4 ? 10 : 8 : 7;
     }
 
     @Test
     public void getKeepGoingResultTest() {
 
-        assertThat(StatementExample.getKeepGoingResult(), is(11));
+        assertThat(getKeepGoingResult(), is(11));
     }
+
+    private static int getKeepGoingResult() {
+        boolean keepGoing = true;
+        int result = 15, i = 10;
+        do {
+            i--;
+            if (i == 8) keepGoing = false;
+            result -= 2;
+        } while (keepGoing);
+        return result;
+    }
+
 
     @Test
     public void getCountValueTest() {
 
-        assertThat(StatementExample.getCountValue(), is(1));
+        assertThat(getCountValue(), is(1));
+    }
+
+    private static int getCountValue() {
+        int count = 0;
+        ROW_LOOP : for(int row = 1; row <= 1; row++){
+            for(int col = 1; col <= 2; col++) {
+                if(row * col % 2 == 0) continue ROW_LOOP;
+                count++;
+            }
+        }
+        return count;
     }
 
     @Test
     public void getWhileValueTest() {
 
-        assertThat(StatementExample.getWhileValue(), is(36));
+        assertThat(getWhileValue(), is(36));
     }
+
+    private static int getWhileValue() {
+        int m = 9, n = 1, x = 0;
+        while (m > n) {
+            m--;
+            n += 2;
+            x += m + n;
+        }
+        return x;
+    }
+
 }
