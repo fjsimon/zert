@@ -149,4 +149,25 @@ public class StringBuilderTest {
         System.out.printf("puzzle2.append(\"vaJ$\").delete(0,3).deleteCharAt(puzzle2.length() - 1) = %s%n",
                 puzzle2.append("vaJ$").delete(0,3).deleteCharAt(puzzle2.length() - 1));
     }
+
+    @Test
+    public void workTest() {
+
+        StringBuilder s1 = new StringBuilder("s1");
+        StringBuilder s2 = new StringBuilder("s2");
+
+        StringBuilder s3 = append(s1, s2);
+
+        System.out.println("s1 = " + s1 + ", s2 = " + s2 + ", s3 = " + s3);
+        assertThat(s1.toString(), is("s1"));
+        assertThat(s2.toString(), is("s2a"));
+        assertThat(s3.toString(), is("a"));
+    }
+
+    private static StringBuilder append(StringBuilder a, StringBuilder b) {
+
+        a = new StringBuilder("a");
+        b.append(a);
+        return a;
+    }
 }
