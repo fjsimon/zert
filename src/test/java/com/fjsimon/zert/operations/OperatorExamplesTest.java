@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -310,6 +311,33 @@ public class OperatorExamplesTest {
         public Foo(int num) {
             this.num = num;
         }
+    }
+
+
+    @Test
+    public void switcherTest() {
+
+        switcher("1", "2");
+
+    }
+
+    private void switcher(String... args){
+
+        boolean b = false;
+
+        switch(Integer.parseInt(args[0]))  //1
+        {
+            case 0 :
+                b = false;
+                break;
+
+            case 1 :
+                b = true; //2
+                break;
+        }
+
+        if(b)
+            System.out.println(args[1]);
     }
 
     class JustLooping {
