@@ -131,6 +131,32 @@ public class MethodTest {
         assertThat(b.getValue(), is((short) 1)); //3
     }
 
+    @Test
+    public void overloadingMethodTest() {
+
+        short s = 123;
+        print(s);
+        print(1.0F);
+        print(true);
+        print(6.789);
+    }
+
+    private void print(byte x) {
+        System.out.println("byte");
+    }
+
+    private void print(int x) {
+        System.out.println("int");
+    }
+
+    private void print(float x){
+        System.out.println("float");
+    }
+
+    private void print(Object x){
+        System.out.println("Object");
+    }
+
 }
 
 class ABCD {
