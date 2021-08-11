@@ -2,13 +2,25 @@ package com.fjsimon.zert.review;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 public class BearOrSharkTest {
 
     @Test
     public void test(){
-        assertThat(BearOrShark.getResult(), is("BearShark"));
+        assertThat(checkBearShark(), is("BearShark"));
+    }
+
+    private static String checkBearShark() {
+        int luck = 10;
+        String result = "";
+        if((luck>10 ? luck++ : --luck) < 10){
+            result += "Bear";
+        }
+        if(luck < 10){
+            result += "Shark";
+        }
+        return result;
     }
 }
