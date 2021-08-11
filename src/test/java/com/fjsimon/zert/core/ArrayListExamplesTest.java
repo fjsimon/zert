@@ -183,4 +183,22 @@ public class ArrayListExamplesTest {
         List<String> varlist = Arrays.asList("one", "two", "three");
         assertThat(varlist, CoreMatchers.instanceOf(List.class));
     }
+
+    @Test
+    public void integer_list_test() {
+
+        assertThat(getIntegerList(), Is.is(CoreMatchers.instanceOf(List.class)));
+        assertThat(getIntegerList().toString(), Is.is("[9]"));
+    }
+
+    private static List<Integer> getIntegerList() {
+
+        int[] array = {6,9,8};
+        List<Integer> list = new ArrayList<>();
+        list.add(array[0]);
+        list.add(array[2]);
+        list.set(1,array[1]);
+        list.remove(0);
+        return list;
+    }
 }
