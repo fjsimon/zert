@@ -359,4 +359,22 @@ public class OperatorExamplesTest {
 
         new JustLooping().showJ();
     }
+
+    @Test
+    public void addToIntTest(){
+
+        assertThat(getResult(), is(15));
+    }
+
+    private static void addToInt(int x, int amountToAdd) {
+
+        x = x + amountToAdd;
+    }
+
+    private static int getResult(){
+        int a = 15;
+        int b = 10;
+        addToInt(a, b);
+        return a;
+    }
 }
