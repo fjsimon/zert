@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.function.Predicate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -376,5 +375,44 @@ public class OperatorExamplesTest {
         int b = 10;
         addToInt(a, b);
         return a;
+    }
+
+    @Test
+    public void getFirstResultTest(){
+
+        assertThat(getFirstResult(), is(6));
+    }
+
+    @Test
+    public void getSecondResultTest(){
+
+        assertThat(getSecondResult(), is(12));
+    }
+
+    private static int getFirstResult() {
+        boolean keepGoing = true;
+        int count = 0;
+        int x = 3;
+        while (count++ < 3) {
+            int y = (1 + 2 * count) % 3;
+            switch (y){
+                default:
+                case 0: x -= 1; break;
+                case 1: x += 5;
+            }
+        }
+        return x;
+    }
+
+    private static int getSecondResult() {
+        int x = 5, j = 0;
+        OUTER: for(int i=0; i<3; )
+            INNER: do {
+                i++; x++;
+                if(x > 10) break INNER;
+                x += 4;
+                j++;
+            }while(j<= 2);
+        return x;
     }
 }
