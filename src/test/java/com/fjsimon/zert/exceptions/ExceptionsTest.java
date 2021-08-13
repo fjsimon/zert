@@ -7,7 +7,8 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ExceptionsTest {
 
@@ -91,6 +92,27 @@ public class ExceptionsTest {
         }
 
         assertThat(String.format("%s%n%s%n", "MyException thrown", " Done"), CoreMatchers.is(outputStream.toString()));
+    }
+
+    @Test
+    public void catchExceptionTest(){
+
+        assertThat(catchException(), is("abcde"));
+    }
+
+    private static String catchException() {
+
+        String result = "a";
+        try{
+            result += "b";
+            throw new IllegalArgumentException();
+        }catch (RuntimeException e){
+            result += "c";
+        }finally {
+            result += "d";
+        }
+        result += "e";
+        return result;
     }
 
 }
