@@ -170,4 +170,18 @@ public class StringBuilderTest {
         b.append(a);
         return a;
     }
+
+    @Test
+    public void compareStringBuilderTest() {
+
+        String s1 = "Java";
+        String s2 = "Java";
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append("Ja").append("va");
+
+        assertThat(s1 == s2, is(true));
+        assertThat(s1.equals(s2), is(true));
+        assertThat(sb1.toString() == s1, is(false));
+        assertThat(sb1.toString().equals(s1), is(true));
+    }
 }
