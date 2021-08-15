@@ -184,4 +184,68 @@ public class StringBuilderTest {
         assertThat(sb1.toString() == s1, is(false));
         assertThat(sb1.toString().equals(s1), is(true));
     }
+
+    @Test
+    public void isAnagramTest() {
+
+        assertThat(isAnagram("Mother In Law", "Hitler Woman"), is(true));
+
+        assertThat(isAnagram("keEp", "peeK"), is(true));
+
+        assertThat(isAnagram("SiLeNt CAT", "LisTen AcT"), is(true));
+
+        assertThat(isAnagram("Debit Card", "Bad Credit"), is(true));
+
+        assertThat(isAnagram("School MASTER", "The ClassROOM"), is(true));
+
+        assertThat(isAnagram("DORMITORY", "Dirty Room"), is(true));
+
+        assertThat(isAnagram("ASTRONOMERS", "NO MORE STARS"), is(true));
+
+        assertThat(isAnagram("Toss", "Shot"), is(false));
+
+        assertThat(isAnagram("joy", "enjoy"), is(false));
+
+    }
+
+    private static boolean isAnagram(String s1, String s2)
+    {
+        //Removing white spaces from s1 and s2 and converting case to lower
+        String copyOfs1 = s1.replaceAll("\\s", "").toLowerCase();
+        String copyOfs2 = s2.replaceAll("\\s", "").toLowerCase();
+
+        //Initially setting status as true
+        boolean status = true;
+
+        if(copyOfs1.length() != copyOfs2.length()) {
+
+            status = false;
+
+        } else {
+
+            char[] s1Array = copyOfs1.toCharArray();
+
+            StringBuilder sb = new StringBuilder(copyOfs2);
+
+            for (char c : s1Array) {
+
+                int index = sb.indexOf(""+c);
+
+                if (index != -1) {
+
+                    sb = sb.deleteCharAt(index);
+
+                } else {
+
+                    status = false;
+                    break;
+
+                }
+            }
+        }
+
+        //Output
+        return status;
+    }
+
 }
