@@ -2,12 +2,22 @@ package com.fjsimon.zert.inheritance;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 public class InheritanceTest {
 
     @Test
     public void test3Q01() {
         B c = new C();
         System.out.println(c.max(10, 20));
+    }
+
+    @Test
+    public void parentChildTest() {
+
+        Parent parent = new Child(5);
+        assertThat(parent.hasHorns(), is(true));
     }
 }
 
@@ -142,4 +152,22 @@ class FourWheel extends Car {
     public int getPrice(){
         return 200;
     }
+}
+
+
+class Parent {
+
+    public Parent() { System.out.print("Parent"); }
+
+    public Parent(int age) { System.out.print("ParentAge"); }
+
+    public boolean hasHorns() { return false; }
+
+}
+
+class Child extends Parent {
+
+    public Child(int age) { System.out.print("Child"); }
+
+    public boolean hasHorns() { return true; }
 }
