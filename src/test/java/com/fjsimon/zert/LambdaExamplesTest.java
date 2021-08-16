@@ -1,36 +1,23 @@
 package com.fjsimon.zert;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
-/**
- * Unit getFirstResult for simple LambdaExamples.
- */
-public class LambdaExamplesTest extends TestCase {
-    /**
-     * Create the getFirstResult case
-     *
-     * @param testName name of the getFirstResult case
-     */
-    public LambdaExamplesTest(String testName )
-    {
-        super( testName );
+import java.util.function.Predicate;
+
+import static org.junit.Assert.assertTrue;
+
+public class LambdaExamplesTest {
+
+    @Test
+    public void testLambdaExpression() {
+
+        assertTrue( test(i -> i == 5));
+        assertTrue( test((i) -> i == 5));
+        assertTrue( test((i) -> { return i == 5;}));
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( LambdaExamplesTest.class );
-    }
+    private static boolean test(Predicate<Integer> p) {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+        return p.test(5);
     }
 }
