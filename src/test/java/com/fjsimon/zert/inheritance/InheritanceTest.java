@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 public class InheritanceTest {
 
@@ -18,6 +19,13 @@ public class InheritanceTest {
 
         Parent parent = new Child(5);
         assertThat(parent.hasHorns(), is(true));
+    }
+
+    @Test
+    public void egretTest() {
+
+        Egret e = new Egret();
+        assertThat(e.color, is(nullValue()));
     }
 }
 
@@ -170,4 +178,17 @@ class Child extends Parent {
     public Child(int age) { System.out.print("Child"); }
 
     public boolean hasHorns() { return true; }
+}
+
+class Egret {
+
+    public String color;
+
+    public Egret(){
+        this("White");
+    }
+
+    private Egret(String color){
+        color = color;
+    }
 }
