@@ -2,6 +2,9 @@ package com.fjsimon.zert.inheritance;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -190,5 +193,25 @@ class Egret {
 
     private Egret(String color){
         color = color;
+    }
+}
+
+interface CanSwim { }
+
+class Amphibian implements CanSwim { }
+
+class Tadpole extends Amphibian { }
+
+class FindAllTadpole {
+    public static void main(String[] args) {
+        List<Tadpole> tadpoleList = new ArrayList<>();
+        Tadpole tadpole = new Tadpole();
+        tadpoleList.add(tadpole);
+
+        for (Amphibian amphibian : tadpoleList) {
+            CanSwim tadpole1 = amphibian;
+            Amphibian tadpole2 = amphibian;
+            Object tadpole3 = amphibian;
+        }
     }
 }

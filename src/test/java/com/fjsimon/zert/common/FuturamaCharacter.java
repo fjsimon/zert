@@ -1,4 +1,4 @@
-package com.fjsimon.zert.extra.features.common;
+package com.fjsimon.zert.common;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;

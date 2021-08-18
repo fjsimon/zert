@@ -1,8 +1,8 @@
 package com.fjsimon.zert.extra.features.lambda;
 
 
-import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
-import com.fjsimon.zert.extra.features.common.Species;
+import com.fjsimon.zert.common.FuturamaCharacter;
+import com.fjsimon.zert.common.Species;
 import org.junit.Test;
 
 import java.util.*;

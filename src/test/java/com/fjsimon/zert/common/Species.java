@@ -1,4 +1,4 @@
-package com.fjsimon.zert.extra.features.common;
+package com.fjsimon.zert.common;
 
 public enum Species {
     HUMAN("human"),

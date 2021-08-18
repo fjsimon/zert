@@ -1,6 +1,6 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
-import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import com.fjsimon.zert.common.FuturamaCharacter;
 
 import java.util.function.Consumer;
 

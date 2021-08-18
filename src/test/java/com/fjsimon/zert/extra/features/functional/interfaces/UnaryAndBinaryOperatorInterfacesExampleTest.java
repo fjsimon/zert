@@ -1,7 +1,7 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
 
-import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
 import java.math.BigDecimal;

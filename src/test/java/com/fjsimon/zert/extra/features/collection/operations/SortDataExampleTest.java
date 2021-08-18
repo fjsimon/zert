@@ -1,6 +1,6 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
-import com.fjsimon.zert.extra.features.common.FuturamaCharacter;
+import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
 import java.util.Arrays;
