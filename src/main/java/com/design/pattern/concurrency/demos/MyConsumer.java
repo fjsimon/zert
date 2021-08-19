@@ -1,4 +1,4 @@
-package com.fjsimon.zert.extra.features;
+package com.design.pattern.concurrency.demos;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.function.Consumer;
