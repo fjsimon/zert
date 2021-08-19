@@ -1,4 +1,4 @@
-package com.fjsimon.zert.methods;
+package com.fjsimon.zert;
 
 public interface ConsTestQ70 {
     public int A = 1; //1
