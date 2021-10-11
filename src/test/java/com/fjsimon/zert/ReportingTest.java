@@ -39,7 +39,7 @@ public class ReportingTest {
     }
 
     @Test
-    public void reporting() {
+    public void reporting_test() {
 
         String arg = "track01.mp3 100450b\n" +
                 "film01.avi 1005000b\n" +
@@ -48,8 +48,9 @@ public class ReportingTest {
                 "track02.mp3 106700b\n" +
                 "movie01.mp4 1767900b\n" +
                 "pic02.gif 2456b\n" +
+                "pic03.jpeg 5467b\n" +
                 "other.doc 3455b";
 
-        assertThat(solution(arg), is("Music 207150b\nMovies 2772900b\nImages 3456b\nOther 3555b\n"));
+        assertThat(solution(arg), is("Music 207150b\nMovies 2772900b\nImages 8923b\nOther 3555b\n"));
     }
 }
