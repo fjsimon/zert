@@ -42,15 +42,18 @@ public class ReportingTest {
     public void reporting_test() {
 
         String arg = "track01.mp3 100450b\n" +
+                "track02.wma 500450b\n" +
                 "film01.avi 1005000b\n" +
                 "doc01.txt 100b\n" +
                 "pic01.jpg 1000b\n" +
                 "track02.mp3 106700b\n" +
                 "movie01.mp4 1767900b\n" +
+                "movie02.wmv 3867900b\n" +
+                "track03.wav 1000750b\n" +
                 "pic02.gif 2456b\n" +
                 "pic03.jpeg 5467b\n" +
                 "other.doc 3455b";
 
-        assertThat(solution(arg), is("Music 207150b\nMovies 2772900b\nImages 8923b\nOther 3555b\n"));
+        assertThat(solution(arg), is("Music 1708350b\nMovies 6640800b\nImages 8923b\nOther 3555b\n"));
     }
 }
