@@ -1,10 +1,13 @@
 package com.fjsimon.zert;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class HashTest {
 
@@ -55,7 +58,7 @@ public class HashTest {
         return true;
     }
 
-    @org.junit.Test
+    @Test
     public void test() {
 
         setData("two times three is not four", "two times two is four");
