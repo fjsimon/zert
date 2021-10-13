@@ -5,9 +5,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class EasyTest01 {
@@ -121,7 +121,7 @@ public class EasyTest01 {
 
         int i;
         int j;
-        for (i = 0, j = 0; j < i; ++j, i++){
+        for (i = 0, j = 0; j < i; ++j, i++) {
             System.out.println(i + " " + j);
         }
         System.out.println(i + " " + j);
@@ -139,18 +139,21 @@ public class EasyTest01 {
         System.out.println(sb);
     }
 
-    public static void printSum(double a, double b){
-        System.out.println("In double "+(a+b));
+    public static void printSum(double a, double b) {
+
+        System.out.println("In double " + (a + b));
     }
-    public static void printSum(float a, float b){
-        System.out.println("In float "+(a+b));
+
+    public static void printSum(float a, float b) {
+
+        System.out.println("In float " + (a + b));
     }
 
     @Test
     public void q30() {
 
         printSum(1.0, 2.0);
-        printSum(1,2);
+        printSum(1, 2);
     }
 
 }
@@ -176,8 +179,11 @@ class A {
 class B extends A {
 
     B() {
+
         super("good bye");
-    };
+    }
+
+    ;
 
     B(String s) {
 
