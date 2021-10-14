@@ -78,7 +78,7 @@ public class Test02 {
         System.setOut(new PrintStream(outputStream));
 
         printSum(1, 2);
-        Assert.assertThat("In int 3\n", CoreMatchers.is(outputStream.toString()));
+        assertThat("In int 3\n", CoreMatchers.is(outputStream.toString()));
     }
 
     @Test

@@ -1,6 +1,5 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -54,11 +53,11 @@ public class ArrayExamplesTest {
     @Test
     public void usingArray() {
         String [] mammals = {"monkey", "chimp", "donkey"};
-        Assert.assertThat("length", mammals.length, is(3));
+       assertThat("length", mammals.length, is(3));
 
-        Assert.assertThat("mammals[0]", mammals[0], is("monkey"));
-        Assert.assertThat("mammals[1]", mammals[1], is("chimp"));
-        Assert.assertThat("mammals[2]", mammals[2], is("donkey"));
+       assertThat("mammals[0]", mammals[0], is("monkey"));
+       assertThat("mammals[1]", mammals[1], is("chimp"));
+       assertThat("mammals[2]", mammals[2], is("donkey"));
 
 
         int [] numbers = new int[10];
@@ -67,15 +66,15 @@ public class ArrayExamplesTest {
         }
 
         for(int i = 0; i < numbers.length; i++) {
-            Assert.assertThat("Numbers ", numbers[i], is(i+5));
+           assertThat("Numbers ", numbers[i], is(i+5));
         }
 
         // Multi dimensional
         int [][] differentSize = {{1, 4}, {3}, {9, 8, 7}};
-        Assert.assertThat("Multi-dimensional array ", differentSize.length, is(3));
-        Assert.assertThat("Multi-dimensional array[0] ", differentSize[0].length, is(2));
-        Assert.assertThat("Multi-dimensional array[1] ", differentSize[1].length, is(1));
-        Assert.assertThat("Multi-dimensional array[2] ", differentSize[2].length, is(3));
+       assertThat("Multi-dimensional array ", differentSize.length, is(3));
+       assertThat("Multi-dimensional array[0] ", differentSize[0].length, is(2));
+       assertThat("Multi-dimensional array[1] ", differentSize[1].length, is(1));
+       assertThat("Multi-dimensional array[2] ", differentSize[2].length, is(3));
 
 
     }
