@@ -11,10 +11,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.TestCase.assertFalse;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class CoreTest {
@@ -29,27 +27,31 @@ public class CoreTest {
     @Test
     public void test() {
 
-        assertTrue(Boolean.parseBoolean("true"));
+        assertThat(Boolean.parseBoolean("true"), is(true));
 
-        assertFalse(Boolean.parseBoolean("TrUe") == new Boolean(null));
+        assertThat(Boolean.parseBoolean("TrUe") == new Boolean(null), is(false));
 
-        assertFalse(new Boolean("TrUe") == new Boolean(true));
+        assertThat(new Boolean("TrUe") == new Boolean(true), is(false));
+
+        assertThat(new Boolean("TrUe").equals(new Boolean(true)), is(true));
 
 //        System.out.println(new Boolean() == false); // No Compile
 
-        assertFalse(new Boolean("true") == Boolean.TRUE);
+        assertThat(new Boolean("true") == Boolean.TRUE, is(false));
 
-        assertTrue(new Boolean("no") == false);
+        assertThat(new Boolean("no") == false, is(true));
 
-        assertTrue(Boolean.parseBoolean("true"));
+        assertThat(Boolean.parseBoolean("true"), is(true));
 
-        assertFalse(new Boolean(null));
+        assertThat(new Boolean(null), is(false));
 
-//        System.out.println(new Boolean());
+//        System.out.println(new Boolean());  // No Compile
 
-        assertTrue(new Boolean("true"));
+        assertThat(new Boolean("true"), is(true));
 
-        assertTrue(new Boolean("trUE"));
+        assertThat(new Boolean("trUE"), is(true));
+
+        assertThat(new Boolean("TRUE"), is(true));
 
     }
 
