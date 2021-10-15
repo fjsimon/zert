@@ -26,7 +26,7 @@ public class CoreTest {
 
     @SuppressWarnings("deprecation")
 	@Test
-    public void test() {
+    public void booleanTest() {
 
         assertThat(Boolean.parseBoolean("true"), is(true));
 
@@ -56,6 +56,44 @@ public class CoreTest {
 
     }
 
+    
+	@Test
+    public void charTest() {
+
+		char xi = '\u559c';
+		assertThat(xi, is('喜'));
+		
+		char \u559c = '\u559c';
+        assertThat(\u559c, is('喜'));
+        
+        char newline = '\n';
+        assertThat(newline, is('\n'));
+        
+        char backspace = '\b';
+        assertThat(backspace, is('\b'));
+
+        char horizontalTab = '\t';
+        assertThat(horizontalTab, is('\t'));
+        
+        char formFeed = '\f';
+        assertThat(formFeed, is('\f'));
+        
+        char carriageReturn = '\r';
+        assertThat(carriageReturn, is('\r'));
+        
+        char doubleQuote = '\"';
+        assertThat(doubleQuote, is('\"'));
+        
+        char singleQuote = '\'';
+        assertThat(singleQuote, is('\''));
+        
+        char backslash = '\\';
+        assertThat(backslash, is('\\'));
+        
+        char largestOctalEscapeValue = '\377';
+        assertThat(largestOctalEscapeValue, is('ÿ'));
+    }
+	
     @Test
     public void classname_test() {
 
