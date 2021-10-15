@@ -24,7 +24,8 @@ public class CoreTest {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void test() {
 
         assertThat(Boolean.parseBoolean("true"), is(true));
@@ -78,7 +79,7 @@ public class CoreTest {
     @Test
     public void test01_Init() {
 
-        ClassInit classInit = new ClassInit();
+        new ClassInit();
         assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n%s%n", "a", "b", "c", "2", "3", "4", "1"),
                 CoreMatchers.is(outputStream.toString()));
     }
