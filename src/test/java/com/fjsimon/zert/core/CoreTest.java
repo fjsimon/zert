@@ -111,6 +111,14 @@ public class CoreTest {
         }catch (StringIndexOutOfBoundsException e){
 
         }
+
+        try {
+            assertThat(s.substring(4, 8), is("MUM")); //5
+            fail();
+        }catch (StringIndexOutOfBoundsException e){
+
+        }
+
     }
 
     @Test
