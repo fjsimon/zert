@@ -17,7 +17,7 @@ import static org.junit.Assert.fail;
 
 public class CoreTest {
 
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
     @Before
     public void setup(){
@@ -99,11 +99,15 @@ public class CoreTest {
 
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder("mrx");
+        Object object = new ClassA();
+        ClassA clase = new ClassB();
         String s = sb.toString();
         list.add(s);
 
         assertThat(s.getClass().toString(), is("class java.lang.String"));
         assertThat(list.getClass().toString(), is("class java.util.ArrayList"));
+        assertThat(object.getClass().toString(), is("class com.fjsimon.zert.core.ClassA"));
+        assertThat(clase.getClass().toString(), is("class com.fjsimon.zert.core.ClassB"));
     }
 
     @Test
