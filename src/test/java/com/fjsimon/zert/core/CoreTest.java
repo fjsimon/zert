@@ -100,14 +100,18 @@ public class CoreTest {
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder("mrx");
         Object object = new ClassA();
-        ClassA clase = new ClassB();
+        ClassA clase1 = new ClassB();
+        ClassB clase2 = new ClassB();
         String s = sb.toString();
         list.add(s);
+//        clase1.method(); // No compile
+        clase2.method();
 
         assertThat(s.getClass().toString(), is("class java.lang.String"));
         assertThat(list.getClass().toString(), is("class java.util.ArrayList"));
         assertThat(object.getClass().toString(), is("class com.fjsimon.zert.core.ClassA"));
-        assertThat(clase.getClass().toString(), is("class com.fjsimon.zert.core.ClassB"));
+        assertThat(clase1.getClass().toString(), is("class com.fjsimon.zert.core.ClassB"));
+        assertThat(clase2.getClass().toString(), is("class com.fjsimon.zert.core.ClassB"));
     }
 
     @Test
