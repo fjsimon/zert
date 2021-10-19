@@ -6,8 +6,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class Test05 {
@@ -50,11 +50,13 @@ public class Test05 {
     @Test
     public void test06_Q24() {
 
-        assertThat("String".replace('g', 'G') == "String".replace('g', 'G'),
+        assertThat("String".replace('g', 'G') ==
+                        "String".replace('g', 'G'),
                 is(false));
 
         assertThat("String".replace('g', 'g') ==
-                new String("String").replace('g', 'g'), is(false));
+                        new String("String").replace('g', 'g'),
+                is(false));
 
         assertThat("String".replace('g', 'G') == "StrinG", is(false));
         assertThat("String".replace('g', 'g') == "String", is(true));

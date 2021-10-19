@@ -2,6 +2,9 @@ package com.fjsimon.zert.core;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 /**
 
  Primitive Types and Values
@@ -75,5 +78,16 @@ public class TypesValuesVariablesTest {
         System.out.print("cast to int rounds toward 0: ");
         d = 12345.6;
         System.out.println((int)d + " " + (int)(-d));
+    }
+
+    @Test
+    public void doubleTest() {
+
+        double d1 = 123.4;
+        // same value as d1, but in scientific notation
+        double d2 = 1.234e2;
+
+        assertThat(d1 == d2, is(true));
+
     }
 }
