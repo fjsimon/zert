@@ -81,7 +81,23 @@ public class TypesValuesVariablesTest {
     }
 
     @Test
-    public void doubleTest() {
+    public void integerLiteralsTest() {
+
+        // The number 26, in decimal
+        int decVal = 26;
+        //  The number 26, in hexadecimal
+        int hexVal = 0x1a;
+        // The number 26, in binary
+        int binVal = 0b11010;
+
+
+        assertThat(decVal, is(26));
+        assertThat(hexVal, is(26));
+        assertThat(binVal, is(26));
+    }
+
+    @Test
+    public void floatingPointLiteralsTest() {
 
         double d1 = 123.4;
         // same value as d1, but in scientific notation
