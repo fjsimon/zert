@@ -106,4 +106,42 @@ public class TypesValuesVariablesTest {
         assertThat(d1 == d2, is(true));
 
     }
+
+    @Test
+    public void underscoreNumericLiteralsTes() {
+
+        long creditCardNumber = 1234_5678_9012_3456L;
+        long socialSecurityNumber = 999_99_9999L;
+        float pi =  3.14_15F;
+        long hexBytes = 0xFF_EC_DE_5E;
+        long hexWords = 0xCAFE_BABE;
+        long maxLong = 0x7fff_ffff_ffff_ffffL;
+        byte nybbles = 0b0010_0101;
+        long bytes = 0b11010010_01101001_10010100_10010010;
+
+        int x1 = 5_2;
+        int x3 = 5_______2;
+        int x6 = 0x5_2;
+
+        assertThat(creditCardNumber, is(1234567890123456L));
+        assertThat(socialSecurityNumber, is(999999999L));
+        assertThat(pi, is(3.1415F));
+        assertThat(hexBytes, is(-1253794L));
+        assertThat(hexWords, is(-889275714L));
+        assertThat(maxLong, is(9223372036854775807L));
+//        assertThat(nybbles, is(37));
+        assertThat(bytes, is(-764832622L));
+        assertThat(x1, is(52));
+        assertThat(x3, is(52));
+        assertThat(x6, is(82));
+    }
+
+    // Invalid: float pi1 = 3_.1415F;
+    // Invalid: float pi2 = 3._1415F;
+    // Invalid: long socialSecurityNumber1 = 999_99_9999_L;
+    // Invalid: int x2 = 52_;
+    // Invalid: int x4 = 0_x52;
+    // Invalid: int x5 = 0x_52;
+    // Invalid: int x7 = 0x52_;
+
 }
