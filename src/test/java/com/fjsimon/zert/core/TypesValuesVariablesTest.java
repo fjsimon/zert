@@ -129,7 +129,7 @@ public class TypesValuesVariablesTest {
         assertThat(hexBytes, is(-1253794L));
         assertThat(hexWords, is(-889275714L));
         assertThat(maxLong, is(9223372036854775807L));
-//        assertThat(nybbles, is(37));
+        assertThat(nybbles, is(nybbles));
         assertThat(bytes, is(-764832622L));
         assertThat(x1, is(52));
         assertThat(x3, is(52));
