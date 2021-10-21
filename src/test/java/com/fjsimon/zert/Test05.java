@@ -71,11 +71,12 @@ public class Test05 {
 
 //        s = b * b ; // No compile
         i = b + b;
+        assertThat(i, is(2));
+
         s *= b;
+        assertThat(s, is((short) 1));
 //        c = c + b ; // No compile
         s += i;
-
-        assertThat(i, is(2));
         assertThat(s, is((short) 3));
     }
 
