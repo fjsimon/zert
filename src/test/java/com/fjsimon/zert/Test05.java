@@ -134,6 +134,7 @@ public class Test05 {
             x--;
         }
         System.out.println(x);
+        assertThat(x, is(0));
     }
 
     @Test
@@ -273,7 +274,7 @@ class InitClassQ37 {
     int x;
 
     public InitClassQ37(int m) {
-        System.out.println(i1 + "  " + i2 + "   " + x + "  " + j + "  " + m);
+        System.out.println(i1 + "  " + i2 + "   " + x + "  " + j + "  " + m + "  " + this.m );
     }
 
     {
@@ -283,7 +284,7 @@ class InitClassQ37 {
 
     static {
         i1++;
-    }      // Static Initializer
+    }  // Static Initializer
 }
 
 class TestClassQ70{
