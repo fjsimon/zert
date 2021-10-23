@@ -1,12 +1,11 @@
 package com.fjsimon.zert.core;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
-import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +16,13 @@ import static org.junit.Assert.fail;
 
 public class CoreTest {
 
-    private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    @Rule
+    public TestName name = new TestName();
 
     @Before
-    public void setup(){
-        System.setOut(new PrintStream(outputStream));
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
     }
 
     @SuppressWarnings("deprecation")
@@ -119,15 +120,12 @@ public class CoreTest {
 
         ClassB b = new ClassB();
         b.method();
-        assertThat(String.format("%d%n%d%n", 0, 4), CoreMatchers.is(outputStream.toString()));
     }
 
     @Test
     public void test01_Init() {
 
         new ClassInit();
-        assertThat(String.format("%s%n%s%n%s%n%s%n%s%n%s%n%s%n", "a", "b", "c", "2", "3", "4", "1"),
-                CoreMatchers.is(outputStream.toString()));
     }
 
     @Test
