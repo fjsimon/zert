@@ -1,22 +1,22 @@
 package com.fjsimon.zert.exceptions;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import org.junit.rules.TestName;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ExceptionsTest {
 
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    @Rule
+    public TestName name = new TestName();
 
     @Before
-    public void setup() {
-        System.setOut(new PrintStream(outputStream));
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
     }
 
     @Test
@@ -36,8 +36,6 @@ public class ExceptionsTest {
             System.out.println("4");
         }
         System.out.println("5");
-
-        assertThat(String.format("%s%n%s%n%s%n", 1, 4, 5), CoreMatchers.is(outputStream.toString()));
     }
 
     public void myMethod() throws Exception {
@@ -88,10 +86,9 @@ public class ExceptionsTest {
 //            System.out.println("MyException3 thrown");
 //        }
         finally {
-            System.out.println(" Done");
+            System.out.println("Done");
         }
 
-        assertThat(String.format("%s%n%s%n", "MyException thrown", " Done"), CoreMatchers.is(outputStream.toString()));
     }
 
     @Test
