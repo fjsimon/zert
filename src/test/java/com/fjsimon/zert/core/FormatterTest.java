@@ -1,6 +1,9 @@
 package com.fjsimon.zert.core;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.util.Calendar;
 import java.util.Formatter;
@@ -10,6 +13,15 @@ import java.util.Locale;
 import static java.util.Calendar.MAY;
 
 public class FormatterTest {
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     @Test
     public void formatterTest() {

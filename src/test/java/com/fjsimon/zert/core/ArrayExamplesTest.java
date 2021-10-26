@@ -1,6 +1,9 @@
 package com.fjsimon.zert.core;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.util.Arrays;
 
@@ -9,6 +12,15 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
 
 public class ArrayExamplesTest {
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     @Test
     public void creatingArrayTest() {

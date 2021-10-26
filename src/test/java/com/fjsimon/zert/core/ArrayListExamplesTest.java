@@ -2,7 +2,10 @@ package com.fjsimon.zert.core;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.core.Is;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +18,14 @@ import static org.hamcrest.Matchers.instanceOf;
 
 public class ArrayListExamplesTest {
 
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     @Test
     public void creatingArrayList() {

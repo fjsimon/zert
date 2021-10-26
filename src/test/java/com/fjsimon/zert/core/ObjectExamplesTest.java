@@ -1,8 +1,10 @@
 package com.fjsimon.zert.core;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.rules.TestName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,15 @@ public class ObjectExamplesTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     @Test
     public void convertingString() {

@@ -1,12 +1,24 @@
 package com.fjsimon.zert.core;
 
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 public class LocalDateTimeTest {
+
+    @Rule
+    public TestName name = new TestName();
+
+    @Before
+    public void before() {
+
+        System.out.printf("Running %s:%n", name.getMethodName());
+    }
 
     @Test
     public void localDateTimeTest() {
