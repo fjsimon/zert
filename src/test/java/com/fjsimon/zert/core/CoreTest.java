@@ -1,9 +1,7 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -14,16 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 
-public class CoreTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class CoreTest extends BaseTest {
 
     @SuppressWarnings("deprecation")
 	@Test

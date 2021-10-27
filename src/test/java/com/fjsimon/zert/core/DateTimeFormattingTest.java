@@ -1,9 +1,7 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,16 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class DateTimeFormattingTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class DateTimeFormattingTest extends BaseTest {
 
     @Test
     public void usingDateTimeFormatterTest() {

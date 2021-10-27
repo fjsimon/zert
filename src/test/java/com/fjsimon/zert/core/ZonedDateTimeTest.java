@@ -1,23 +1,12 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public class ZonedDateTimeTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class ZonedDateTimeTest extends BaseTest {
 
     @Test
     public void zonedDateTimeTest() {

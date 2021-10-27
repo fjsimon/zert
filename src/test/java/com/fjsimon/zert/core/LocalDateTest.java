@@ -1,9 +1,7 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -16,16 +14,7 @@ import java.util.Optional;
 
 import static java.time.temporal.ChronoUnit.*;
 
-public class LocalDateTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class LocalDateTest extends BaseTest {
 
     @Test
     public void localDateTest() {

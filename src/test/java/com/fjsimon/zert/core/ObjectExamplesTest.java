@@ -1,10 +1,7 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TestName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,20 +10,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ObjectExamplesTest {
-
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class ObjectExamplesTest extends BaseTest {
 
     @Test
     public void convertingString() {

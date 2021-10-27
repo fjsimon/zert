@@ -1,11 +1,9 @@
 package com.fjsimon.zert.core;
 
+import com.fjsimon.zert.BaseTest;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.core.Is;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,16 +14,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 
-public class ArrayListExamplesTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class ArrayListExamplesTest extends BaseTest {
 
     @Test
     public void creatingArrayList() {

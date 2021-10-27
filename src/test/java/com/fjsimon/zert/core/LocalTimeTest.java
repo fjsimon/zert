@@ -1,23 +1,13 @@
 package com.fjsimon.zert.core;
 
-import org.junit.Before;
-import org.junit.Rule;
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
-import org.junit.rules.TestName;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
 
-public class LocalTimeTest {
+public class LocalTimeTest extends BaseTest {
 
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
 
     @Test
     public void localTimeTest() {

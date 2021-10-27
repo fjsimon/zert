@@ -1,5 +1,6 @@
 package com.fjsimon.zert.core;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,16 +29,7 @@ import static org.hamcrest.Matchers.is;
  float double
 
  */
-public class TypesValuesVariablesTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+public class TypesValuesVariablesTest extends BaseTest {
 
     @Test
     public void integerOperationTest() {
