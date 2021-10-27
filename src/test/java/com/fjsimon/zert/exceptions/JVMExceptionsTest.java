@@ -1,8 +1,9 @@
 package com.fjsimon.zert.exceptions;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class JVMExceptionsTest {
+public class JVMExceptionsTest extends BaseTest {
 
     @Test
     public void arrayIndexOutOfBoundsException() {

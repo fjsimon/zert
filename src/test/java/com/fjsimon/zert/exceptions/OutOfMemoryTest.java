@@ -1,5 +1,6 @@
 package com.fjsimon.zert.exceptions;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OutOfMemoryTest {
+public class OutOfMemoryTest extends BaseTest {
 
     static class Key {
         Integer id;

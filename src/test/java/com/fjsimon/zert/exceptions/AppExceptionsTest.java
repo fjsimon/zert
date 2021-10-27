@@ -1,10 +1,11 @@
 package com.fjsimon.zert.exceptions;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.util.Optional;
 
-public class AppExceptionsTest {
+public class AppExceptionsTest extends BaseTest {
 
     public static void processData(byte[] data, int datatype) {
         if(datatype != 1 || datatype != 2)

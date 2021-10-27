@@ -1,9 +1,10 @@
 package com.fjsimon.zert.exceptions;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class JVMErrorsTest {
+public class JVMErrorsTest extends BaseTest {
 
     public static class X {
         int k = 0;
