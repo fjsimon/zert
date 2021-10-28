@@ -199,13 +199,11 @@ public class StatementExampleTest extends BaseTest {
     }
 
     @Test
-    public void searchForTest(){
+    public void searchForUsingBreakTest(){
 
         assertThat(searchForUsingBreak(12), is("Found 12 at index 4"));
 
-        assertThat(searchForUsingBreakLabel(12), is("Found 12 at 1, 0"));
-
-        assertThat(searchBreakStatementLabel(13), is("Found 13 at (0, 1)"));
+        assertThat(searchForUsingBreak(3000), is("3000 not in the array"));
 
     }
 
@@ -227,6 +225,15 @@ public class StatementExampleTest extends BaseTest {
         } else {
             return searchfor + " not in the array";
         }
+    }
+
+    @Test
+    public void searchForUsingBreakLabelTest(){
+
+        assertThat(searchForUsingBreakLabel(12), is("Found 12 at 1, 0"));
+
+        assertThat(searchForUsingBreakLabel(3000), is("3000 not in the array"));
+
     }
 
     private static String searchForUsingBreakLabel(int searchfor) {
@@ -255,6 +262,15 @@ public class StatementExampleTest extends BaseTest {
         } else {
             return searchfor + " not in the array";
         }
+    }
+
+    @Test
+    public void searchBreakStatementLabelTest(){
+
+        assertThat(searchBreakStatementLabel(13), is("Found 13 at (0, 1)"));
+
+        assertThat(searchBreakStatementLabel(3000), is("3000 not in the array"));
+
     }
 
     private static String searchBreakStatementLabel(int searchValue) {
