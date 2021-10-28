@@ -1,5 +1,6 @@
 package com.fjsimon.zert.operations;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class StatementExampleTest {
+public class StatementExampleTest extends BaseTest {
 
     /**
      * The statements inside your source files are generally executed from top to bottom, in the order that they appear.
