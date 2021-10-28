@@ -1,8 +1,9 @@
 package com.fjsimon.zert.operations;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class IntOperationsTest {
+public class IntOperationsTest extends BaseTest {
 
     @Test
     public void testQ37(){

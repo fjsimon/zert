@@ -1,5 +1,6 @@
 package com.fjsimon.zert.operations;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.io.Serializable;
@@ -30,7 +31,7 @@ import static org.hamcrest.core.Is.is;
  * assignment	= += -= *= /= %= &= ^= |= <<= >>= >>>=
  *
  */
-public class OperatorExamplesTest {
+public class OperatorExamplesTest extends BaseTest {
 
 
     /**
