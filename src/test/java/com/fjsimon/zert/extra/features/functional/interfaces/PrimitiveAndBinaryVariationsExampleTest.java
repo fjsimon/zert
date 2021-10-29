@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ import java.util.function.BiFunction;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntConsumer;
 
-public class PrimitiveAndBinaryVariationsExampleTest {
+public class PrimitiveAndBinaryVariationsExampleTest extends BaseTest {
 
 
     @Test

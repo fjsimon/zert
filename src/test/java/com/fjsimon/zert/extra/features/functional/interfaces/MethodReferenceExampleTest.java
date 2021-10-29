@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import java.util.function.BiFunction;
 
 import static java.util.Comparator.comparing;
 
-public class MethodReferenceExampleTest {
+public class MethodReferenceExampleTest extends BaseTest {
 
     @Test
     public void methodReferenceTest() {

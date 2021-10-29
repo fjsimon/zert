@@ -1,9 +1,10 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class FunctionalInterfaceExample {
+public class FunctionalInterfaceExample extends BaseTest {
 
     public static void process(Hello h) {
 

@@ -1,6 +1,7 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ import java.util.function.UnaryOperator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class UnaryAndBinaryOperatorInterfacesExampleTest {
+public class UnaryAndBinaryOperatorInterfacesExampleTest extends BaseTest {
 
     private static final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez"),

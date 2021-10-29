@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -7,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ConsumerInterfaceExampleTest {
+public class ConsumerInterfaceExampleTest extends BaseTest {
 
     private static final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez"),

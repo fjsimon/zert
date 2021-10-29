@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.functional.interfaces;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class PredicateInterfaceExampleTest {
+public class PredicateInterfaceExampleTest extends BaseTest {
 
     private static final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez", "robot"),
