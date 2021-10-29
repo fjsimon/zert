@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import com.fjsimon.zert.common.Species;
 import org.junit.Test;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public class OptionalExampleTest {
+public class OptionalExampleTest extends BaseTest {
 
     private static List<Optional<FuturamaCharacter>> characters = Arrays.asList(
             createOptional("Bender", "Rodriguez", Species.ROBOT),

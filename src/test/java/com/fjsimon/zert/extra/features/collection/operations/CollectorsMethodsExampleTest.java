@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import com.fjsimon.zert.common.Species;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class CollectorsMethodsExampleTest {
+public class CollectorsMethodsExampleTest extends BaseTest {
 
     private final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez", 5, Optional.of(Species.ROBOT)),

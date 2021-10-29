@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class FilteringExampleTest {
+public class FilteringExampleTest extends BaseTest {
 
     private final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez", "robot"),

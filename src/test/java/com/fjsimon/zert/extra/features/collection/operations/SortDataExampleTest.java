@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.collection.operations;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 import static java.util.Comparator.comparing;
 
-public class SortDataExampleTest {
+public class SortDataExampleTest extends BaseTest {
 
     private static final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez", 5),
