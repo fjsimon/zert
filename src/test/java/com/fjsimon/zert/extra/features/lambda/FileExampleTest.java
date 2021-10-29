@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.lambda;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,7 +19,7 @@ import java.util.stream.Stream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class FileExampleTest {
+public class FileExampleTest extends BaseTest {
 
     @Test
     public void fileTest() throws IOException {

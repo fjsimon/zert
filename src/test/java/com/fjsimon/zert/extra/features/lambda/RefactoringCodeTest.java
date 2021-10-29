@@ -1,8 +1,9 @@
 package com.fjsimon.zert.extra.features.lambda;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class RefactoringCodeTest {
+public class RefactoringCodeTest extends BaseTest {
 
     public static void process(Hello h) {
 

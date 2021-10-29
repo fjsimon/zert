@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.lambda;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class FibonacciTest {
+public class FibonacciTest extends BaseTest {
 
     private Map<Integer, Integer> cache = new ConcurrentHashMap<>();
 
