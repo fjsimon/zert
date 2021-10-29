@@ -1,6 +1,12 @@
 package com.fjsimon.zert.operations;
 
-public class ChangeTestQ29 {
+import com.fjsimon.zert.BaseTest;
+import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+public class ChangeTestQ29 extends BaseTest {
 
     private int myValue = 0;
 
@@ -12,12 +18,16 @@ public class ChangeTestQ29 {
         this.myValue = myValue;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void changeTestQ29() {
 
         ChangeTestQ29 ct = new ChangeTestQ29();
         ct.showOne(100);
         System.out.println(ct.myValue);
+        assertThat(ct.myValue, is(0));
+
         ct.showTwo(200);
         System.out.println(ct.myValue);
+        assertThat(ct.myValue, is(200));
     }
 }
