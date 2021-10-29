@@ -1,11 +1,12 @@
 package com.fjsimon.zert.review;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class _C {
+public class _C extends BaseTest {
 
     private static int $;
 
