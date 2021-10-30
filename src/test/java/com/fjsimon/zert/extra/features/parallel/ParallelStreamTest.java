@@ -1,5 +1,6 @@
 package com.fjsimon.zert.extra.features.parallel;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class ParallelStreamTest {
+public class ParallelStreamTest extends BaseTest {
 
     private static final List<FuturamaCharacter> characters = Arrays.asList(
             new FuturamaCharacter("Bender", "Rodriguez", 5),
