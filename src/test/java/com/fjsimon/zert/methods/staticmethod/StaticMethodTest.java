@@ -1,8 +1,9 @@
 package com.fjsimon.zert.methods.staticmethod;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class StaticMethodTest {
+public class StaticMethodTest extends BaseTest {
 
     @Test
     public void staticMethodTest() {
