@@ -1,12 +1,13 @@
 package com.fjsimon.zert.methods.enhancements;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import static java.lang.String.format;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class DefaultMethodsExampleTest {
+public class DefaultMethodsExampleTest extends BaseTest {
 
     @Test
     public void defaultGreetingTest() {
