@@ -1,5 +1,6 @@
 package com.fjsimon.zert.inheritance;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-public class InheritanceTest {
+public class InheritanceTest extends BaseTest {
 
     @Test
     public void test3Q01() {
@@ -29,6 +30,20 @@ public class InheritanceTest {
 
         Egret e = new Egret();
         assertThat(e.color, is(nullValue()));
+    }
+
+    @Test
+    public void inheritanceTest() {
+
+        Baap b = new Beta();
+        System.out.println(b.h + " " + b.getH());
+        assertThat(b.h, is(4));
+        assertThat(b.getH(), is(44));
+
+        Beta bb = (Beta) b;
+        System.out.println(bb.h + " " + bb.getH());
+        assertThat(bb.h, is(44));
+        assertThat(bb.getH(), is(44));
     }
 }
 

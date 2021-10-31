@@ -1,4 +1,4 @@
-package com.fjsimon.zert.methods.inheritance;
+package com.fjsimon.zert.inheritance;
 
 public class Baap {
     public int h = 4;
