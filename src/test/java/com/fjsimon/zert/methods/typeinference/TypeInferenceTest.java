@@ -1,8 +1,9 @@
 package com.fjsimon.zert.methods.typeinference;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class TypeInferenceTest {
+public class TypeInferenceTest extends BaseTest {
 
     @Test
     public void typeInferenceTest() {
