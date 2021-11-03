@@ -1,11 +1,12 @@
 package com.fjsimon.zert.methods;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class ReferenceTest {
+public class ReferenceTest extends BaseTest {
 
     @Test
     public void reference_test() {

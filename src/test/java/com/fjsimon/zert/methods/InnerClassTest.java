@@ -1,8 +1,9 @@
 package com.fjsimon.zert.methods;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
-public class InnerClassTest {
+public class InnerClassTest extends BaseTest {
 
     private String greeting = "Hello World!";
 

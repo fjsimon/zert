@@ -1,5 +1,6 @@
 package com.fjsimon.zert.methods;
 
+import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,7 +11,7 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class MethodTest {
+public class MethodTest extends BaseTest {
 
 
 

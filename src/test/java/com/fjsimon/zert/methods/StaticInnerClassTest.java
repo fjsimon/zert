@@ -1,5 +1,6 @@
 package com.fjsimon.zert.methods;
 
+import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
 import org.junit.Test;
 
@@ -7,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class StaticInnerClassTest {
+public class StaticInnerClassTest extends BaseTest {
 
     @Test
     public void staticInnerClassTest () {
