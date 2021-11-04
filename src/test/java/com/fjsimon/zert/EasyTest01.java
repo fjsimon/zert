@@ -10,7 +10,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class EasyTest01 {
+public class EasyTest01 extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
