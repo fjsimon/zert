@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class ReportingTest {
+public class ReportingTest extends BaseTest {
 
     private static final List<String> MOVIES_TYPE = Arrays.asList("mp4", "avi", "wmv");
     private static final List<String> IMAGES_TYPE = Arrays.asList("jpg", "jpeg", "gif");

@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class HashTest {
+public class HashTest extends BaseTest {
 
     Map<String, Integer> magazineMap;
     Map<String, Integer> noteMap;

@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 import static org.junit.Assert.assertTrue;
 
-public class LambdaExamplesTest {
+public class LambdaExamplesTest extends BaseTest {
 
     @Test
     public void testLambdaExpression() {
