@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class Test03 {
+public class Test03 extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
