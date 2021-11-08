@@ -14,7 +14,7 @@ import static org.hamcrest.core.Is.is;
 
 import static org.junit.Assert.fail;
 
-public class Test04 {
+public class Test04 extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
