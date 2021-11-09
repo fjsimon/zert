@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
 
-public class Test05 {
+public class Test05 extends BaseTest {
 
     class A { }
     class B extends A { }
@@ -33,6 +33,7 @@ public class Test05 {
         c = a;
         a = b;
         System.out.println(""+c);
+        System.out.println(""+a);
     }
 
     public static int m1(int i){
