@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class Test06 {
+public class Test06 extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
