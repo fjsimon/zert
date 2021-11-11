@@ -9,7 +9,7 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-public class Test07 {
+public class Test07 extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
