@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-public class ToughTest {
+public class ToughTest extends BaseTest {
 
     @Rule
     public TestName name = new TestName();
