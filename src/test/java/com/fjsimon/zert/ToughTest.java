@@ -37,6 +37,7 @@ public class ToughTest extends BaseTest {
     public void parseFloatTest() {
 
         assertThat(parseFloat("10.0"), is(10.0f));
+        assertThat(parseFloat("NaN"), is(Float.NaN));
     }
 
     public float parseFloat(String s) {
