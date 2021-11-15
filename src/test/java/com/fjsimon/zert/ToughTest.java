@@ -6,6 +6,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 public class ToughTest extends BaseTest {
 
     @Rule
@@ -28,6 +31,12 @@ public class ToughTest extends BaseTest {
         int i = 4;
         int ia[][][] = new int[i][i = 3][i];
         System.out.println(ia.length + ", " + ia[0].length + ", " + ia[0][0].length);
+    }
+
+    @Test
+    public void parseFloatTest() {
+
+        assertThat(parseFloat("10.0"), is(10.0f));
     }
 
     public float parseFloat(String s) {
