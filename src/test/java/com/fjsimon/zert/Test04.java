@@ -75,29 +75,34 @@ public class Test04 extends BaseTest {
         char i;
         LOOP:
         for (i = 0; i < 5; i++) {
+
+            System.out.printf("before switch i = %d %n", (int) i);
+
             switch (i++) {
                 case '0':
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("A");
                 case 1:
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("B");
-                    break LOOP;
+                    break LOOP; // jump outside the loop
                 case 2:
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("C");
                     break;
                 case 3:
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("D");
                     break;
                 case 4:
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("E");
                 case 'E':
-                    System.out.printf("%d %n", (int) i);
+                    System.out.printf("within case section i = %d %n", (int) i);
                     System.out.println("F");
             }
+
+            System.out.printf("after switch  i = %d %n", (int) i);
         }
     }
 
