@@ -124,7 +124,7 @@ public class Test03 extends BaseTest {
         final Holder a = new Holder(5);
         Holder b = new Holder(10);
         a.link = b;
-        b.link = Holder.setIt(a, b);
+        b.link = Holder.setIt(a, b); // NullPointer
         System.out.println(a.link.value + " " + b.link.value);
     }
 
@@ -136,6 +136,8 @@ public class Test03 extends BaseTest {
             i = 12;
         }
         System.out.println(i + " " + j);
+        assertThat(i, is(1));
+        assertThat(j, is(2));
     }
 
     @Test
@@ -152,7 +154,8 @@ public class Test03 extends BaseTest {
     @Test
     public void q36() {
 
-        new TestClass();
+        TestClass tc = new TestClass();
+        assertThat(tc.toString(), is("TestClass.si = 10"));
     }
 
     static int val() throws Exception {
@@ -192,6 +195,7 @@ public class Test03 extends BaseTest {
 
         AQ46 a = new BQ46();
         System.out.println(a.i);
+        assertThat(a.i, is(10));
         a.m1();
         a.m2();
     }
@@ -415,7 +419,10 @@ class TestClassQ29{
     void probe(Long x) { System.out.println("In LONG"); } //4
 
     public static void main(String[] args){
-        Integer a = 4; new TestClassQ29().probe(a); //5
-        int b = 4; new TestClassQ29().probe(b); //6
+        Integer a = 4; new TestClassQ29().probe(a); // Integer
+        int b = 4; new TestClassQ29().probe(b); // long
+        new TestClassQ29().probe(1L); // long
+        new TestClassQ29().probe(new Long(1)); // LONG
+        new TestClassQ29().probe(1,2); // ...
     }
 }
