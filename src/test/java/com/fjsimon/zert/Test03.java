@@ -99,8 +99,12 @@ public class Test03 extends BaseTest {
     public void q17() {
 
         ArrayList<Double> al = new ArrayList<>();
+        al.add(2d);
+        al.add(3D);
 //        al.add(111); //Compile error
         System.out.println(al.indexOf(1.0));
+        System.out.println(al.indexOf(2.0));
+        System.out.println(al.indexOf(3.0));
         System.out.println(al.contains("string"));
 //        Double d = al.get(al.length); //Compile error
 
@@ -109,9 +113,9 @@ public class Test03 extends BaseTest {
     @Test
     public void q20() {
 
-        String String = "string isa string";
-        System.out.println(String.substring(3, 6));
-//        assertThat(String.format("%s%n", "ing"), CoreMatchers.is(outputStream.toString()));
+        String string = "string isa string";
+        System.out.println(string.substring(3, 6));
+        assertThat(string.substring(3, 6), is("ing"));
     }
 
     @Test(expected = NullPointerException.class)
@@ -359,7 +363,7 @@ class Holder {
 
     public static Holder setIt(final Holder x, final Holder y) {
 
-        x.link = y.link;
+        x.link = y.link; // NullPointerException
         return x;
     }
 }
