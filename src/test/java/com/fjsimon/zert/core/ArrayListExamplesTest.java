@@ -138,6 +138,21 @@ public class ArrayListExamplesTest extends BaseTest {
     }
 
     @Test
+    public void Integer_Array_equals() {
+
+        Integer[] one = new Integer[10];
+        Integer[] two = new Integer[10];
+        assertThat(Arrays.equals(one, two), is(true));
+        one[0] = 1;
+        assertThat(Arrays.equals(one, two), is(false));
+        two[0] = 1;
+        assertThat(Arrays.equals(one, two), is(true));
+        one[1] = 2;
+        two[0] = 2;
+        assertThat(Arrays.equals(one, two), is(false));
+    }
+
+    @Test
     public void sorting() {
 
         List<Integer> numbers = new ArrayList();
