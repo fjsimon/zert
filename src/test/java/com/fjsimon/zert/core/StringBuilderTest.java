@@ -21,6 +21,28 @@ public class StringBuilderTest extends BaseTest {
     }
 
     @Test
+    public void stringBuilder_setLength_test(){
+
+        StringBuilder sb = new StringBuilder("Hello ");
+        sb.append("World");
+        sb.setLength(15);
+
+        assertThat(sb.toString(), is("Hello World\u0000\u0000\u0000\u0000"));
+    }
+
+    @Test
+    public void stringBuilder_capacity_test(){
+
+        StringBuilder sb = new StringBuilder("Hello ");
+        sb.append("World");
+
+        assertThat(sb.capacity(), is(22));
+
+        sb.ensureCapacity(sb.capacity() + 1);
+        assertThat(sb.capacity(), is(46));
+    }
+
+    @Test
     public void stringBuilderAppendIterTest() {
 
         StringBuilder sb = new StringBuilder();
