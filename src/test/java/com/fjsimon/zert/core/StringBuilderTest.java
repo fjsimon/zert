@@ -9,6 +9,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+@SuppressWarnings("all")
 public class StringBuilderTest extends BaseTest {
 
     @Test
