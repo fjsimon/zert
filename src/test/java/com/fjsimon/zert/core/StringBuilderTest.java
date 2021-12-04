@@ -130,6 +130,7 @@ public class StringBuilderTest extends BaseTest {
         String e1 = "Hello World";
         String e2 = " Hello World".trim();
         System.out.println(e1.equals(e2));
+        assertThat(e2, is("Hello World"));
     }
 
     public static void roar(String a, StringBuilder b) {
@@ -157,6 +158,7 @@ public class StringBuilderTest extends BaseTest {
         numbers.delete(2, 8);
         numbers.append("-").insert(2, "+");
         System.out.println(numbers);
+        assertThat(numbers.toString(), is("01+89-"));
     }
 
     @Test
