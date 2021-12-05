@@ -88,6 +88,7 @@ public class StringBuilderTest extends BaseTest {
         StringBuilder sbd1 = new StringBuilder().append(1).append('c');
         sbd1.append("-").append(true);
         System.out.printf("append %s%n", sbd1.toString());
+        assertThat(sbd1.toString(), is("1c-true"));
 
 
         StringBuilder sbd2 = new StringBuilder("animals");
@@ -95,15 +96,18 @@ public class StringBuilderTest extends BaseTest {
         sbd2.insert(0, "-");
         sbd2.insert(4, "-");
         System.out.printf("insert %s%n", sbd2.toString());
+        assertThat(sbd2.toString(), is("-ani-mals-"));
 
         StringBuilder sbd3 = new StringBuilder("abcdef");
         sbd3.delete(1, 3);  // adef
         sbd3.deleteCharAt(3); //ade
         System.out.printf("delete %s%n", sbd3.toString());
+        assertThat(sbd3.toString(), is("ade"));
 
         StringBuilder sbd4 = new StringBuilder("ABC");
         sbd4.reverse();
         System.out.printf("reverse %s%n", sbd4.toString());
+        assertThat(sbd4.toString(), is("CBA"));
     }
 
     @Test
