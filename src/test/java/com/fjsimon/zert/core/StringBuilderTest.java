@@ -174,10 +174,13 @@ public class StringBuilderTest extends BaseTest {
         System.out.printf("puzzle1 = %s%n", puzzle1);
         System.out.printf("puzzle1.reverse() = %s%n", puzzle1.reverse());
 
+        assertThat(puzzle1.toString(), is("avaJ"));
+
         StringBuilder puzzle2 = new StringBuilder("Java");
         System.out.printf("puzzle2 = %s%n", puzzle2);
         System.out.printf("puzzle2.append(\"vaJ$\").delete(0,3).deleteCharAt(puzzle2.length() - 1) = %s%n",
-                puzzle2.append("vaJ$").delete(0,3).deleteCharAt(puzzle2.length() - 1));
+                puzzle2.append("vaJ$").delete(0,3).deleteCharAt(puzzle2.length() - 1).toString());
+        assertThat(puzzle2.toString(), is("avaJ"));
     }
 
     @Test
