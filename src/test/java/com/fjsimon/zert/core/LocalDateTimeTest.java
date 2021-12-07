@@ -7,6 +7,9 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 public class LocalDateTimeTest extends BaseTest {
 
 
@@ -28,6 +31,9 @@ public class LocalDateTimeTest extends BaseTest {
         System.out.printf("Specific date/time 2: %s %n", LocalDateTime.of(specificDate, specificTime));
         System.out.printf("Specific date/time 3: %s %n", specificDate.atTime(specificTime));
         System.out.printf("Specific date/time 4: %s %n", specificTime.atDate(specificDate));
+
+        assertThat(LocalDateTime.of(specificDate, specificTime).toString(), is("2016-02-15T21:16:59"));
+        assertThat(specificDateTime.toString(), is("1940-01-20T00:00:01"));
     }
 
     @Test()
