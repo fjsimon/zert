@@ -44,6 +44,7 @@ public class LocalDateTimeTest extends BaseTest {
         date = date.minus(p);
         DateTimeFormatter f = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
         System.out.println(date.format(f));
+        assertThat(date.format(f), is("07/03/14 11:22"));
     }
 
     @Test()
@@ -54,6 +55,7 @@ public class LocalDateTimeTest extends BaseTest {
         date = date.minus(p);
         DateTimeFormatter f = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
         System.out.println(f.format(date));
+        assertThat(date.format(f), is("10/05/13 11:22"));
     }
 
 
