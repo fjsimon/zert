@@ -55,12 +55,18 @@ public class DateTimeFormattingTest extends BaseTest {
 
         DateTimeFormatter shortDateTime = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
         System.out.println(shortDateTime.format(dateTime));
+        assertThat(shortDateTime.format(dateTime), is("20/01/20"));
+
         System.out.println(shortDateTime.format(date));
+        assertThat(shortDateTime.format(date), is("20/01/20"));
 //      System.out.println(shortDateTime.format(time)); // UnsupportedTemporalTypeException
 
         // Print same as the previous code
         System.out.println(dateTime.format(shortDateTime));
+        assertThat(dateTime.format(shortDateTime), is("20/01/20"));
+
         System.out.println(date.format(shortDateTime));
+        assertThat(date.format(shortDateTime), is("20/01/20"));
 //      System.out.println(time.format(shortDateTime)); // UnsupportedTemporalTypeException
     }
 
@@ -76,13 +82,21 @@ public class DateTimeFormattingTest extends BaseTest {
         DateTimeFormatter customFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm");
 
         System.out.printf("shortFormat = %s%n", shortFormat.format(dateTime));
+        assertThat(shortFormat.format(dateTime), is("20/01/20 11:12"));
+
         System.out.printf("mediumFormat = %s%n", mediumFormat.format(dateTime));
+        assertThat(mediumFormat.format(dateTime), is("20-Jan-2020 11:12:34"));
+
         System.out.printf("customFormat = %s%n", customFormat.format(dateTime));
+        assertThat(customFormat.format(dateTime), is("January 20, 2020, 11:12"));
 
         DateTimeFormatter customFormatPattern = DateTimeFormatter.ofPattern("hh:mm");
         System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(dateTime));
+        assertThat(customFormatPattern.format(dateTime), is("11:12"));
 //        System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(date)); // UnsupportedTemporalTypeException
+
         System.out.printf("customFormatPattern = %s%n", customFormatPattern.format(time));
+        assertThat(customFormatPattern.format(time), is("11:12"));
     }
 
     @Test
@@ -95,7 +109,9 @@ public class DateTimeFormattingTest extends BaseTest {
         LocalTime time = LocalTime.parse("10 15", formatTime);
 
         System.out.printf("date = %s%n", date);
+        assertThat(date.toString(), is("2015-01-02"));
         System.out.printf("time = %s%n", time);
+        assertThat(time.toString(), is("10:15"));
     }
 
     @Test
