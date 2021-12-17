@@ -9,6 +9,8 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import static java.util.Calendar.MAY;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class FormatterTest extends BaseTest {
 
@@ -42,5 +44,6 @@ public class FormatterTest extends BaseTest {
         String s = String.format("Duke's Birthday: %1$tm %1$te,%1$tY", c);
         // -> s == "Duke's Birthday: May 23, 1995"
         System.out.println(s);
+        assertThat(s, is("Duke's Birthday: 05 9,2000"));
     }
 }
