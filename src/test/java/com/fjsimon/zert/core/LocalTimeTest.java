@@ -6,6 +6,9 @@ import org.junit.Test;
 import java.time.LocalTime;
 import java.time.temporal.ChronoField;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 public class LocalTimeTest extends BaseTest {
 
 
@@ -26,11 +29,17 @@ public class LocalTimeTest extends BaseTest {
         System.out.printf("Compare Local time : %s%n", newTimeMinus.isBefore(LocalTime.now()));
 
         LocalTime localTime = LocalTime.of(5, 15);
-        System.out.println("Time : " + localTime);
+        assertThat(localTime.toString(), is("05:15"));
+
         System.out.println("Time plus 1 hour : " + localTime.plusHours(1));
+        assertThat(localTime.plusHours(1).toString(), is("06:15"));
         System.out.println("Time plus 1 minute : " + localTime.plusMinutes(1));
+        assertThat(localTime.plusMinutes(1).toString(), is("05:16"));
         System.out.println("Time plus 10 seconds : " + localTime.plusSeconds(10));
+        assertThat(localTime.plusSeconds(10).toString(), is("05:15:10"));
         System.out.println("Time plus 100 nano seconds : " + localTime.plusNanos(100));
+        assertThat(localTime.plusNanos(100).toString(), is("05:15:00.000000100"));
+
     }
 
     @Test
@@ -42,6 +51,8 @@ public class LocalTimeTest extends BaseTest {
                 specificTime.getHour(),
                 specificTime.getMinute(),
                 specificTime.getSecond());
+
+        assertThat(specificTime.toString(), is("21:16:59"));
 
         LocalTime nowTime = LocalTime.now();
         System.out.printf("Now time: hour[%d], minute[%d], second[%d]%n",
