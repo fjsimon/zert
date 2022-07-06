@@ -4,6 +4,7 @@ import com.fjsimon.zert.BaseTest;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,6 +27,15 @@ public class IntegerTest extends BaseTest {
         int val2 = 9;
         op(val1++, ++val2);
         System.out.printf("val1 = %d, val2 = %d%n", val1, val2);
+
+
+        Integer a = 100;
+        Integer b = 100;
+        System.out.println(a==b);
+        a = 1000;
+        b = 1000;
+        System.out.println(a==b);
+
     }
 
     @Test
@@ -62,5 +72,20 @@ public class IntegerTest extends BaseTest {
         one[1] = 2;
         two[0] = 2;
         assertThat(Arrays.equals(one, two), is(false));
+    }
+
+    @Test
+    public void integer_random_range_test() {
+
+        int min = -1;
+        int max = 50;
+
+        Random random = new Random();
+        int num = random.nextInt(max - min + 1) + min;
+
+        System.out.println(num);
+
+        assertThat(0 <= num, is(true));
+        assertThat(50 >= num, is(true));
     }
 }
