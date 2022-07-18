@@ -13,6 +13,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.fail;
 
 public class ArrayListExamplesTest extends BaseTest {
 
@@ -182,6 +183,27 @@ public class ArrayListExamplesTest extends BaseTest {
 
         List<String> varlist = Arrays.asList("one", "two", "three");
         assertThat(varlist, CoreMatchers.instanceOf(List.class));
+    }
+
+
+    @Test
+    public void convertingArrayToListException() {
+
+        String [] array = {"hawk", "robin"};
+        List<String> arraylist = Arrays.asList(array);
+        try {
+            arraylist.remove(1);
+            fail("Failed");
+        }catch(UnsupportedOperationException e) {}
+        assertThat(arraylist, CoreMatchers.instanceOf(List.class));
+
+        List<String> varlist = Arrays.asList("one", "two", "three");
+        try {
+            varlist.remove(1);
+            fail("Failed");
+        }catch(UnsupportedOperationException e) {}
+        assertThat(varlist, CoreMatchers.instanceOf(List.class));
+
     }
 
     @Test
