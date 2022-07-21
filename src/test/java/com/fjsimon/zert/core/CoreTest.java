@@ -118,7 +118,7 @@ public class CoreTest extends BaseTest {
     }
 
     @Test
-    public void stringFromCharTest(){
+    public void stringFromCharTest() {
         String myStr = "good";
         char[] myCharArr = {'g', 'o', 'o', 'd' };
 
@@ -156,7 +156,7 @@ public class CoreTest extends BaseTest {
     }
 
     @Test
-    public void printerWriterTest(){
+    public void printerWriterTest() {
         OutputStreamWriter osw  =  new OutputStreamWriter( System.out );
 
         PrintWriter pw = new PrintWriter(osw);
@@ -165,6 +165,19 @@ public class CoreTest extends BaseTest {
         pw.close();
     }
 
+
+    @Test
+    public void ambiguous_method_call_test() {
+//        a(5);
+    }
+
+    static void a(int a, int... b) {
+        System.out.print(a);
+    }
+
+    static void a(int... b) {
+        System.out.print(b);
+    }
 
 }
 
