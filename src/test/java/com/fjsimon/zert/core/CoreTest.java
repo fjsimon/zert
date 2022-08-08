@@ -32,7 +32,7 @@ public class CoreTest extends BaseTest {
 
         assertThat(new Boolean("no") == false, is(true));
 
-        assertThat(Boolean.parseBoolean("true"), is(true));
+        assertThat(Boolean.parseBoolean("false"), is(false));
 
         assertThat(new Boolean(null), is(false));
 
