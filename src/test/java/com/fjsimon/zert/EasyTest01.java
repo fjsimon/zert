@@ -156,6 +156,14 @@ public class EasyTest01 extends BaseTest {
         printSum(1, 2);
     }
 
+    @Test
+    public void test() {
+        AZ o1 = new CY();
+        BX o2 = (BX) o1;
+        System.out.println(o1.m1());
+        System.out.println(o2.i);
+    }
+
 }
 
 
@@ -195,3 +203,7 @@ class B extends A {
         this(s1 + s2 + " ! ");
     }
 }
+
+class AZ { int i = 10;  int m1( ) { return i; } }
+class BX extends AZ { int i = 20;  int m1() { return i; } }
+class CY extends BX { int i = 30;  int m1() { return i; } }
