@@ -177,7 +177,7 @@ public class Test03 extends BaseTest {
     @Test
     public void q39() {
 
-        InitTest it = new InitTest();
+        InitialTest it = new InitialTest();
     }
 
     @Test
@@ -195,9 +195,18 @@ public class Test03 extends BaseTest {
 
         AQ46 a = new BQ46();
         System.out.println(a.i);
+        System.out.println(a.i2);
         assertThat(a.i, is(10));
+        assertThat(a.i2, is(10));
         a.m1();
         a.m2();
+
+        BQ46 b = new BQ46();
+        System.out.println(b.i);
+        System.out.println(b.i2);
+        assertThat(b.i, is(20));
+        assertThat(b.i2, is(20));
+
     }
 
     @Test
@@ -289,6 +298,7 @@ public class Test03 extends BaseTest {
 class AQ46 {
 
     int i = 10;
+    public static int i2 = 10;
 
     public static void m1() {
 
@@ -304,6 +314,7 @@ class AQ46 {
 class BQ46 extends AQ46 {
 
     int i = 20;
+    public static int i2 = 20;
 
     public static void m1() {
 
