@@ -125,7 +125,7 @@ public class Test03 extends BaseTest {
         Holder b = new Holder(10);
         a.link = b;
         b.link = Holder.setIt(a, b); // NullPointer
-        System.out.println(a.link.value + " " + b.link.value);
+        System.out.println(a.link.value + " " + b.link.value); // NullPointerException a.link.value
     }
 
     @Test
