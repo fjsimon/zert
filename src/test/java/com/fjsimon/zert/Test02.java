@@ -31,6 +31,7 @@ public class Test02 extends BaseTest {
         StringWrapper sw = new StringWrapper("How are you?");
         StringBuilder sb = new StringBuilder("How are you?");
 
+        System.out.println("Hello, "+sw);
         assertThat("Hello, "+sw, Matchers.is(not("Hello, How are you?")));
         assertThat("Hello, "+sb, Matchers.is("Hello, How are you?"));
     }
