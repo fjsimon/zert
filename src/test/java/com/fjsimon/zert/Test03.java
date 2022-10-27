@@ -437,3 +437,19 @@ class TestClassQ29{
         new TestClassQ29().probe(1,2); // ...
     }
 }
+
+class FiParent{
+    final int fi = 10;
+}
+
+class FiChild extends FiParent{
+    int fi = 15;
+    public static void main(String[] args){
+        FiChild b = new FiChild();
+        b.fi = 20;
+        System.out.println(b.fi);
+        System.out.println(((FiParent) b).fi);
+        FiParent c = b;
+        System.out.println(c.fi);
+    }
+}
