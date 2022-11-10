@@ -127,9 +127,51 @@ public class Test08 extends BaseTest {
         LocalDateTime aLDT = LocalDateTime.parse(strDatewithTime);
         System.out.println("Date with Time: " + aLDT);
 
-
-        System.out.println("12345".charAt(6));
     }
+
+    @Test
+    public void q36() {
+
+        int k = 1;
+        int[] a = { 1 };
+        k += (k = 4) * (k + 2);
+        a[0] += (a[0] = 4) * (a[0] + 2);
+        System.out.println( k + " , " + a[0]);
+    }
+
+    @Test
+    public void q37() {
+
+        int i = 0, j = 5;
+        lab1 : for( ; ; i++) {
+            for( ; ; --j)
+                if( i >j )
+                    break lab1;
+        }
+        System.out.println(" i = "+i+", j = "+j);
+    }
+
+
+    @Test
+    public void q44() {
+        int i = 0;
+        loop :         // 1
+        {
+            System.out.println("Loop Lable line");
+            try{
+                for (  ;  true ;  i++ ){
+                    if( i >5) break loop;       // 2
+                }
+            }
+            catch(Exception e){
+                System.out.println("Exception in loop.");
+            }
+            finally{
+                System.out.println("In Finally");      // 3
+            }
+        }
+    }
+
 }
 
 class Car{
@@ -192,5 +234,37 @@ class TestQ20{
         finally{
             System.out.println("Finally");
         }
+    }
+}
+
+ class FinallyTest{
+    public static void main(String args[]){
+        try{
+            if (args.length == 0) return;
+            else throw new Exception("Some Exception");
+        }
+        catch(Exception e){
+            System.out.println("Exception in Main");
+        }
+        finally{
+            System.out.println("The end");
+        }
+    }
+}
+
+class SuperClass{
+    static{ System.out.print("super "); }
+}
+class One{
+    static {  System.out.print("one "); }
+}
+class Two extends SuperClass{
+    static {  System.out.print("two "); }
+}
+class TestQ45{
+
+    public static void main(String[] args){
+        One o = null;
+        Two t = new Two();System.out.println("12345".charAt(6));
     }
 }
