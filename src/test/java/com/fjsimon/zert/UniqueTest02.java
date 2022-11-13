@@ -5,13 +5,10 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
 
 public class UniqueTest02 extends BaseTest {
@@ -83,7 +80,7 @@ public class UniqueTest02 extends BaseTest {
             System.out.println("not equal");
 
         LocalDateTime dt = LocalDateTime.parse("2015-01-02T17:13:50");
-        System.out.println(dt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        System.out.println(dt.format(ISO_LOCAL_DATE_TIME));
         System.out.println(dt.toString());
 
     }
