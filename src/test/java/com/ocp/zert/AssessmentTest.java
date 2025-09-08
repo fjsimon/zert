@@ -10,6 +10,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -52,6 +56,15 @@ public class AssessmentTest extends BaseTest {
         System.out.println(Files.isSameFile(path1, path2));
         System.out.println("" + path1.equals(path2));
 
+    }
+
+    @Test
+    public void q10() {
+
+        Integer x = 10;
+        x++;
+        assert x == null && x >= 0;
+        System.out.println(x);
     }
 
 }
