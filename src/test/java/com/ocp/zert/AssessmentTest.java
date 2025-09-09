@@ -11,9 +11,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class AssessmentTest extends BaseTest {
@@ -72,6 +78,34 @@ public class AssessmentTest extends BaseTest {
         Console c = System.console();
         if ((line = c.readLine()) != null)
             System.out.println(line);
+    }
+
+    @Test
+    public void q16() {
+
+        String d = Duration.ofDays(1).toString();
+        String p = Period.ofDays(1).toString();
+        System.out.printf("%s %s \n", d, p);
+        boolean b1 = d == p;
+        boolean b2 = d.equals(p);
+        System.out.println(b1 + " " + b2);
+    }
+
+    @Test
+    public void q18() throws Exception {
+
+//        Set<? extends RuntimeException> set1 = new HashSet<? extends RuntimeException>();
+//        Set<? extends RuntimeException> set2 = new HashSet<Exception>();
+        Set<? extends RuntimeException> set3 = new TreeSet<RuntimeException>();
+        Set<? extends RuntimeException> set4 = new TreeSet<NullPointerException>();
+    }
+
+    @Test
+    public void q20() throws Exception {
+
+        Stream<LocalDate> s = Stream.of(LocalDate.now());
+        UnaryOperator<LocalDate> u = l -> l;
+        s.filter(l -> l != null).map(u).peek(System.out::println);
     }
 
 }
