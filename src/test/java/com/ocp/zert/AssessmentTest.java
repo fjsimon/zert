@@ -5,15 +5,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -58,13 +55,23 @@ public class AssessmentTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(expected = AssertionError.class)
     public void q10() {
 
         Integer x = 10;
         x++;
         assert x == null && x >= 0;
         System.out.println(x);
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void q13() {
+
+        String line;
+        Console c = System.console();
+        if ((line = c.readLine()) != null)
+            System.out.println(line);
     }
 
 }
