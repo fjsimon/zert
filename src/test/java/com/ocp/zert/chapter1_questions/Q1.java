@@ -1,4 +1,4 @@
-package com.ocp.zert.chapter1_quetions;
+package com.ocp.zert.chapter1_questions;
 
 public class Q1 {
     public int employeeId;
