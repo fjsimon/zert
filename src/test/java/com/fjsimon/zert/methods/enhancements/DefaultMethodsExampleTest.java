@@ -1,7 +1,7 @@
 package com.fjsimon.zert.methods.enhancements;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static java.lang.String.format;
 import static org.hamcrest.MatcherAssert.assertThat;

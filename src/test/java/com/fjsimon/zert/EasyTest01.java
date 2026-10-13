@@ -1,44 +1,38 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EasyTest01 extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class EasyTest01 {
 
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
-
-    @Test(expected = StringIndexOutOfBoundsException.class)
+    @Test
     public void q02() {
 
-        char ch = "12345".charAt(3);
-        System.out.println(ch);
+        Assertions.assertThrows(StringIndexOutOfBoundsException.class, () -> {
+            char ch = "12345".charAt(3);
+            System.out.println(ch);
 
-        String string = new String("123456789");
-        string.charAt('1');
+            String string = new String("123456789");
+            string.charAt('1');
+        });
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void q04() {
 
-        int ia[][] = {{1, 2}, null};
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                System.out.println(ia[i][j]);
-
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            int ia[][] = {{1, 2}, null};
+            for (int i = 0; i < 2; i++)
+                for (int j = 0; j < 2; j++)
+                    System.out.println(ia[i][j]);
+        });
     }
 
     @Test

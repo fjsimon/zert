@@ -1,9 +1,8 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,16 +11,8 @@ import java.time.format.DateTimeFormatter;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class Test08 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test08 {
 
     @Test
     public void q8() {
@@ -57,13 +48,15 @@ public class Test08 extends BaseTest {
         assertThat(b, is(25));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void q15() {
 
-        int ia[][] = { {1, 2}, null };
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                System.out.println(ia[i][j]);
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            int ia[][] = {{1, 2}, null};
+            for (int i = 0; i < 2; i++)
+                for (int j = 0; j < 2; j++)
+                    System.out.println(ia[i][j]);
+        });
 
     }
 

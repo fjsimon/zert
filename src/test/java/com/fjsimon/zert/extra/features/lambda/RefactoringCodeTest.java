@@ -1,7 +1,7 @@
 package com.fjsimon.zert.extra.features.lambda;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class RefactoringCodeTest extends BaseTest {
 

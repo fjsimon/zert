@@ -1,7 +1,8 @@
 package com.fjsimon.zert.core;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -239,10 +240,12 @@ public class LocalDateTest extends BaseTest {
                 LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
     }
 
-    @Test(expected = DateTimeException.class)
+    @Test
     public void ch03q30() {
-        LocalDate date = LocalDate.of(2018, Month.APRIL, 40);
-        System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfMonth());
+        Assertions.assertThrows(DateTimeException.class, () -> {
+            LocalDate date = LocalDate.of(2018, Month.APRIL, 40);
+            System.out.println(date.getYear() + " " + date.getMonth() + " " + date.getDayOfMonth());
+        });
     }
 
     @Test

@@ -3,27 +3,19 @@ package com.fjsimon.zert;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.*;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class Test02 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test02 {
 
     @Test
     public void q01() {

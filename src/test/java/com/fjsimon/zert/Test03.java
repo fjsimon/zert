@@ -1,25 +1,16 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class Test03 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test03  {
 
     @Test
     public void q12() {
@@ -118,14 +109,16 @@ public class Test03 extends BaseTest {
         assertThat(string.substring(3, 6), is("ing"));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test()
     public void q27() {
 
-        final Holder a = new Holder(5);
-        Holder b = new Holder(10);
-        a.link = b;
-        b.link = Holder.setIt(a, b); // NullPointer
-        System.out.println(a.link.value + " " + b.link.value); // NullPointerException a.link.value
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            final Holder a = new Holder(5);
+            Holder b = new Holder(10);
+            a.link = b;
+            b.link = Holder.setIt(a, b); // NullPointer
+            System.out.println(a.link.value + " " + b.link.value); // NullPointerException a.link.value
+        });
     }
 
     @Test

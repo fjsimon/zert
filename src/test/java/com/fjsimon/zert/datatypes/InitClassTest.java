@@ -1,7 +1,7 @@
 package com.fjsimon.zert.datatypes;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class InitClassTest extends BaseTest {
 

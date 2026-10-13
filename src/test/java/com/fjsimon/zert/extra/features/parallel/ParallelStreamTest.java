@@ -2,7 +2,7 @@ package com.fjsimon.zert.extra.features.parallel;
 
 import com.fjsimon.zert.BaseTest;
 import com.fjsimon.zert.common.FuturamaCharacter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalTime;

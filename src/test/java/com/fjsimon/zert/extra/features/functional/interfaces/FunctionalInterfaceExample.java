@@ -2,7 +2,7 @@ package com.fjsimon.zert.extra.features.functional.interfaces;
 
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FunctionalInterfaceExample extends BaseTest {
 

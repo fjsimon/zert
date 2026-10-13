@@ -1,7 +1,7 @@
 package com.fjsimon.zert.methods.typeinference;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TypeInferenceTest extends BaseTest {
 

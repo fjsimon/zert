@@ -1,7 +1,8 @@
 package com.fjsimon.zert.exceptions;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -35,9 +36,11 @@ public class ExceptionsTest extends BaseTest {
         throw new Exception();
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void test02_Q65() throws Exception {
-        myMethod();
+        Assertions.assertThrows(Exception.class, () -> {
+            myMethod();
+        });
     }
 
     public void test02_Q66() {

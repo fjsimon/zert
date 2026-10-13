@@ -1,13 +1,13 @@
 package com.fjsimon.zert.core;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ArrayExamplesTest extends BaseTest {
 
@@ -48,7 +48,7 @@ public class ArrayExamplesTest extends BaseTest {
         }catch (ArrayStoreException e){
             return;
         }
-        fail();
+        fail("Failed");
     }
 
     @Test

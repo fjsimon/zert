@@ -1,10 +1,12 @@
 package com.fjsimon.zert.exceptions;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-public class JVMErrorsTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class JVMErrorsTest {
 
     public static class X {
         int k = 0;
@@ -28,7 +30,7 @@ public class JVMErrorsTest extends BaseTest {
         overflow(k++);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void stackOverflowError() {
         try {

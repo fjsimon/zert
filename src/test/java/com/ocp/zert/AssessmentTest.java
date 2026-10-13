@@ -1,9 +1,8 @@
 package com.ocp.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.Console;
 import java.io.File;
@@ -18,66 +17,62 @@ import java.util.*;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@ExtendWith(BaseTest.class)
+public class AssessmentTest {
 
-public class AssessmentTest extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
-
-    @Test(expected = java.util.ConcurrentModificationException.class)
+    @Test()
     public void q05() {
 
-        List<Integer> source = new ArrayList<>(Arrays.asList(1,2,3,4));
-        List<Integer> fish = new CopyOnWriteArrayList<>(source);
-        List<Integer> mammals = Collections.synchronizedList(source);
-        Set<Integer> birds = new ConcurrentSkipListSet<>();
-        birds.addAll(source);
-        synchronized(new Integer(10)) {
-            for(Integer f: fish) fish.add(4); // c1
-            for(Integer m: mammals) mammals.add(4); // c2
-            for(Integer b: birds) birds.add(5); // c3
-            System.out.println(fish.size()+" "+mammals.size()+" "+birds.size());
-        }
-
+        Assertions.assertThrows(java.util.ConcurrentModificationException.class, () -> {
+            List<Integer> source = new ArrayList<>(Arrays.asList(1,2,3,4));
+            List<Integer> fish = new CopyOnWriteArrayList<>(source);
+            List<Integer> mammals = Collections.synchronizedList(source);
+            Set<Integer> birds = new ConcurrentSkipListSet<>();
+            birds.addAll(source);
+            synchronized(new Integer(10)) {
+                for(Integer f: fish) fish.add(4); // c1
+                for(Integer m: mammals) mammals.add(4); // c2
+                for(Integer b: birds) birds.add(5); // c3
+                System.out.println(fish.size()+" "+mammals.size()+" "+birds.size());
+            }
+        });
     }
 
-    @Test(expected = java.nio.file.NoSuchFileException.class)
+    @Test()
     public void q07() throws IOException {
 
-        Path path1 = Paths.get("/bats/night", "../").resolve(Paths.get("./sleep.txt")).normalize();
-        Path path2 = new File("../sleep.txt").toPath().toRealPath();
+        Assertions.assertThrows(java.nio.file.NoSuchFileException.class, () -> {
+            Path path1 = Paths.get("/bats/night", "../").resolve(Paths.get("./sleep.txt")).normalize();
+            Path path2 = new File("../sleep.txt").toPath().toRealPath();
 
-        System.out.println(Files.isSameFile(path1, path2));
-        System.out.println("" + path1.equals(path2));
-
+            System.out.println(Files.isSameFile(path1, path2));
+            System.out.println("" + path1.equals(path2));
+        });
     }
 
-    @Test(expected = AssertionError.class)
+    @Test()
     public void q10() {
 
-        Integer x = 10;
-        x++;
-        assert x == null && x >= 0;
-        System.out.println(x);
+        Assertions.assertThrows(AssertionError.class, () -> {
+            Integer x = 10;
+            x++;
+            assert x == null && x >= 0;
+            System.out.println(x);
+        });
     }
 
 
-    @Test(expected = NullPointerException.class)
+    @Test()
     public void q13() {
 
-        String line;
-        Console c = System.console();
-        if ((line = c.readLine()) != null)
-            System.out.println(line);
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            String line;
+            Console c = System.console();
+            if ((line = c.readLine()) != null)
+                System.out.println(line);
+        });
     }
 
     @Test

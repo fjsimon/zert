@@ -1,7 +1,9 @@
 package com.fjsimon.zert.core;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,8 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ObjectExamplesTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class ObjectExamplesTest {
 
     @Test
     public void convertingString() {
@@ -56,8 +59,9 @@ public class ObjectExamplesTest extends BaseTest {
         List<Integer> heights = new ArrayList<>();
         heights.add(null);
 
-        exception.expect(NullPointerException.class);
-        int h = heights.get(0); // NullPointerException
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            int h = heights.get(0); // NullPointerException
+        });
     }
 
     @Test

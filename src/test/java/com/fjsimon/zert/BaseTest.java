@@ -1,21 +1,13 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
-public class BaseTest {
+public class BaseTest implements BeforeEachCallback {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+    @Override
+    public void beforeEach(ExtensionContext context) {
 
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
+        System.out.printf("Running %s:%n", context.getDisplayName());
     }
 }

@@ -1,9 +1,8 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -15,17 +14,8 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-
-public class Test06 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test06 {
 
     public LocalDate process(LocalDate ld) {
         // Get the number of days in that month
@@ -78,10 +68,12 @@ public class Test06 extends BaseTest {
         }
     }
 
-    @Test(expected = ExceptionInInitializerError.class)
+    @Test
     public void q16() {
 
-        AX ax = new AX();
+        Assertions.assertThrows(ExceptionInInitializerError.class, () -> {
+            AX ax = new AX();
+        });
     }
 
     @Test
@@ -122,11 +114,13 @@ public class Test06 extends BaseTest {
         Truck.main(args);
     }
 
-    @Test(expected = UnsupportedTemporalTypeException.class)
+    @Test
     public void q28() {
 
-        System.out.println(LocalDate.of(2015, Month.JANUARY, 01)
-                .format(DateTimeFormatter.ISO_DATE_TIME));
+        Assertions.assertThrows(UnsupportedTemporalTypeException.class, () -> {
+            System.out.println(LocalDate.of(2015, Month.JANUARY, 01)
+                    .format(DateTimeFormatter.ISO_DATE_TIME));
+        });
     }
 
     @Test
@@ -289,10 +283,12 @@ public class Test06 extends BaseTest {
         return DateTimeFormatter.ISO_ZONED_DATE_TIME.format(ldt);
     }
 
-    @Test(expected = UnsupportedTemporalTypeException.class)
+    @Test
     public void q63() {
 
-        getDateString(LocalDateTime.now());
+        Assertions.assertThrows(UnsupportedTemporalTypeException.class, () -> {
+            getDateString(LocalDateTime.now());
+        });
     }
 
     @Test

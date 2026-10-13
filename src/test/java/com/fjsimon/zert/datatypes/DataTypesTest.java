@@ -1,12 +1,15 @@
 package com.fjsimon.zert.datatypes;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class DataTypesTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class DataTypesTest {
 
     @Test
     public void equalTest_Q67() {

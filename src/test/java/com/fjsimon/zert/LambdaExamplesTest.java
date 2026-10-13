@@ -1,12 +1,14 @@
 package com.fjsimon.zert;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.function.Predicate;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LambdaExamplesTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class LambdaExamplesTest {
 
     @Test
     public void testLambdaExpression() {

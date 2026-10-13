@@ -3,7 +3,8 @@ package com.fjsimon.zert.core;
 import com.fjsimon.zert.BaseTest;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.core.Is;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +14,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ArrayListExamplesTest extends BaseTest {
 
@@ -78,15 +79,17 @@ public class ArrayListExamplesTest extends BaseTest {
         assertThat(list.size(), is(0));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test()
     public void ArrayList_set() {
 
-        List<String> list = new ArrayList();
-        list.add("hawk");
-        assertThat(list.size(), is(1));
-        list.set(0, "robin");
-        assertThat(list.size(), is(1));
-        list.set(1, "robin"); // indexOutOfBoundsException
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            List<String> list = new ArrayList();
+            list.add("hawk");
+            assertThat(list.size(), is(1));
+            list.set(0, "robin");
+            assertThat(list.size(), is(1));
+            list.set(1, "robin"); // indexOutOfBoundsException
+        });
     }
 
     @Test

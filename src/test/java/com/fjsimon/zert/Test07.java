@@ -1,24 +1,15 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.*;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-public class Test07 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test07 {
 
     public void processList(ArrayList<DataHolder> dataList, Process p) {
         for (DataHolder d : dataList) {
@@ -111,10 +102,12 @@ public class Test07 extends BaseTest {
         System.out.println(arr[0][1][2]);
     }
 
-    @Test(expected = NumberFormatException.class)
+    @Test
     public void q18() {
 
-        int value = Integer.parseInt(null);
+        Assertions.assertThrows(NumberFormatException.class, () -> {
+            int value = Integer.parseInt(null);
+        });
     }
 
     public void printUsefulData(ArrayList<Data> dataList, Predicate<Data> p) {
@@ -150,13 +143,15 @@ public class Test07 extends BaseTest {
         }
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test
     public void q24() {
 
-        ArrayList<String> al = new ArrayList<>();
-        al.add("111");
-        al.add("222");
-        System.out.println(al.get(al.size()));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
+            ArrayList<String> al = new ArrayList<>();
+            al.add("111");
+            al.add("222");
+            System.out.println(al.get(al.size()));
+        });
     }
 
     @Test

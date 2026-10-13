@@ -1,28 +1,18 @@
 package com.fjsimon.zert;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class Test05 extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class Test05 {
 
     class A { }
     class B extends A { }
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
 
     @Test
     public void test06_Q05() {
@@ -91,7 +81,7 @@ public class Test05 extends BaseTest {
         b = (B[]) a;  // 2
         try {
             b = (B[]) a1; // 3
-            fail();
+            fail("Failed");
         } catch (ClassCastException e) {
             System.out.println(e.getMessage());
         }

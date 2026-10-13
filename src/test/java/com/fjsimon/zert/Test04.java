@@ -1,9 +1,8 @@
 package com.fjsimon.zert;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,18 +11,10 @@ import java.time.format.DateTimeParseException;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class Test04 extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class Test04 {
 
     @Test
     public void test05_Q02() {
@@ -177,12 +168,15 @@ public class Test04 extends BaseTest {
         System.out.println(i);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test()
     public void test05_Q57() {
-        int ia[][] = { {1, 2}, null };
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                System.out.println(ia[i][j]);
+
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            int ia[][] = {{1, 2}, null};
+            for (int i = 0; i < 2; i++)
+                for (int j = 0; j < 2; j++)
+                    System.out.println(ia[i][j]);
+        });
     }
 
     @Test
@@ -193,7 +187,7 @@ public class Test04 extends BaseTest {
             String s = f.toString();
             int i = Integer.parseInt(s);
             System.out.println("i = "+i);
-            fail();
+            fail("Failed");
         }
         catch(Exception e){
             System.out.println("trouble : "+f);
@@ -207,7 +201,7 @@ public class Test04 extends BaseTest {
 
 //            LocalDateTime greatDay = LocalDateTime.parse("2015-01-01T11:44:44.789");//2
             LocalDateTime greatDay = LocalDateTime.parse("2015-01-01");//2
-            fail();
+            fail("Failed");
             String greatDayStr = greatDay.format(DateTimeFormatter.ISO_DATE_TIME); //3
             System.out.println(greatDayStr);//4
 

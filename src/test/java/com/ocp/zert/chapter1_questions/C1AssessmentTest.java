@@ -1,37 +1,11 @@
 package com.ocp.zert.chapter1_questions;
 
 import com.ocp.zert.BaseTest;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.io.Console;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.*;
-import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.function.UnaryOperator;
-import java.util.stream.Stream;
-
-
-public class C1AssessmentTest extends BaseTest {
-
-    @Rule
-    public TestName name = new TestName();
-
-    @Before
-    public void before() {
-
-        System.out.printf("Running %s:%n", name.getMethodName());
-    }
+@ExtendWith(BaseTest.class)
+public class C1AssessmentTest {
 
     @Test
     public void q03() {
@@ -42,9 +16,6 @@ public class C1AssessmentTest extends BaseTest {
         if(s1.equals(s2)) System.out.println("s1.equals(s2)");
 
     }
-
-
-
 }
 
 

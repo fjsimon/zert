@@ -1,8 +1,8 @@
 package com.fjsimon.zert.exceptions;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class OutOfMemoryTest extends BaseTest {
         }
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void outOfMemoryTest() {
 

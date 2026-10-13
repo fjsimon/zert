@@ -1,13 +1,11 @@
 package com.fjsimon.zert.core;
 
 import com.fjsimon.zert.BaseTest;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.Is.is;
 
 /**
 
@@ -29,7 +27,8 @@ import static org.hamcrest.Matchers.is;
  float double
 
  */
-public class TypesValuesVariablesTest extends BaseTest {
+@ExtendWith(BaseTest.class)
+public class TypesValuesVariablesTest {
 
     @Test
     public void integerOperationTest() {
