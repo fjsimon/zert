@@ -1,0 +1,68 @@
+package com.exempla.ars.gathering.states;
+
+import com.exempla.ars.gathering.VendingMachine;
+import com.exempla.ars.gathering.entity.Money;
+import com.exempla.ars.gathering.entity.Product;
+import com.exempla.ars.gathering.exceptions.CoinNotAcceptedException;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.util.Optional;
+
+public class CoinsInsertState implements VendingMachineState {
+
+    private static final String ABORT = "c";
+    private final int selectedShelfNumber;
+    private final Product selectedProduct;
+    private BigDecimal insertedAmount = BigDecimal.ZERO;
+
+    public CoinsInsertState(int selectedShelfNumber, Product selectedProduct) {
+
+        this.selectedShelfNumber = selectedShelfNumber;
+        this.selectedProduct = selectedProduct;
+    }
+    @Override
+    public void proceed(VendingMachine vendingMachine) {
+
+        vendingMachine.display("Selected: %s, insert: %s PLN\n",
+                selectedProduct.getName(),
+                selectedProduct.getPrice().subtract(insertedAmount));
+        vendingMachine.display("Insert coin (or press 'c' to abort): ");
+
+        String input = readInput();
+        if (ABORT.equals(input) && insertedAmount.compareTo(BigDecimal.ZERO) > 0) {
+            vendingMachine.setState(new ReturnMoneyState(insertedAmount)).proceed();
+        } else if (ABORT.equals(input)) {
+            vendingMachine.setState(new ProductSelectState()).proceed();
+        }
+
+        Optional<Money> insertedCoin = Money.fromDenomination(input);
+        if (insertedCoin.isPresent()) {
+            insertedAmount = insertedAmount.add(insertedCoin.get().getMoneyValue());
+            vendingMachine.getWallet().putCoin(insertedCoin.get());
+
+            if (insertedAmount.compareTo(selectedProduct.getPrice()) == 0) {
+                vendingMachine.setState(new ProvideProductState(selectedShelfNumber));
+            } else if (insertedAmount.compareTo(selectedProduct.getPrice()) > 0) {
+                vendingMachine.setState(new ChangeCheckState(insertedAmount, selectedShelfNumber));
+            }
+
+            vendingMachine.proceed();
+
+        } else {
+            throw new CoinNotAcceptedException("Incorrect input.\nAccepted denominations: 5, 2, 1, 0.5, 0.2, 0.1\n");
+        }
+
+    }
+
+    private String readInput() {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            return reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
