@@ -2,7 +2,7 @@ package com.exempla.sorting;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SortTest {
@@ -80,7 +80,7 @@ public class SortTest {
         new HeapSort().sort(list);
         new QuickSort().sort(list2);
 
-        assertEquals(list, list2);
+        assertArrayEquals(list, list2);
 
 //        for(int i=0; i<list.length-1; i++) {
 //            assertTrue(list[i] < list[i+1] );
